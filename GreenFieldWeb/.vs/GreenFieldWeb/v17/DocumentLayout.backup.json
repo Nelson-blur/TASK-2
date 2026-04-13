@@ -1,0 +1,364 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DE48AC8A-E7FB-4D6E-B756-974DB447E76E}|GreenFieldWeb\\GreenFieldWeb.csproj|c:\\users\\digi-t-y2-19\\documents\\github\\task-2\\greenfieldweb\\greenfieldweb\\data\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE48AC8A-E7FB-4D6E-B756-974DB447E76E}|GreenFieldWeb\\GreenFieldWeb.csproj|solutionrelative:greenfieldweb\\data\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE48AC8A-E7FB-4D6E-B756-974DB447E76E}|GreenFieldWeb\\GreenFieldWeb.csproj|c:\\users\\digi-t-y2-19\\documents\\github\\task-2\\greenfieldweb\\greenfieldweb\\models\\producers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE48AC8A-E7FB-4D6E-B756-974DB447E76E}|GreenFieldWeb\\GreenFieldWeb.csproj|solutionrelative:greenfieldweb\\models\\producers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE48AC8A-E7FB-4D6E-B756-974DB447E76E}|GreenFieldWeb\\GreenFieldWeb.csproj|c:\\users\\digi-t-y2-19\\documents\\github\\task-2\\greenfieldweb\\greenfieldweb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE48AC8A-E7FB-4D6E-B756-974DB447E76E}|GreenFieldWeb\\GreenFieldWeb.csproj|solutionrelative:greenfieldweb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE48AC8A-E7FB-4D6E-B756-974DB447E76E}|GreenFieldWeb\\GreenFieldWeb.csproj|c:\\users\\digi-t-y2-19\\documents\\github\\task-2\\greenfieldweb\\greenfieldweb\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE48AC8A-E7FB-4D6E-B756-974DB447E76E}|GreenFieldWeb\\GreenFieldWeb.csproj|solutionrelative:greenfieldweb\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE48AC8A-E7FB-4D6E-B756-974DB447E76E}|GreenFieldWeb\\GreenFieldWeb.csproj|c:\\users\\digi-t-y2-19\\documents\\github\\task-2\\greenfieldweb\\greenfieldweb\\models\\products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE48AC8A-E7FB-4D6E-B756-974DB447E76E}|GreenFieldWeb\\GreenFieldWeb.csproj|solutionrelative:greenfieldweb\\models\\products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE48AC8A-E7FB-4D6E-B756-974DB447E76E}|GreenFieldWeb\\GreenFieldWeb.csproj|c:\\users\\digi-t-y2-19\\documents\\github\\task-2\\greenfieldweb\\greenfieldweb\\controllers\\producerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE48AC8A-E7FB-4D6E-B756-974DB447E76E}|GreenFieldWeb\\GreenFieldWeb.csproj|solutionrelative:greenfieldweb\\controllers\\producerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE48AC8A-E7FB-4D6E-B756-974DB447E76E}|GreenFieldWeb\\GreenFieldWeb.csproj|c:\\users\\digi-t-y2-19\\documents\\github\\task-2\\greenfieldweb\\greenfieldweb\\models\\discounts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE48AC8A-E7FB-4D6E-B756-974DB447E76E}|GreenFieldWeb\\GreenFieldWeb.csproj|solutionrelative:greenfieldweb\\models\\discounts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE48AC8A-E7FB-4D6E-B756-974DB447E76E}|GreenFieldWeb\\GreenFieldWeb.csproj|c:\\users\\digi-t-y2-19\\documents\\github\\task-2\\greenfieldweb\\greenfieldweb\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE48AC8A-E7FB-4D6E-B756-974DB447E76E}|GreenFieldWeb\\GreenFieldWeb.csproj|solutionrelative:greenfieldweb\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE48AC8A-E7FB-4D6E-B756-974DB447E76E}|GreenFieldWeb\\GreenFieldWeb.csproj|c:\\users\\digi-t-y2-19\\documents\\github\\task-2\\greenfieldweb\\greenfieldweb\\controllers\\basketproductscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE48AC8A-E7FB-4D6E-B756-974DB447E76E}|GreenFieldWeb\\GreenFieldWeb.csproj|solutionrelative:greenfieldweb\\controllers\\basketproductscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Data\\Migrations\\20260413123112_FixOrderProductRelation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GreenFieldWeb\\Data\\Migrations\\20260413123112_FixOrderProductRelation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE48AC8A-E7FB-4D6E-B756-974DB447E76E}|GreenFieldWeb\\GreenFieldWeb.csproj|c:\\users\\digi-t-y2-19\\documents\\github\\task-2\\greenfieldweb\\greenfieldweb\\models\\orders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE48AC8A-E7FB-4D6E-B756-974DB447E76E}|GreenFieldWeb\\GreenFieldWeb.csproj|solutionrelative:greenfieldweb\\models\\orders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE48AC8A-E7FB-4D6E-B756-974DB447E76E}|GreenFieldWeb\\GreenFieldWeb.csproj|c:\\users\\digi-t-y2-19\\documents\\github\\task-2\\greenfieldweb\\greenfieldweb\\models\\orderproducts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE48AC8A-E7FB-4D6E-B756-974DB447E76E}|GreenFieldWeb\\GreenFieldWeb.csproj|solutionrelative:greenfieldweb\\models\\orderproducts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE48AC8A-E7FB-4D6E-B756-974DB447E76E}|GreenFieldWeb\\GreenFieldWeb.csproj|c:\\users\\digi-t-y2-19\\documents\\github\\task-2\\greenfieldweb\\greenfieldweb\\models\\basketproducts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE48AC8A-E7FB-4D6E-B756-974DB447E76E}|GreenFieldWeb\\GreenFieldWeb.csproj|solutionrelative:greenfieldweb\\models\\basketproducts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE48AC8A-E7FB-4D6E-B756-974DB447E76E}|GreenFieldWeb\\GreenFieldWeb.csproj|c:\\users\\digi-t-y2-19\\documents\\github\\task-2\\greenfieldweb\\greenfieldweb\\models\\basket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE48AC8A-E7FB-4D6E-B756-974DB447E76E}|GreenFieldWeb\\GreenFieldWeb.csproj|solutionrelative:greenfieldweb\\models\\basket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Data\\Migrations\\20260413122546_AddingAllModelsAsControllers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GreenFieldWeb\\Data\\Migrations\\20260413122546_AddingAllModelsAsControllers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE48AC8A-E7FB-4D6E-B756-974DB447E76E}|GreenFieldWeb\\GreenFieldWeb.csproj|c:\\users\\digi-t-y2-19\\documents\\github\\task-2\\greenfieldweb\\greenfieldweb\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE48AC8A-E7FB-4D6E-B756-974DB447E76E}|GreenFieldWeb\\GreenFieldWeb.csproj|solutionrelative:greenfieldweb\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE48AC8A-E7FB-4D6E-B756-974DB447E76E}|GreenFieldWeb\\GreenFieldWeb.csproj|c:\\users\\digi-t-y2-19\\documents\\github\\task-2\\greenfieldweb\\greenfieldweb\\controllers\\orderproductscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE48AC8A-E7FB-4D6E-B756-974DB447E76E}|GreenFieldWeb\\GreenFieldWeb.csproj|solutionrelative:greenfieldweb\\controllers\\orderproductscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE48AC8A-E7FB-4D6E-B756-974DB447E76E}|GreenFieldWeb\\GreenFieldWeb.csproj|c:\\users\\digi-t-y2-19\\documents\\github\\task-2\\greenfieldweb\\greenfieldweb\\controllers\\discountscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE48AC8A-E7FB-4D6E-B756-974DB447E76E}|GreenFieldWeb\\GreenFieldWeb.csproj|solutionrelative:greenfieldweb\\controllers\\discountscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE48AC8A-E7FB-4D6E-B756-974DB447E76E}|GreenFieldWeb\\GreenFieldWeb.csproj|c:\\users\\digi-t-y2-19\\documents\\github\\task-2\\greenfieldweb\\greenfieldweb\\controllers\\basketscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE48AC8A-E7FB-4D6E-B756-974DB447E76E}|GreenFieldWeb\\GreenFieldWeb.csproj|solutionrelative:greenfieldweb\\controllers\\basketscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Data\\Migrations\\20260413114538_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GreenFieldWeb\\Data\\Migrations\\20260413114538_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SeedData.cs",
+              "DocumentMoniker": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Data\\SeedData.cs",
+              "RelativeDocumentMoniker": "GreenFieldWeb\\Data\\SeedData.cs",
+              "ToolTip": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Data\\SeedData.cs",
+              "RelativeToolTip": "GreenFieldWeb\\Data\\SeedData.cs",
+              "ViewState": "AgIAAIEAAAAAAAAAAAAowJQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T12:45:51.552Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ProducersController.cs",
+              "DocumentMoniker": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Controllers\\ProducersController.cs",
+              "RelativeDocumentMoniker": "GreenFieldWeb\\Controllers\\ProducersController.cs",
+              "ToolTip": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Controllers\\ProducersController.cs",
+              "RelativeToolTip": "GreenFieldWeb\\Controllers\\ProducersController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T12:23:59.133Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "OrdersController.cs",
+              "DocumentMoniker": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Controllers\\OrdersController.cs",
+              "RelativeDocumentMoniker": "GreenFieldWeb\\Controllers\\OrdersController.cs",
+              "ToolTip": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Controllers\\OrdersController.cs",
+              "RelativeToolTip": "GreenFieldWeb\\Controllers\\OrdersController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T12:22:36.609Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "OrderProductsController.cs",
+              "DocumentMoniker": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Controllers\\OrderProductsController.cs",
+              "RelativeDocumentMoniker": "GreenFieldWeb\\Controllers\\OrderProductsController.cs",
+              "ToolTip": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Controllers\\OrderProductsController.cs",
+              "RelativeToolTip": "GreenFieldWeb\\Controllers\\OrderProductsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T12:22:07.794Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "BasketProductsController.cs",
+              "DocumentMoniker": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Controllers\\BasketProductsController.cs",
+              "RelativeDocumentMoniker": "GreenFieldWeb\\Controllers\\BasketProductsController.cs",
+              "ToolTip": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Controllers\\BasketProductsController.cs",
+              "RelativeToolTip": "GreenFieldWeb\\Controllers\\BasketProductsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T12:08:23.731Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Producers.cs",
+              "DocumentMoniker": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Models\\Producers.cs",
+              "RelativeDocumentMoniker": "GreenFieldWeb\\Models\\Producers.cs",
+              "ToolTip": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Models\\Producers.cs",
+              "RelativeToolTip": "GreenFieldWeb\\Models\\Producers.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T11:14:56.033Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ProductsController.cs",
+              "DocumentMoniker": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Controllers\\ProductsController.cs",
+              "RelativeDocumentMoniker": "GreenFieldWeb\\Controllers\\ProductsController.cs",
+              "ToolTip": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Controllers\\ProductsController.cs",
+              "RelativeToolTip": "GreenFieldWeb\\Controllers\\ProductsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T12:24:36.104Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Products.cs",
+              "DocumentMoniker": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Models\\Products.cs",
+              "RelativeDocumentMoniker": "GreenFieldWeb\\Models\\Products.cs",
+              "ToolTip": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Models\\Products.cs",
+              "RelativeToolTip": "GreenFieldWeb\\Models\\Products.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T11:15:54.098Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Program.cs",
+              "RelativeDocumentMoniker": "GreenFieldWeb\\Program.cs",
+              "ToolTip": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Program.cs",
+              "RelativeToolTip": "GreenFieldWeb\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T13:57:37.632Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "20260413123112_FixOrderProductRelation.cs",
+              "DocumentMoniker": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Data\\Migrations\\20260413123112_FixOrderProductRelation.cs",
+              "RelativeDocumentMoniker": "GreenFieldWeb\\Data\\Migrations\\20260413123112_FixOrderProductRelation.cs",
+              "ToolTip": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Data\\Migrations\\20260413123112_FixOrderProductRelation.cs",
+              "RelativeToolTip": "GreenFieldWeb\\Data\\Migrations\\20260413123112_FixOrderProductRelation.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T12:31:12.924Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ErrorViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Models\\ErrorViewModel.cs",
+              "RelativeDocumentMoniker": "GreenFieldWeb\\Models\\ErrorViewModel.cs",
+              "ToolTip": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Models\\ErrorViewModel.cs",
+              "RelativeToolTip": "GreenFieldWeb\\Models\\ErrorViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T14:02:10.682Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Discounts.cs",
+              "DocumentMoniker": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Models\\Discounts.cs",
+              "RelativeDocumentMoniker": "GreenFieldWeb\\Models\\Discounts.cs",
+              "ToolTip": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Models\\Discounts.cs",
+              "RelativeToolTip": "GreenFieldWeb\\Models\\Discounts.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T11:16:41.355Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "20260413122546_AddingAllModelsAsControllers.cs",
+              "DocumentMoniker": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Data\\Migrations\\20260413122546_AddingAllModelsAsControllers.cs",
+              "RelativeDocumentMoniker": "GreenFieldWeb\\Data\\Migrations\\20260413122546_AddingAllModelsAsControllers.cs",
+              "ToolTip": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Data\\Migrations\\20260413122546_AddingAllModelsAsControllers.cs",
+              "RelativeToolTip": "GreenFieldWeb\\Data\\Migrations\\20260413122546_AddingAllModelsAsControllers.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T12:25:46.292Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "OrderProducts.cs",
+              "DocumentMoniker": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Models\\OrderProducts.cs",
+              "RelativeDocumentMoniker": "GreenFieldWeb\\Models\\OrderProducts.cs",
+              "ToolTip": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Models\\OrderProducts.cs",
+              "RelativeToolTip": "GreenFieldWeb\\Models\\OrderProducts.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T11:17:05.666Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Basket.cs",
+              "DocumentMoniker": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Models\\Basket.cs",
+              "RelativeDocumentMoniker": "GreenFieldWeb\\Models\\Basket.cs",
+              "ToolTip": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Models\\Basket.cs",
+              "RelativeToolTip": "GreenFieldWeb\\Models\\Basket.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T11:15:13.793Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "BasketProducts.cs",
+              "DocumentMoniker": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Models\\BasketProducts.cs",
+              "RelativeDocumentMoniker": "GreenFieldWeb\\Models\\BasketProducts.cs",
+              "ToolTip": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Models\\BasketProducts.cs",
+              "RelativeToolTip": "GreenFieldWeb\\Models\\BasketProducts.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T11:15:34.316Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Orders.cs",
+              "DocumentMoniker": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Models\\Orders.cs",
+              "RelativeDocumentMoniker": "GreenFieldWeb\\Models\\Orders.cs",
+              "ToolTip": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Models\\Orders.cs",
+              "RelativeToolTip": "GreenFieldWeb\\Models\\Orders.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T11:16:14.765Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "DiscountsController.cs",
+              "DocumentMoniker": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Controllers\\DiscountsController.cs",
+              "RelativeDocumentMoniker": "GreenFieldWeb\\Controllers\\DiscountsController.cs",
+              "ToolTip": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Controllers\\DiscountsController.cs",
+              "RelativeToolTip": "GreenFieldWeb\\Controllers\\DiscountsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T12:21:06.515Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "BasketsController.cs",
+              "DocumentMoniker": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Controllers\\BasketsController.cs",
+              "RelativeDocumentMoniker": "GreenFieldWeb\\Controllers\\BasketsController.cs",
+              "ToolTip": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Controllers\\BasketsController.cs",
+              "RelativeToolTip": "GreenFieldWeb\\Controllers\\BasketsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T12:07:53.433Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "20260413114538_InitialCreate.cs",
+              "DocumentMoniker": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Data\\Migrations\\20260413114538_InitialCreate.cs",
+              "RelativeDocumentMoniker": "GreenFieldWeb\\Data\\Migrations\\20260413114538_InitialCreate.cs",
+              "ToolTip": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\Data\\Migrations\\20260413114538_InitialCreate.cs",
+              "RelativeToolTip": "GreenFieldWeb\\Data\\Migrations\\20260413114538_InitialCreate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T11:45:38.361Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
