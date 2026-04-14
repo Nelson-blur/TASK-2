@@ -144,6 +144,164 @@ namespace GreenFieldWeb.Data
                 throw new Exception("Producers not found. Ensure they are seeded before running this method.");
             }
 
+            if (context.Products.Any())
+                return;
+            var products = new List<Products>
+            {
+                new Products
+                {
+                    ProductName = "Organic Honey",
+
+                    Price = 1.88f,
+                    Stock = 50,
+                    Description = "Pure organic honey collected from wildflowers.",
+                    CreatedAt = new DateTime(2026, 1, 1),
+                    UpdatedAt = new DateTime(2026, 1, 10),
+                    IsAvailable = true,
+                    AllergenInformation = "None",
+                    FarmingMethod = "Organic",
+                    ProducersId = FreshFields.ProducersId,
+                    ImageUrl = "/images/organic-honey.jpg"
+
+
+                },
+                new Products
+                {
+                    ProductName = "Free-range Eggs",
+                    Price = 5.99f,
+                    Stock = 200,
+                    Description = "Eggs from free-range chickens.",
+                    CreatedAt = new DateTime(2025, 3, 1),
+                    UpdatedAt = new DateTime(2025, 3, 3),
+                    IsAvailable = true,
+                    AllergenInformation = "Contains Eggs",
+                    FarmingMethod = "Free-range",
+                    ProducersId = GreenAcres.ProducersId,
+                    ImageUrl = "/images/free-range-eggs.jpg"
+                },
+                new Products
+                {
+
+                    ProductName = "Fresh Milk",
+                    Price = 3.49f,
+                    Stock = 100,
+                    Description = "Locally sourced fresh cow milk.",
+                    CreatedAt = new DateTime(2026, 2, 1),
+                    UpdatedAt = new DateTime(2026, 2, 5),
+                    IsAvailable = true,
+                    AllergenInformation = "Contains Dairy",
+                    FarmingMethod = "Conventional",
+                    ProducersId = SunnyFarms.ProducersId,
+                    ImageUrl = "/images/fresh-milk.jpg"
+                },
+                new Products
+                {
+                    ProductName = "Organic Carrots",
+                    Price = 0.99f,
+                    Stock = 150,
+                    Description = "Crisp and sweet organic carrots.",
+                    CreatedAt = new DateTime(2025, 4, 1),
+                    UpdatedAt = new DateTime(2025, 4, 10),
+                    IsAvailable = true,
+                    AllergenInformation = "None",
+                    FarmingMethod = "Organic",
+                    ProducersId = FreshFields.ProducersId,
+                    ImageUrl = "/images/organic-carrots.jpg"
+                },
+                new Products
+                {
+                    ProductName = "Free-range Chicken",
+                    Price = 8.99f,
+                    Stock = 80,
+                    Description = "Juicy and tender free-range chicken.",
+                    CreatedAt = new DateTime(2025, 5, 1),
+                    UpdatedAt = new DateTime(2025, 5, 15),
+                    IsAvailable = true,
+                    AllergenInformation = "Contains Poultry",
+                    FarmingMethod = "Free-range",
+                    ProducersId = GreenAcres.ProducersId,
+                    ImageUrl = "/images/free-range-chicken.jpg"
+                },
+                new Products
+                {
+                    ProductName = "Fresh Strawberries",
+                    Price = 2.99f,
+                    Stock = 120,
+                    Description = "Sweet and juicy fresh strawberries.",
+                    CreatedAt = new DateTime(2026, 3, 1),
+                    UpdatedAt = new DateTime(2026, 3, 10),
+                    IsAvailable = true,
+                    AllergenInformation = "None",
+                    FarmingMethod = "Conventional",
+                    ProducersId = SunnyFarms.ProducersId,
+                    ImageUrl = "/images/fresh-strawberries.jpg"
+
+                },
+                new Products
+                {
+                    ProductName = "Organic Lettuce",
+                    Price = 1.49f,
+                    Stock = 100,
+                    Description = "Crisp and fresh organic lettuce.",
+                    CreatedAt = new DateTime(2025, 6, 1),
+                    UpdatedAt = new DateTime(2025, 6, 10),
+                    IsAvailable = true,
+                    AllergenInformation = "None",
+                    FarmingMethod = "Organic",
+                    ProducersId = FreshFields.ProducersId,
+                    ImageUrl = "/images/organic-lettuce.jpg"
+                },
+                new Products
+                {
+                    ProductName = "Free-range Pork",
+                    Price = 9.99f,
+                    Stock = 60,
+                    Description = "Tender and flavorful free-range pork.",
+                    CreatedAt = new DateTime(2025, 7, 1),
+                    UpdatedAt = new DateTime(2025, 7, 15),
+                    IsAvailable = true,
+                    AllergenInformation = "Contains Pork",
+                    FarmingMethod = "Free-range",
+                    ProducersId = GreenAcres.ProducersId,
+                    ImageUrl = "/images/free-range-pork.jpg"
+                },
+                new Products
+                {
+                    ProductName = "Fresh Blueberries",
+                    Price = 3.49f,
+                    Stock = 90,
+                    Description = "Sweet and plump fresh blueberries.",
+                    CreatedAt = new DateTime(2026, 4, 1),
+                    UpdatedAt = new DateTime(2026, 4, 10),
+                    IsAvailable = true,
+                    AllergenInformation = "None",
+                    FarmingMethod = "Conventional",
+                    ProducersId = SunnyFarms.ProducersId,
+                    ImageUrl = "/images/fresh-blueberries.jpg"
+                },
+                new Products
+                {
+                    ProductName = "Organic Potatoes",
+                    Price = 0.79f,
+                    Stock = 200,
+                    Description = "Starchy and delicious organic potatoes.",
+                    CreatedAt = new DateTime(2025, 8, 1),
+                    UpdatedAt = new DateTime(2025, 8, 10),
+                    IsAvailable = true,
+                    AllergenInformation = "None",
+                    FarmingMethod = "Organic",
+                    ProducersId = FreshFields.ProducersId,
+                    ImageUrl = "/images/organic-potatoes.jpg"
+                }
+
+            };
+            context.Products.AddRange(products);
+            await context.SaveChangesAsync();
+
         }
+
+
+
+
     }
 }

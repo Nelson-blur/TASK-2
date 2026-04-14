@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GreenFieldWeb.Data;
 using GreenFieldWeb.Models;
+using System.Security.Claims;
 
 namespace GreenFieldWeb.Controllers
 {
@@ -59,17 +60,47 @@ namespace GreenFieldWeb.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BasketProductsId,BasketId,ProductsId,Quantity")] BasketProducts basketProducts)
+        public async Task<IActionResult> Create(int ProductsId)
         {
-            if (ModelState.IsValid)
+            var product = await _context.Products.FirstOrDefaultAsync(x => x.ProductsId == ProductsId);
+            if (product == null)
             {
-                _context.Add(basketProducts);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return NotFound();
             }
-            ViewData["BasketId"] = new SelectList(_context.Basket, "BasketId", "BasketId", basketProducts.BasketId);
-            ViewData["ProductsId"] = new SelectList(_context.Set<Products>(), "ProductsId", "ProductsId", basketProducts.ProductsId);
-            return View(basketProducts);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userId == null)
+            {
+                return Unauthorized();
+            }
+            var basket = await _context.Basket.FirstOrDefaultAsync(x => x.UserId == userId && x.Status == true);
+            if (basket == null)
+            {
+                basket = new Basket
+                {
+                    UserId = userId,
+                    Status = true,
+                    BasketCreatedAt = DateTime.UtcNow
+                };
+                _context.Basket.Add(basket);
+                await _context.SaveChangesAsync();
+            }
+            var basketProduct = await _context.BasketProducts.FirstOrDefaultAsync(bp => bp.BasketId == basket.BasketId && bp.ProductsId == ProductsId);
+            if (basketProduct != null)
+            {
+                basketProduct.Quantity++;
+            }
+            else
+            {
+                basketProduct = new BasketProducts
+                {
+                    BasketId = basket.BasketId,
+                    ProductsId = ProductsId,
+                    Quantity = 1
+                };
+                _context.BasketProducts.Add(basketProduct);
+            }
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index", "Baskets");
         }
 
         // GET: BasketProducts/Edit/5

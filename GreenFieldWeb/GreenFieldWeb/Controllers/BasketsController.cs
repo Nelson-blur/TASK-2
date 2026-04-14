@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GreenFieldWeb.Data;
 using GreenFieldWeb.Models;
+using System.Security.Claims;
 
 namespace GreenFieldWeb.Controllers
 {
@@ -22,8 +23,70 @@ namespace GreenFieldWeb.Controllers
         // GET: Baskets
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Basket.ToListAsync());
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            if (userId == null)
+            {
+                return Unauthorized();
+            }
+
+            // Get or create basket
+            var basket = await _context.Basket
+                .FirstOrDefaultAsync(x => x.UserId == userId && x.Status);
+
+            if (basket == null)
+            {
+                basket = new Basket
+                {
+                    Status = true,
+                    UserId = userId,
+                    BasketCreatedAt = DateTime.UtcNow
+                };
+
+                _context.Basket.Add(basket);
+                await _context.SaveChangesAsync();
+            }
+
+            // ALWAYS fetch basket products (outside the if)
+            var basketProducts = await _context.BasketProducts
+                .Where(x => x.BasketId == basket.BasketId)
+                .Include(x => x.Products)
+                .ToListAsync();
+
+            // Calculate totals
+            decimal subtotal = 0m;
+
+            foreach (var basketProduct in basketProducts)
+            {
+                var productTotal = (decimal)basketProduct.Products.Price * basketProduct.Quantity;
+                subtotal += productTotal;
+            }
+
+            var orderCount = await _context.Orders
+                .CountAsync(x => x.UserId == userId);
+
+            decimal discount = 0m;
+
+            if (orderCount >= 5)
+            {
+                discount = subtotal * 0.10m;
+            }
+
+            decimal total = subtotal - discount;
+
+            ViewBag.Subtotal = subtotal;
+            ViewBag.Discount = discount;
+            ViewBag.Total = total;
+            ViewBag.OrderCount = orderCount;
+
+            return View(basketProducts);
+
+
+
         }
+
+
+          
 
         // GET: Baskets/Details/5
         public async Task<IActionResult> Details(int? id)

@@ -1,11 +1,86 @@
-﻿@model IEnumerable<GreenFieldWeb.Models.Basket>
+﻿@model IEnumerable<GreenFieldWeb.Models.BasketProducts>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Your Basket";
+    var basketId = Model.FirstOrDefault()?.BasketId;
 }
 
-<h1>Index</h1>
+<h1>Your Basket</h1>
+@if (!Model.Any())
+{
+    <div>
+        <h3>Your basket is empty</h3>
+        <p>Looks like you haven't added any products yet.</p>
+        <a asp-controller="Products" asp-action="index">Browse Products</a>
+    </div>
 
+}
+else
+{
+    <div>
+        <div>
+            @foreach (var item in Model)
+            {
+                <div style=" border: 1px solid #ccc; padding:10px; margin-bottom:10px;">
+                    <div>
+                        <h4>@item.Products.ProductName</h4>
+                        <p>Price: @item.Products.Price.ToString("0.00")</p>
+                    </div>
+
+
+                    <div>
+                        <p>Qty: @item.Quantity</p>
+                    </div>
+
+                    <div>
+                        <p>
+                            Total: £@(item.Products.Price * item.Quantity).ToString("0.00"))
+                        </p>
+
+                        <a asp-controller="BasketProducts"
+                        asp-action="Delete"
+                        asp-route-id="@item.BasketProductsId">
+                            Remove
+                        </a>
+                    </div>
+                </div>
+
+            }
+
+        </div>
+        <div style="border:1px solid #000; padding:15px; margin-top:20px;">
+            <h3>Order Summary</h3>
+            <div>
+                <span>Subtotal:</span>
+                <span>£@(((decimal)ViewBag.Subtotal).ToString("0.00"))</span>
+            </div>
+
+            <div>
+                <span>Loyalty Discount:</span>
+                <span>-£@(((decimal)ViewBag.Discount)).ToString("0.00))"</span>
+            </div>
+            <hr />
+            <div>
+                <strong>Total:</strong>
+                <strong>£@(((decimal)ViewBag.Total).ToString("0.00"))</strong>
+            </div>
+            @if (ViewBag.Dicount > 0)
+            {
+                <div>
+                    <p>Your loyalty discount has been applied</p>
+				</div>
+            }
+            <div>
+                <a asp-controller="Products"
+                   asp-action="Index">
+					Continue Shopping
+				</a>
+            </div>
+        </div>
+
+  </div>
+
+}
 <p>
     <a asp-action="Create">Create New</a>
 </p>
@@ -13,35 +88,36 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.UserId)
+                @Html.DisplayNameFor(model => model.Quantity)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Status)
+                @Html.DisplayNameFor(model => model.Products)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.BasketCreatedAt)
+                @Html.DisplayNameFor(model => model.Basket)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BasketCreatedAt)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.BasketId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.BasketId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.BasketId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Products.ProductsId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Basket.BasketId)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.BasketProductsId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.BasketProductsId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.BasketProductsId">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

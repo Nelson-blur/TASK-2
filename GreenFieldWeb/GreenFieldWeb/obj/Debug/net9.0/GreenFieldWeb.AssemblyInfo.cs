@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GreenFieldWeb")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c14f8487a66ede92ebdf532c5ddc91f23f27ddfb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+77a0e54003dbdd81692159475ebd2b518fde683e")]
 [assembly: System.Reflection.AssemblyProductAttribute("GreenFieldWeb")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GreenFieldWeb")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

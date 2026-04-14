@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "zmD1EDCO89slBh50w5hCCOhv+T+VgLmRGgaeL04wN9U=",
+  "Hash": "KT+av4+I8wjMYCRgdHPDdyzwcxI7zx17jOUAY4Iz300=",
   "Source": "GreenFieldWeb",
   "BasePath": "_content/GreenFieldWeb",
   "Mode": "Default",
@@ -2159,12 +2159,12 @@
       "OriginalItemSpec": "C:\\Users\\Digi-T-Y2-19\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\9.0.0\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Identity": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\obj\\Debug\\net9.0\\compressed\\cvyhcqc6hy-b9sayid5wm.gz",
+      "Identity": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\obj\\Debug\\net9.0\\compressed\\cvyhcqc6hy-8joouvgkjw.gz",
       "SourceId": "GreenFieldWeb",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/GreenFieldWeb",
-      "RelativePath": "css/site#[.{fingerprint=b9sayid5wm}]?.css.gz",
+      "RelativePath": "css/site#[.{fingerprint=8joouvgkjw}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -2173,8 +2173,8 @@
       "RelatedAsset": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\css\\site.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "wf4wcyqcqt",
-      "Integrity": "fNKkLSNFLZMVTc2zVrpMXQqOwPU3sU4GWcfEbCR2V1I=",
+      "Fingerprint": "bkoqqoyz01",
+      "Integrity": "JWd8pf9VYY/xtBB7udFixz3eD99pMLFKzUvWI/Pc+iw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\css\\site.css"
@@ -4042,8 +4042,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "b9sayid5wm",
-      "Integrity": "j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg=",
+      "Fingerprint": "8joouvgkjw",
+      "Integrity": "NEwNiHRaOC80ufSe/HArhIcJQlvO6HIYVC6pHj6qf5U=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
@@ -5353,13 +5353,13 @@
   ],
   "Endpoints": [
     {
-      "Route": "css/site.b9sayid5wm.css",
-      "AssetFile": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\obj\\Debug\\net9.0\\compressed\\cvyhcqc6hy-b9sayid5wm.gz",
+      "Route": "css/site.8joouvgkjw.css",
+      "AssetFile": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\obj\\Debug\\net9.0\\compressed\\cvyhcqc6hy-8joouvgkjw.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.003125000000"
+          "Quality": "0.000635727908"
         }
       ],
       "ResponseHeaders": [
@@ -5369,15 +5369,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "319"
+          "Value": "1572"
         },
         {
           "Name": "ETag",
-          "Value": "\"fNKkLSNFLZMVTc2zVrpMXQqOwPU3sU4GWcfEbCR2V1I=\""
+          "Value": "\"JWd8pf9VYY/xtBB7udFixz3eD99pMLFKzUvWI/Pc+iw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 13 Apr 2026 11:13:04 GMT"
+          "Value": "Tue, 14 Apr 2026 08:43:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5397,13 +5397,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg=\""
+          "Value": "W/\"NEwNiHRaOC80ufSe/HArhIcJQlvO6HIYVC6pHj6qf5U=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "b9sayid5wm"
+          "Value": "8joouvgkjw"
         },
         {
           "Name": "label",
@@ -5411,12 +5411,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg="
+          "Value": "sha256-NEwNiHRaOC80ufSe/HArhIcJQlvO6HIYVC6pHj6qf5U="
         }
       ]
     },
     {
-      "Route": "css/site.b9sayid5wm.css",
+      "Route": "css/site.8joouvgkjw.css",
       "AssetFile": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -5426,7 +5426,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "667"
+          "Value": "5421"
         },
         {
           "Name": "Content-Type",
@@ -5434,11 +5434,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg=\""
+          "Value": "\"NEwNiHRaOC80ufSe/HArhIcJQlvO6HIYVC6pHj6qf5U=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 13 Apr 2026 11:13:04 GMT"
+          "Value": "Tue, 14 Apr 2026 08:43:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5448,7 +5448,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "b9sayid5wm"
+          "Value": "8joouvgkjw"
         },
         {
           "Name": "label",
@@ -5456,13 +5456,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg="
+          "Value": "sha256-NEwNiHRaOC80ufSe/HArhIcJQlvO6HIYVC6pHj6qf5U="
         }
       ]
     },
     {
-      "Route": "css/site.b9sayid5wm.css.gz",
-      "AssetFile": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\obj\\Debug\\net9.0\\compressed\\cvyhcqc6hy-b9sayid5wm.gz",
+      "Route": "css/site.8joouvgkjw.css.gz",
+      "AssetFile": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\obj\\Debug\\net9.0\\compressed\\cvyhcqc6hy-8joouvgkjw.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5471,7 +5471,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "319"
+          "Value": "1572"
         },
         {
           "Name": "Content-Type",
@@ -5479,11 +5479,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"fNKkLSNFLZMVTc2zVrpMXQqOwPU3sU4GWcfEbCR2V1I=\""
+          "Value": "\"JWd8pf9VYY/xtBB7udFixz3eD99pMLFKzUvWI/Pc+iw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 13 Apr 2026 11:13:04 GMT"
+          "Value": "Tue, 14 Apr 2026 08:43:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5501,7 +5501,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "b9sayid5wm"
+          "Value": "8joouvgkjw"
         },
         {
           "Name": "label",
@@ -5509,7 +5509,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-fNKkLSNFLZMVTc2zVrpMXQqOwPU3sU4GWcfEbCR2V1I="
+          "Value": "sha256-JWd8pf9VYY/xtBB7udFixz3eD99pMLFKzUvWI/Pc+iw="
         }
       ]
     },
@@ -5552,12 +5552,12 @@
     },
     {
       "Route": "css/site.css",
-      "AssetFile": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\obj\\Debug\\net9.0\\compressed\\cvyhcqc6hy-b9sayid5wm.gz",
+      "AssetFile": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\obj\\Debug\\net9.0\\compressed\\cvyhcqc6hy-8joouvgkjw.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.003125000000"
+          "Quality": "0.000635727908"
         }
       ],
       "ResponseHeaders": [
@@ -5567,15 +5567,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "319"
+          "Value": "1572"
         },
         {
           "Name": "ETag",
-          "Value": "\"fNKkLSNFLZMVTc2zVrpMXQqOwPU3sU4GWcfEbCR2V1I=\""
+          "Value": "\"JWd8pf9VYY/xtBB7udFixz3eD99pMLFKzUvWI/Pc+iw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 13 Apr 2026 11:13:04 GMT"
+          "Value": "Tue, 14 Apr 2026 08:43:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5595,13 +5595,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg=\""
+          "Value": "W/\"NEwNiHRaOC80ufSe/HArhIcJQlvO6HIYVC6pHj6qf5U=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg="
+          "Value": "sha256-NEwNiHRaOC80ufSe/HArhIcJQlvO6HIYVC6pHj6qf5U="
         }
       ]
     },
@@ -5616,7 +5616,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "667"
+          "Value": "5421"
         },
         {
           "Name": "Content-Type",
@@ -5624,11 +5624,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg=\""
+          "Value": "\"NEwNiHRaOC80ufSe/HArhIcJQlvO6HIYVC6pHj6qf5U=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 13 Apr 2026 11:13:04 GMT"
+          "Value": "Tue, 14 Apr 2026 08:43:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5638,13 +5638,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg="
+          "Value": "sha256-NEwNiHRaOC80ufSe/HArhIcJQlvO6HIYVC6pHj6qf5U="
         }
       ]
     },
     {
       "Route": "css/site.css.gz",
-      "AssetFile": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\obj\\Debug\\net9.0\\compressed\\cvyhcqc6hy-b9sayid5wm.gz",
+      "AssetFile": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\obj\\Debug\\net9.0\\compressed\\cvyhcqc6hy-8joouvgkjw.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5653,7 +5653,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "319"
+          "Value": "1572"
         },
         {
           "Name": "Content-Type",
@@ -5661,11 +5661,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"fNKkLSNFLZMVTc2zVrpMXQqOwPU3sU4GWcfEbCR2V1I=\""
+          "Value": "\"JWd8pf9VYY/xtBB7udFixz3eD99pMLFKzUvWI/Pc+iw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 13 Apr 2026 11:13:04 GMT"
+          "Value": "Tue, 14 Apr 2026 08:43:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5683,7 +5683,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-fNKkLSNFLZMVTc2zVrpMXQqOwPU3sU4GWcfEbCR2V1I="
+          "Value": "sha256-JWd8pf9VYY/xtBB7udFixz3eD99pMLFKzUvWI/Pc+iw="
         }
       ]
     },
