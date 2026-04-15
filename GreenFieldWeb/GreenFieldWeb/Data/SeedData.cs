@@ -152,7 +152,7 @@ namespace GreenFieldWeb.Data
                 {
                     ProductName = "Organic Honey",
 
-                    Price = 1.88f,
+                    Price = 1.88m,
                     Stock = 50,
                     Description = "Pure organic honey collected from wildflowers.",
                     CreatedAt = new DateTime(2026, 1, 1),
@@ -168,7 +168,7 @@ namespace GreenFieldWeb.Data
                 new Products
                 {
                     ProductName = "Free-range Eggs",
-                    Price = 5.99f,
+                    Price = 5.99m,
                     Stock = 200,
                     Description = "Eggs from free-range chickens.",
                     CreatedAt = new DateTime(2025, 3, 1),
@@ -183,7 +183,7 @@ namespace GreenFieldWeb.Data
                 {
 
                     ProductName = "Fresh Milk",
-                    Price = 3.49f,
+                    Price = 3.49m,
                     Stock = 100,
                     Description = "Locally sourced fresh cow milk.",
                     CreatedAt = new DateTime(2026, 2, 1),
@@ -197,7 +197,7 @@ namespace GreenFieldWeb.Data
                 new Products
                 {
                     ProductName = "Organic Carrots",
-                    Price = 0.99f,
+                    Price = 0.99m,
                     Stock = 150,
                     Description = "Crisp and sweet organic carrots.",
                     CreatedAt = new DateTime(2025, 4, 1),
@@ -211,7 +211,7 @@ namespace GreenFieldWeb.Data
                 new Products
                 {
                     ProductName = "Free-range Chicken",
-                    Price = 8.99f,
+                    Price = 8.99m,
                     Stock = 80,
                     Description = "Juicy and tender free-range chicken.",
                     CreatedAt = new DateTime(2025, 5, 1),
@@ -225,7 +225,7 @@ namespace GreenFieldWeb.Data
                 new Products
                 {
                     ProductName = "Fresh Strawberries",
-                    Price = 2.99f,
+                    Price = 2.99m,
                     Stock = 120,
                     Description = "Sweet and juicy fresh strawberries.",
                     CreatedAt = new DateTime(2026, 3, 1),
@@ -240,7 +240,7 @@ namespace GreenFieldWeb.Data
                 new Products
                 {
                     ProductName = "Organic Lettuce",
-                    Price = 1.49f,
+                    Price = 1.49m,
                     Stock = 100,
                     Description = "Crisp and fresh organic lettuce.",
                     CreatedAt = new DateTime(2025, 6, 1),
@@ -254,7 +254,7 @@ namespace GreenFieldWeb.Data
                 new Products
                 {
                     ProductName = "Free-range Pork",
-                    Price = 9.99f,
+                    Price = 9.99m,
                     Stock = 60,
                     Description = "Tender and flavorful free-range pork.",
                     CreatedAt = new DateTime(2025, 7, 1),
@@ -268,7 +268,7 @@ namespace GreenFieldWeb.Data
                 new Products
                 {
                     ProductName = "Fresh Blueberries",
-                    Price = 3.49f,
+                    Price = 3.49m,
                     Stock = 90,
                     Description = "Sweet and plump fresh blueberries.",
                     CreatedAt = new DateTime(2026, 4, 1),
@@ -282,7 +282,7 @@ namespace GreenFieldWeb.Data
                 new Products
                 {
                     ProductName = "Organic Potatoes",
-                    Price = 0.79f,
+                    Price = 0.79m,
                     Stock = 200,
                     Description = "Starchy and delicious organic potatoes.",
                     CreatedAt = new DateTime(2025, 8, 1),

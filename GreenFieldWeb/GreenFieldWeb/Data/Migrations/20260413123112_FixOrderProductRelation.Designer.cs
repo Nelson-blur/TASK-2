@@ -140,7 +140,7 @@ namespace GreenFieldWeb.Data.Migrations
                     b.Property<DateOnly?>("DeliveryDate")
                         .HasColumnType("date");
 
-                    b.Property<float>("DeliveryFee")
+                    b.Property<decimal>("DeliveryFee")
                         .HasColumnType("real");
 
                     b.Property<string>("DeliveryMethod")
@@ -157,7 +157,7 @@ namespace GreenFieldWeb.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<float>("TotalAmount")
+                    b.Property<decimal>("TotalAmount")
                         .HasColumnType("real");
 
                     b.Property<bool>("UsedDiscount")
@@ -239,7 +239,7 @@ namespace GreenFieldWeb.Data.Migrations
                     b.Property<bool>("IsAvailable")
                         .HasColumnType("bit");
 
-                    b.Property<float>("Price")
+                    b.Property<decimal>("Price")
                         .HasColumnType("real");
 
                     b.Property<int>("ProducersId")

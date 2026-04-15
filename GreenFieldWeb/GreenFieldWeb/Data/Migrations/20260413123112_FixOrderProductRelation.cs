@@ -72,9 +72,9 @@ namespace GreenFieldWeb.Data.Migrations
                     DeliveryMethod = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DeliveryDate = table.Column<DateOnly>(type: "date", nullable: true),
                     DeliveryAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DeliveryFee = table.Column<float>(type: "real", nullable: false),
+                    DeliveryFee = table.Column<decimal>(type: "real", nullable: false),
                     UsedDiscount = table.Column<bool>(type: "bit", nullable: false),
-                    TotalAmount = table.Column<float>(type: "real", nullable: false)
+                    TotalAmount = table.Column<decimal>(type: "real", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -95,7 +95,7 @@ namespace GreenFieldWeb.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ProducersId = table.Column<int>(type: "int", nullable: false),
                     ProductName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Price = table.Column<float>(type: "real", nullable: false),
+                    Price = table.Column<decimal>(type: "real", nullable: false),
                     Stock = table.Column<int>(type: "int", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),

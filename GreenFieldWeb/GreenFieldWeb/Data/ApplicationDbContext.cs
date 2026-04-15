@@ -12,7 +12,7 @@ namespace GreenFieldWeb.Data
         }
         public DbSet<GreenFieldWeb.Models.Basket> Basket { get; set; } = default!;
         public DbSet<GreenFieldWeb.Models.BasketProducts> BasketProducts { get; set; } = default!;
-        public DbSet<GreenFieldWeb.Models.Discounts> Discounts { get; set; } = default!;
+        
         public DbSet<GreenFieldWeb.Models.OrderProducts> OrderProducts { get; set; } = default!;
         public DbSet<GreenFieldWeb.Models.Orders> Orders { get; set; } = default!;
         public DbSet<GreenFieldWeb.Models.Producers> Producers { get; set; } = default!;

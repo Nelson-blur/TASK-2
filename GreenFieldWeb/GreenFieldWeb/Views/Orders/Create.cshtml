@@ -1,77 +1,111 @@
 ﻿@model GreenFieldWeb.Models.Orders
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Checkout";
 }
 
-<h1>Create</h1>
+<h1>Checkout</h1>
+<p>Choose how you would like to receive your order.</p>
 
-<h4>Orders</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="DiscountsId" class="control-label"></label>
-                <select asp-for="DiscountsId" class ="form-control" asp-items="ViewBag.DiscountsId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="UserId" class="control-label"></label>
-                <input asp-for="UserId" class="form-control" />
-                <span asp-validation-for="UserId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="OrderDate" class="control-label"></label>
-                <input asp-for="OrderDate" class="form-control" />
-                <span asp-validation-for="OrderDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="OrderStatus" class="control-label"></label>
-                <input asp-for="OrderStatus" class="form-control" />
-                <span asp-validation-for="OrderStatus" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DeliveryMethod" class="control-label"></label>
-                <input asp-for="DeliveryMethod" class="form-control" />
-                <span asp-validation-for="DeliveryMethod" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DeliveryDate" class="control-label"></label>
-                <input asp-for="DeliveryDate" class="form-control" />
-                <span asp-validation-for="DeliveryDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DeliveryAddress" class="control-label"></label>
-                <input asp-for="DeliveryAddress" class="form-control" />
-                <span asp-validation-for="DeliveryAddress" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DeliveryFee" class="control-label"></label>
-                <input asp-for="DeliveryFee" class="form-control" />
-                <span asp-validation-for="DeliveryFee" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="UsedDiscount" /> @Html.DisplayNameFor(model => model.UsedDiscount)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="TotalAmount" class="control-label"></label>
-                <input asp-for="TotalAmount" class="form-control" />
-                <span asp-validation-for="TotalAmount" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="ModelOnly" style="color:red;"></div>
+
+    <input type="hidden" name="basketId" value="@ViewBag.BasketId" />
+
+    <!-- Order Method -->
+    <div style="margin-bottom: 20px;">
+        <label style="font-weight:bold; display:block; margin-bottom:10px;">Order Method</label>
+
+        <div>
+            <input asp-for="DeliveryMethod" type="radio" id="deliveryCheck" value="Delivery" />
+            <label for="deliveryCheck">Delivery</label>
+        </div>
+
+        <div>
+            <input asp-for="DeliveryMethod" type="radio" id="collectionCheck" value="Collection" />
+            <label for="collectionCheck">Collection</label>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+    <!-- Delivery Date (used for BOTH delivery + collection) -->
+    <div id="dateGroup" style="display:none; margin-bottom:15px;">
+        <label asp-for="DeliveryDate" id="dateLabel">Date</label>
+        <input asp-for="DeliveryDate" type="date" />
+        <span asp-validation-for="DeliveryDate" style="color:red;"></span>
+        <div id="dateHint"></div>
+    </div>
+
+    <!-- Delivery Address (only for delivery) -->
+    <div id="addressGroup" style="display:none; margin-bottom:15px;">
+        <label asp-for="DeliveryAddress"></label>
+        <input asp-for="DeliveryAddress" type="text" />
+        <span asp-validation-for="DeliveryAddress" style="color:red;"></span>
+    </div>
+
+    <button type="submit">Place Order</button>
+
+    <div style="margin-top:10px;">
+        <a asp-controller="Baskets" asp-action="Index">Back to Basket</a>
+    </div>
+</form>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            const deliveryRadio = document.getElementById('deliveryCheck');
+            const collectionRadio = document.getElementById('collectionCheck');
+
+            const dateGroup = document.getElementById('dateGroup');
+            const addressGroup = document.getElementById('addressGroup');
+
+            const dateLabel = document.getElementById('dateLabel');
+            const dateHint = document.getElementById('dateHint');
+
+            const dateInput = document.querySelector("input[name='DeliveryDate']");
+
+            // ✅ enforce "2 days from today" rule
+            if (dateInput) {
+                const today = new Date();
+                today.setDate(today.getDate() + 2);
+                dateInput.min = today.toISOString().split("T")[0];
+            }
+
+            function toggleSections() {
+
+                if (deliveryRadio.checked) {
+
+                    // show both for delivery
+                    dateGroup.style.display = 'block';
+                    addressGroup.style.display = 'block';
+
+                    dateLabel.innerText = "Delivery Date";
+                    dateHint.innerText = "";
+                }
+
+                else if (collectionRadio.checked) {
+
+                    // show date only for collection
+                    dateGroup.style.display = 'block';
+                    addressGroup.style.display = 'none';
+
+                    dateLabel.innerText = "Collection Date";
+                    dateHint.innerText = "Earliest collection date is 2 days from today.";
+                }
+
+                else {
+
+                    // nothing selected yet
+                    dateGroup.style.display = 'none';
+                    addressGroup.style.display = 'none';
+                }
+            }
+
+            deliveryRadio.addEventListener('change', toggleSections);
+            collectionRadio.addEventListener('change', toggleSections);
+
+            toggleSections();
+        });
+    </script>
 }
