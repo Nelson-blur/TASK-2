@@ -49,47 +49,53 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProductName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Stock)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpdatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsAvailable)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AllergenInformation)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FarmingMethod)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ImageUrl)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Producers.ProducersId)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ProductsId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ProductsId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ProductsId">Delete</a>
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Stock)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedAt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UpdatedAt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsAvailable)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AllergenInformation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FarmingMethod)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ImageUrl)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Producers.ProducersId)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.ProductsId">Details</a> |
+                    @if (User.IsInRole("Producer"))
+                    {
+                        <a asp-action="Edit" asp-route-id="@item.ProductsId">Edit</a>
+						<a asp-action="Delete" asp-route-id="@item.ProductsId">Delete</a>
+					
+                    }
+                
                 <form asp-controller="BasketProducts" asp-action="Create" method="post">
                     <input type="hidden" name="ProductsId" value="@item.ProductsId" />
+                        @Html.AntiForgeryToken()
 						@if (item.Stock > 0)
 						{
 							<button type="submit" class="btn btn-primary w-100">Add to Basket</button>
@@ -97,7 +103,7 @@
 						else
 						{
 							<button type="submit" class="btn btn-secondary w-100" disabled>Out of Stock</button>
-						})
+						}
                    </form>
             </td>
         </tr>

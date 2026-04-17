@@ -10,7 +10,7 @@ namespace GreenFieldWeb.Models
         public string OrderStatus { get; set; }
         public string DeliveryMethod { get; set; }
         public DateOnly? DeliveryDate { get; set; }
-        public string DeliveryAddress { get; set; }
+        public string? DeliveryAddress { get; set; }
         public decimal DeliveryFee { get; set; }
         public decimal DiscountApplied { get; set; }
         public decimal TotalAmount { get; set; }

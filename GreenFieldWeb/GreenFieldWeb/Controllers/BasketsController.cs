@@ -58,7 +58,7 @@ namespace GreenFieldWeb.Controllers
 
             foreach (var basketProduct in basketProducts)
             {
-                var productTotal = (decimal)basketProduct.Products.Price * basketProduct.Quantity;
+                var productTotal = basketProduct.Products.Price * basketProduct.Quantity;
                 subtotal += productTotal;
             }
 
@@ -74,7 +74,7 @@ namespace GreenFieldWeb.Controllers
 
             decimal total = subtotal - discount;
 
-            ViewBag.Subtotal = subtotal;
+            ViewBag.TotalAmount = subtotal;
             ViewBag.Discount = discount;
             ViewBag.Total = total;
             ViewBag.OrderCount = orderCount;

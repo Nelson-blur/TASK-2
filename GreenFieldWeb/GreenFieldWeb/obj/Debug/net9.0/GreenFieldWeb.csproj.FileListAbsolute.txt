@@ -412,3 +412,5 @@ C:\Users\Digi-T-Y2-19\Documents\GitHub\TASK-2\GreenFieldWeb\GreenFieldWeb\obj\De
 C:\Users\Digi-T-Y2-19\Documents\GitHub\TASK-2\GreenFieldWeb\GreenFieldWeb\obj\Debug\net9.0\GreenFieldWeb.genruntimeconfig.cache
 C:\Users\Digi-T-Y2-19\Documents\GitHub\TASK-2\GreenFieldWeb\GreenFieldWeb\obj\Debug\net9.0\ref\GreenFieldWeb.dll
 C:\Users\Digi-T-Y2-19\Documents\GitHub\TASK-2\GreenFieldWeb\GreenFieldWeb\obj\Debug\net9.0\compressed\cvyhcqc6hy-8joouvgkjw.gz
+C:\Users\Digi-T-Y2-19\Documents\GitHub\TASK-2\GreenFieldWeb\GreenFieldWeb\bin\Debug\net9.0\Microsoft.AspNetCore.Authorization.dll
+C:\Users\Digi-T-Y2-19\Documents\GitHub\TASK-2\GreenFieldWeb\GreenFieldWeb\bin\Debug\net9.0\Microsoft.AspNetCore.Metadata.dll

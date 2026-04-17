@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GreenFieldWeb.Data;
 using GreenFieldWeb.Models;
+using System.Security.Claims;
 
 namespace GreenFieldWeb.Controllers
 {
@@ -18,12 +19,33 @@ namespace GreenFieldWeb.Controllers
         {
             _context = context;
         }
-
         // GET: Products
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Products.Include(p => p.Producers);
-            return View(await applicationDbContext.ToListAsync());
+            if (User.IsInRole("Producer"))
+            {
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+                if (userId == null)
+                {
+                    return Unauthorized();
+                }
+
+                var producer = await _context.Producers.FirstOrDefaultAsync(s => s.UserId == userId);
+
+                if (producer == null)
+                {
+                    return NotFound();
+                }
+
+                var ProducerProducts = await _context.Products.Where(p => p.ProducersId == producer.ProducersId).Include(p => p.Producers).ToListAsync();
+                return View(ProducerProducts);
+            }
+            else
+            {
+                var allProducts = await _context.Products.Include(p => p.Producers).ToListAsync();
+                return View(allProducts);
+            }
         }
 
         // GET: Products/Details/5
@@ -82,7 +104,7 @@ namespace GreenFieldWeb.Controllers
             {
                 return NotFound();
             }
-            ViewData["ProducersId"] = new SelectList(_context.Producers, "ProducersId", "ProducersId", products.ProducersId);
+            
             return View(products);
         }
 
@@ -91,8 +113,9 @@ namespace GreenFieldWeb.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProductsId,ProducersId,ProductName,Price,Stock,Description,CreatedAt,UpdatedAt,IsAvailable,AllergenInformation,FarmingMethod,ImageUrl")] Products products)
+        public async Task<IActionResult> Edit(int id, [Bind("ProductsId,ProductName,Price,Stock,Description,CreatedAt,UpdatedAt,IsAvailable,AllergenInformation,FarmingMethod,ImageUrl")] Products products)
         {
+
             if (id != products.ProductsId)
             {
                 return NotFound();
@@ -146,12 +169,32 @@ namespace GreenFieldWeb.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var products = await _context.Products.FindAsync(id);
-            if (products != null)
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userId == null)
             {
-                _context.Products.Remove(products);
+                return Unauthorized();
             }
 
+            var producer = await _context.Producers.FirstOrDefaultAsync(s => s.UserId == userId);
+            if (producer == null)
+            {
+                return NotFound();
+            }
+
+
+            var products = await _context.Products.FindAsync(id);
+            if (products == null)
+            {
+                return NotFound();
+            }
+
+            // Checks the product actually belongs to this producer
+            if (products.ProducersId != producer.ProducersId)
+            {
+                return Unauthorized();
+            }
+
+            _context.Products.Remove(products);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
@@ -160,5 +203,8 @@ namespace GreenFieldWeb.Controllers
         {
             return _context.Products.Any(e => e.ProductsId == id);
         }
+
+
+
     }
 }
