@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using GreenFieldWeb.Data;
 using GreenFieldWeb.Models;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GreenFieldWeb.Controllers
 {
@@ -21,6 +22,7 @@ namespace GreenFieldWeb.Controllers
         }
 
         // GET: Baskets
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);

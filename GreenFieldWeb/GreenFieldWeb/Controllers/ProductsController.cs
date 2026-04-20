@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using GreenFieldWeb.Data;
 using GreenFieldWeb.Models;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GreenFieldWeb.Controllers
 {
@@ -68,9 +69,10 @@ namespace GreenFieldWeb.Controllers
         }
 
         // GET: Products/Create
+        [Authorize(Roles = "Producer,Admin")]
         public IActionResult Create()
         {
-            ViewData["ProducersId"] = new SelectList(_context.Producers, "ProducersId", "ProducersId");
+            
             return View();
         }
 
@@ -79,19 +81,39 @@ namespace GreenFieldWeb.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductsId,ProducersId,ProductName,Price,Stock,Description,CreatedAt,UpdatedAt,IsAvailable,AllergenInformation,FarmingMethod,ImageUrl")] Products products)
+        [Authorize(Roles = "Producer,Admin")]
+        public async Task<IActionResult> Create([Bind("ProductName,Price,Stock,Description,IsAvailable,AllergenInformation,FarmingMethod,ImageUrl")] Products products)
         {
+            // Get the logged in user's supplier record
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var producer = await _context.Producers
+                .FirstOrDefaultAsync(p => p.UserId == userId);
+
+            if (producer == null) return Forbid();
+
+            // Set server-side fields — never trust the form for these
+            products.ProducersId = producer.ProducersId;
+            products.CreatedAt = DateTime.UtcNow;
+            products.UpdatedAt = DateTime.UtcNow;
+
+            ModelState.Remove("ProducersId");
+            ModelState.Remove("CreatedAt");
+            ModelState.Remove("UpdatedAt");
+
             if (ModelState.IsValid)
             {
                 _context.Add(products);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "SupplierDashboard");
             }
-            ViewData["ProducersId"] = new SelectList(_context.Producers, "ProducersId", "ProducersId", products.ProducersId);
+
             return View(products);
         }
 
+
+
         // GET: Products/Edit/5
+        [Authorize(Roles = "Producer,Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -113,13 +135,35 @@ namespace GreenFieldWeb.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProductsId,ProductName,Price,Stock,Description,CreatedAt,UpdatedAt,IsAvailable,AllergenInformation,FarmingMethod,ImageUrl")] Products products)
+        [Authorize(Roles = "Producer,Admin")]
+        public async Task<IActionResult> Edit(int id, [Bind("ProductsId,ProductName,Price,Stock,Description,IsAvailable,AllergenInformation,FarmingMethod,ImageUrl")] Products products)
         {
+            if (id != products.ProductsId) return NotFound();
 
-            if (id != products.ProductsId)
-            {
-                return NotFound();
-            }
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var producer = await _context.Producers
+                .FirstOrDefaultAsync(s => s.UserId == userId);
+
+            if (producer == null) return NotFound();
+
+            // Verify ownership — same as Delete
+            var existingProduct = await _context.Products
+                .AsNoTracking()
+                .FirstOrDefaultAsync(p => p.ProductsId == id);
+
+            if (existingProduct == null) return NotFound();
+
+            if (existingProduct.ProducersId != producer.ProducersId)
+                return Forbid();
+
+            // Set server-side fields
+            products.ProducersId = producer.ProducersId;
+            products.CreatedAt = existingProduct.CreatedAt; // preserve original creation date
+            products.UpdatedAt = DateTime.UtcNow;
+
+            ModelState.Remove("ProducersId");
+            ModelState.Remove("CreatedAt");
+            ModelState.Remove("UpdatedAt");
 
             if (ModelState.IsValid)
             {
@@ -130,22 +174,19 @@ namespace GreenFieldWeb.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ProductsExists(products.ProductsId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    if (!ProductsExists(products.ProductsId)) return NotFound();
+                    else throw;
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "ProducerDashboard");
             }
-            ViewData["ProducersId"] = new SelectList(_context.Producers, "ProducersId", "ProducersId", products.ProducersId);
             return View(products);
         }
 
+
+
+
         // GET: Products/Delete/5
+        [Authorize(Roles = "Producer,Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)

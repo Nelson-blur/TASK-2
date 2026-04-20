@@ -190,7 +190,7 @@ namespace GreenFieldWeb.Controllers
             }
 
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index","Baskets");
         }
 
         private bool BasketProductsExists(int id)

@@ -1,83 +1,101 @@
 ﻿@model IEnumerable<GreenFieldWeb.Models.Orders>
-
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Orders";
 }
 
-<h1>Index</h1>
+<h1>
+    @if (User.IsInRole("Admin"))
+    {
+        <span>All Orders</span>
+    }
+    else if (User.IsInRole("Producer"))
+    {
+        <span>Orders Containing Your Products</span>
+    }
+    else
+    {
+        <span>My Orders</span>
+    }
+</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.UserId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OrderDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OrderStatus)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DeliveryMethod)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DeliveryDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DeliveryAddress)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DeliveryFee)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DiscountApplied)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TotalAmount)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OrderDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OrderStatus)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DeliveryMethod)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DeliveryDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DeliveryAddress)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DeliveryFee)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DiscountApplied)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TotalAmount)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.OrdersId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.OrdersId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.OrdersId">Delete</a>
-            </td>
-        </tr>
+@if (!Model.Any())
+{
+    <p>No orders found.</p>
 }
-    </tbody>
-</table>
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                @if (User.IsInRole("Admin"))
+                {
+                    <th>Customer</th>
+                }
+                <th>@Html.DisplayNameFor(m => m.OrderDate)</th>
+                <th>@Html.DisplayNameFor(m => m.OrderStatus)</th>
+                <th>@Html.DisplayNameFor(m => m.DeliveryMethod)</th>
+                <th>@Html.DisplayNameFor(m => m.DeliveryDate)</th>
+                <th>@Html.DisplayNameFor(m => m.DeliveryAddress)</th>
+                <th>@Html.DisplayNameFor(m => m.TotalAmount)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.OrdersId</td>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <td>@item.UserId</td>
+                    }
+                    <td>@item.OrderDate</td>
+                    <td>
+                        @if (item.OrderStatus == "Pending")
+                        {
+                            <span class="status-pending">@item.OrderStatus</span>
+                        }
+                        else if (item.OrderStatus == "Delivered" || item.OrderStatus == "Collected")
+                        {
+                            <span class="status-delivered">@item.OrderStatus</span>
+                        }
+                        else
+                        {
+                            <span class="status-shipped">@item.OrderStatus</span>
+                        }
+                    </td>
+                    <td>@item.DeliveryMethod</td>
+                    <td>@item.DeliveryDate</td>
+                    <td>
+                        @if (item.DeliveryMethod == "Collection")
+                        {
+                            <span>N/A</span>
+                        }
+                        else
+                        {
+                            @item.DeliveryAddress
+                        }
+                    </td>
+                  
+                    <td>£@item.TotalAmount.ToString("0.00")</td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.OrdersId">Details</a>
+
+                        @if (User.IsInRole("Producer") || User.IsInRole("Admin"))
+                        {
+                            <span> | </span>
+                            <a asp-action="Edit" asp-route-id="@item.OrdersId">Update Status</a>
+                        }
+
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <span> | </span>
+                            <a asp-action="Delete" asp-route-id="@item.OrdersId">Delete</a>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

@@ -32,10 +32,6 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Digi-T-Y2-19/Documents/GitHub/TASK-2/GreenFieldWeb/GreenFieldWeb/Views/BasketProducts/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFza2V0UHJvZHVjdHNcQ3JlYXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Digi-T-Y2-19/Documents/GitHub/TASK-2/GreenFieldWeb/GreenFieldWeb/Views/BasketProducts/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFza2V0UHJvZHVjdHNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -52,10 +48,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFza2V0UHJvZHVjdHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Digi-T-Y2-19/Documents/GitHub/TASK-2/GreenFieldWeb/GreenFieldWeb/Views/Baskets/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFza2V0c1xDcmVhdGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Digi-T-Y2-19/Documents/GitHub/TASK-2/GreenFieldWeb/GreenFieldWeb/Views/Baskets/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFza2V0c1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -70,6 +62,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Digi-T-Y2-19/Documents/GitHub/TASK-2/GreenFieldWeb/GreenFieldWeb/Views/Baskets/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFza2V0c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Digi-T-Y2-19/Documents/GitHub/TASK-2/GreenFieldWeb/GreenFieldWeb/Views/Home/ContactUs.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0VXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Digi-T-Y2-19/Documents/GitHub/TASK-2/GreenFieldWeb/GreenFieldWeb/Views/Home/Index.cshtml]
