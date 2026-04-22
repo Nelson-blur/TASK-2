@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "N4n7kE4Hv0eyXChNmts0jydBWQ5m/tCwIwcIjf6dlsM=",
+  "Hash": "c61kK5DYkz+jz3gO89zPjahU1jOs1ct1oqEgnhixtD0=",
   "Source": "GreenFieldWeb",
   "BasePath": "_content/GreenFieldWeb",
   "Mode": "Default",
@@ -4068,6 +4068,237 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\default.jpg",
+      "SourceId": "GreenFieldWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\",
+      "BasePath": "_content/GreenFieldWeb",
+      "RelativePath": "images/default#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "5ipweew5fc",
+      "Integrity": "47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\default.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\free-range-chicken.jpg",
+      "SourceId": "GreenFieldWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\",
+      "BasePath": "_content/GreenFieldWeb",
+      "RelativePath": "images/free-range-chicken#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "74bjvyvj6c",
+      "Integrity": "B7apqGFvirU3su/TZvfQqPHgrTMvTR0t/reeyZF9IeA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\free-range-chicken.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\free-range-eggs.jpg",
+      "SourceId": "GreenFieldWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\",
+      "BasePath": "_content/GreenFieldWeb",
+      "RelativePath": "images/free-range-eggs#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "njfgif5kdu",
+      "Integrity": "TQ8KLkD7yLjiDZQxfTc6eOJHUqtYls+csdYd6iigsMU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\free-range-eggs.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\free-range-pork.jpg",
+      "SourceId": "GreenFieldWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\",
+      "BasePath": "_content/GreenFieldWeb",
+      "RelativePath": "images/free-range-pork#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "salxr9jb5p",
+      "Integrity": "7GYQtzKOFL3ZWlj+yHEiZTpMh9Nlg+GNibviNe2Ul5o=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\free-range-pork.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\fresh-blueberries.jpg",
+      "SourceId": "GreenFieldWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\",
+      "BasePath": "_content/GreenFieldWeb",
+      "RelativePath": "images/fresh-blueberries#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "f2vuwxwssh",
+      "Integrity": "OcPFE+p2Xb7R8mh8vps+BOGWxmdAr5/U8iAcpsF90t8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\fresh-blueberries.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\fresh-milk.jpg",
+      "SourceId": "GreenFieldWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\",
+      "BasePath": "_content/GreenFieldWeb",
+      "RelativePath": "images/fresh-milk#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "xeuwben7og",
+      "Integrity": "+XTMvLMWN2QqZvWhSfiANFFRWoTLgXEKc/C63dIOHdc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\fresh-milk.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\fresh-strawberries.jpg",
+      "SourceId": "GreenFieldWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\",
+      "BasePath": "_content/GreenFieldWeb",
+      "RelativePath": "images/fresh-strawberries#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "7a8cqoxs8b",
+      "Integrity": "EYGJQVfMoleBSpIXeaiQOESv8LWPXsHK1Sxn0ZHKXas=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\fresh-strawberries.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\organic-carrots.jpg",
+      "SourceId": "GreenFieldWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\",
+      "BasePath": "_content/GreenFieldWeb",
+      "RelativePath": "images/organic-carrots#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "5g2no8pjyv",
+      "Integrity": "2wsuPOpbm6HSghwv0ECHvT5qvrecTyq4vmcTdFDnsM4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\organic-carrots.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\organic-honey.jpg",
+      "SourceId": "GreenFieldWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\",
+      "BasePath": "_content/GreenFieldWeb",
+      "RelativePath": "images/organic-honey#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "7g957pr6z7",
+      "Integrity": "6aVTUdCQW1KJnvJHypQTaZ9DcXfFycneGkX7AuiDn7U=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\organic-honey.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\organic-lettuce.jpg",
+      "SourceId": "GreenFieldWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\",
+      "BasePath": "_content/GreenFieldWeb",
+      "RelativePath": "images/organic-lettuce#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ewjugoibb3",
+      "Integrity": "PhBir4n35a0m4K9HROdUM0djBh11cQZK0mDESQ5x3mU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\organic-lettuce.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\organic-potatoes.jpg",
+      "SourceId": "GreenFieldWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\",
+      "BasePath": "_content/GreenFieldWeb",
+      "RelativePath": "images/organic-potatoes#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "mkc34earuu",
+      "Integrity": "Zj4LBDZNYlQ9bvUAtJawWh93Fh8dbHHYtfgvSaZcK3E=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\organic-potatoes.jpg"
     },
     {
       "Identity": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\js\\site.js",
@@ -15146,6 +15377,908 @@
         {
           "Name": "integrity",
           "Value": "sha256-1HkjQSVuV0/ji/X/lGeDTHeagBS0BwopMrHDQuwqgtU="
+        }
+      ]
+    },
+    {
+      "Route": "images/default.5ipweew5fc.jpg",
+      "AssetFile": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\default.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "0"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 22 Apr 2026 14:33:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "5ipweew5fc"
+        },
+        {
+          "Name": "label",
+          "Value": "images/default.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
+        }
+      ]
+    },
+    {
+      "Route": "images/default.jpg",
+      "AssetFile": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\default.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "0"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 22 Apr 2026 14:33:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
+        }
+      ]
+    },
+    {
+      "Route": "images/free-range-chicken.74bjvyvj6c.jpg",
+      "AssetFile": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\free-range-chicken.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "71132"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"B7apqGFvirU3su/TZvfQqPHgrTMvTR0t/reeyZF9IeA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 22 Apr 2026 14:07:01 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "74bjvyvj6c"
+        },
+        {
+          "Name": "label",
+          "Value": "images/free-range-chicken.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-B7apqGFvirU3su/TZvfQqPHgrTMvTR0t/reeyZF9IeA="
+        }
+      ]
+    },
+    {
+      "Route": "images/free-range-chicken.jpg",
+      "AssetFile": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\free-range-chicken.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "71132"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"B7apqGFvirU3su/TZvfQqPHgrTMvTR0t/reeyZF9IeA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 22 Apr 2026 14:07:01 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-B7apqGFvirU3su/TZvfQqPHgrTMvTR0t/reeyZF9IeA="
+        }
+      ]
+    },
+    {
+      "Route": "images/free-range-eggs.jpg",
+      "AssetFile": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\free-range-eggs.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "84205"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"TQ8KLkD7yLjiDZQxfTc6eOJHUqtYls+csdYd6iigsMU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 22 Apr 2026 13:31:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-TQ8KLkD7yLjiDZQxfTc6eOJHUqtYls+csdYd6iigsMU="
+        }
+      ]
+    },
+    {
+      "Route": "images/free-range-eggs.njfgif5kdu.jpg",
+      "AssetFile": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\free-range-eggs.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "84205"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"TQ8KLkD7yLjiDZQxfTc6eOJHUqtYls+csdYd6iigsMU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 22 Apr 2026 13:31:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "njfgif5kdu"
+        },
+        {
+          "Name": "label",
+          "Value": "images/free-range-eggs.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-TQ8KLkD7yLjiDZQxfTc6eOJHUqtYls+csdYd6iigsMU="
+        }
+      ]
+    },
+    {
+      "Route": "images/free-range-pork.jpg",
+      "AssetFile": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\free-range-pork.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "436442"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7GYQtzKOFL3ZWlj+yHEiZTpMh9Nlg+GNibviNe2Ul5o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 22 Apr 2026 14:22:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-7GYQtzKOFL3ZWlj+yHEiZTpMh9Nlg+GNibviNe2Ul5o="
+        }
+      ]
+    },
+    {
+      "Route": "images/free-range-pork.salxr9jb5p.jpg",
+      "AssetFile": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\free-range-pork.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "436442"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7GYQtzKOFL3ZWlj+yHEiZTpMh9Nlg+GNibviNe2Ul5o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 22 Apr 2026 14:22:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "salxr9jb5p"
+        },
+        {
+          "Name": "label",
+          "Value": "images/free-range-pork.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7GYQtzKOFL3ZWlj+yHEiZTpMh9Nlg+GNibviNe2Ul5o="
+        }
+      ]
+    },
+    {
+      "Route": "images/fresh-blueberries.f2vuwxwssh.jpg",
+      "AssetFile": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\fresh-blueberries.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "164102"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"OcPFE+p2Xb7R8mh8vps+BOGWxmdAr5/U8iAcpsF90t8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 22 Apr 2026 14:15:12 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "f2vuwxwssh"
+        },
+        {
+          "Name": "label",
+          "Value": "images/fresh-blueberries.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-OcPFE+p2Xb7R8mh8vps+BOGWxmdAr5/U8iAcpsF90t8="
+        }
+      ]
+    },
+    {
+      "Route": "images/fresh-blueberries.jpg",
+      "AssetFile": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\fresh-blueberries.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "164102"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"OcPFE+p2Xb7R8mh8vps+BOGWxmdAr5/U8iAcpsF90t8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 22 Apr 2026 14:15:12 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-OcPFE+p2Xb7R8mh8vps+BOGWxmdAr5/U8iAcpsF90t8="
+        }
+      ]
+    },
+    {
+      "Route": "images/fresh-milk.jpg",
+      "AssetFile": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\fresh-milk.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "29277"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+XTMvLMWN2QqZvWhSfiANFFRWoTLgXEKc/C63dIOHdc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 22 Apr 2026 14:04:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-+XTMvLMWN2QqZvWhSfiANFFRWoTLgXEKc/C63dIOHdc="
+        }
+      ]
+    },
+    {
+      "Route": "images/fresh-milk.xeuwben7og.jpg",
+      "AssetFile": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\fresh-milk.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "29277"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+XTMvLMWN2QqZvWhSfiANFFRWoTLgXEKc/C63dIOHdc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 22 Apr 2026 14:04:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "xeuwben7og"
+        },
+        {
+          "Name": "label",
+          "Value": "images/fresh-milk.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-+XTMvLMWN2QqZvWhSfiANFFRWoTLgXEKc/C63dIOHdc="
+        }
+      ]
+    },
+    {
+      "Route": "images/fresh-strawberries.7a8cqoxs8b.jpg",
+      "AssetFile": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\fresh-strawberries.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "73897"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"EYGJQVfMoleBSpIXeaiQOESv8LWPXsHK1Sxn0ZHKXas=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 22 Apr 2026 14:09:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "7a8cqoxs8b"
+        },
+        {
+          "Name": "label",
+          "Value": "images/fresh-strawberries.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-EYGJQVfMoleBSpIXeaiQOESv8LWPXsHK1Sxn0ZHKXas="
+        }
+      ]
+    },
+    {
+      "Route": "images/fresh-strawberries.jpg",
+      "AssetFile": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\fresh-strawberries.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "73897"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"EYGJQVfMoleBSpIXeaiQOESv8LWPXsHK1Sxn0ZHKXas=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 22 Apr 2026 14:09:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-EYGJQVfMoleBSpIXeaiQOESv8LWPXsHK1Sxn0ZHKXas="
+        }
+      ]
+    },
+    {
+      "Route": "images/organic-carrots.5g2no8pjyv.jpg",
+      "AssetFile": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\organic-carrots.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "159824"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2wsuPOpbm6HSghwv0ECHvT5qvrecTyq4vmcTdFDnsM4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 22 Apr 2026 14:05:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "5g2no8pjyv"
+        },
+        {
+          "Name": "label",
+          "Value": "images/organic-carrots.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2wsuPOpbm6HSghwv0ECHvT5qvrecTyq4vmcTdFDnsM4="
+        }
+      ]
+    },
+    {
+      "Route": "images/organic-carrots.jpg",
+      "AssetFile": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\organic-carrots.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "159824"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2wsuPOpbm6HSghwv0ECHvT5qvrecTyq4vmcTdFDnsM4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 22 Apr 2026 14:05:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2wsuPOpbm6HSghwv0ECHvT5qvrecTyq4vmcTdFDnsM4="
+        }
+      ]
+    },
+    {
+      "Route": "images/organic-honey.7g957pr6z7.jpg",
+      "AssetFile": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\organic-honey.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "310176"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"6aVTUdCQW1KJnvJHypQTaZ9DcXfFycneGkX7AuiDn7U=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 22 Apr 2026 13:28:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "7g957pr6z7"
+        },
+        {
+          "Name": "label",
+          "Value": "images/organic-honey.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-6aVTUdCQW1KJnvJHypQTaZ9DcXfFycneGkX7AuiDn7U="
+        }
+      ]
+    },
+    {
+      "Route": "images/organic-honey.jpg",
+      "AssetFile": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\organic-honey.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "310176"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"6aVTUdCQW1KJnvJHypQTaZ9DcXfFycneGkX7AuiDn7U=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 22 Apr 2026 13:28:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-6aVTUdCQW1KJnvJHypQTaZ9DcXfFycneGkX7AuiDn7U="
+        }
+      ]
+    },
+    {
+      "Route": "images/organic-lettuce.ewjugoibb3.jpg",
+      "AssetFile": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\organic-lettuce.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "566404"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"PhBir4n35a0m4K9HROdUM0djBh11cQZK0mDESQ5x3mU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 22 Apr 2026 14:13:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ewjugoibb3"
+        },
+        {
+          "Name": "label",
+          "Value": "images/organic-lettuce.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-PhBir4n35a0m4K9HROdUM0djBh11cQZK0mDESQ5x3mU="
+        }
+      ]
+    },
+    {
+      "Route": "images/organic-lettuce.jpg",
+      "AssetFile": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\organic-lettuce.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "566404"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"PhBir4n35a0m4K9HROdUM0djBh11cQZK0mDESQ5x3mU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 22 Apr 2026 14:13:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-PhBir4n35a0m4K9HROdUM0djBh11cQZK0mDESQ5x3mU="
+        }
+      ]
+    },
+    {
+      "Route": "images/organic-potatoes.jpg",
+      "AssetFile": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\organic-potatoes.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "67150"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Zj4LBDZNYlQ9bvUAtJawWh93Fh8dbHHYtfgvSaZcK3E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 22 Apr 2026 14:18:30 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Zj4LBDZNYlQ9bvUAtJawWh93Fh8dbHHYtfgvSaZcK3E="
+        }
+      ]
+    },
+    {
+      "Route": "images/organic-potatoes.mkc34earuu.jpg",
+      "AssetFile": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\organic-potatoes.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "67150"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Zj4LBDZNYlQ9bvUAtJawWh93Fh8dbHHYtfgvSaZcK3E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 22 Apr 2026 14:18:30 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "mkc34earuu"
+        },
+        {
+          "Name": "label",
+          "Value": "images/organic-potatoes.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Zj4LBDZNYlQ9bvUAtJawWh93Fh8dbHHYtfgvSaZcK3E="
         }
       ]
     },

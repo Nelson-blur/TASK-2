@@ -1,80 +1,85 @@
 ﻿@model GreenFieldWeb.Models.Products
-
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edit Product";
 }
 
-<h1>Edit</h1>
-
-<h4>Products</h4>
+<h4>Edit Product</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
+    <div class="col-md-6">
+        <form asp-action="Edit" method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ProductsId" />
-            
-            <div class="form-group">
+
+            <div class="form-group mb-3">
                 <label asp-for="ProductName" class="control-label"></label>
                 <input asp-for="ProductName" class="form-control" />
                 <span asp-validation-for="ProductName" class="text-danger"></span>
             </div>
-            <div class="form-group">
+
+            <div class="form-group mb-3">
                 <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
+                <input asp-for="Price" type="number" step="0.01" class="form-control" />
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
-            <div class="form-group">
+
+            <div class="form-group mb-3">
                 <label asp-for="Stock" class="control-label"></label>
-                <input asp-for="Stock" class="form-control" />
+                <input asp-for="Stock" type="number" class="form-control" />
                 <span asp-validation-for="Stock" class="text-danger"></span>
             </div>
-            <div class="form-group">
+
+            <div class="form-group mb-3">
                 <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
+                <textarea asp-for="Description" class="form-control" rows="3"></textarea>
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="CreatedAt" class="control-label"></label>
-                <input asp-for="CreatedAt" class="form-control" />
-                <span asp-validation-for="CreatedAt" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UpdatedAt" class="control-label"></label>
-                <input asp-for="UpdatedAt" class="form-control" />
-                <span asp-validation-for="UpdatedAt" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsAvailable" /> @Html.DisplayNameFor(model => model.IsAvailable)
-                </label>
-            </div>
-            <div class="form-group">
+
+            <div class="form-group mb-3">
                 <label asp-for="AllergenInformation" class="control-label"></label>
                 <input asp-for="AllergenInformation" class="form-control" />
                 <span asp-validation-for="AllergenInformation" class="text-danger"></span>
             </div>
-            <div class="form-group">
+
+            <div class="form-group mb-3">
                 <label asp-for="FarmingMethod" class="control-label"></label>
                 <input asp-for="FarmingMethod" class="form-control" />
                 <span asp-validation-for="FarmingMethod" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="ImageUrl" class="control-label"></label>
-                <input asp-for="ImageUrl" class="form-control" />
-                <span asp-validation-for="ImageUrl" class="text-danger"></span>
+
+            <!-- Show current image if one exists -->
+            @if (!string.IsNullOrEmpty(Model.ImageUrl))
+            {
+                <div class="form-group mb-3">
+                    <label class="control-label">Current Image</label><br />
+                    <img src="~/images/@Model.ImageUrl" alt="@Model.ProductName"
+                         style="width:100px; height:100px; object-fit:cover; border-radius:8px; margin-bottom:8px;" />
+                </div>
+            }
+
+            <div class="form-group mb-3">
+                <label class="control-label">
+                    @(string.IsNullOrEmpty(Model.ImageUrl) ? "Product Image" : "Replace Image")
+                </label>
+                <input type="file" name="imageFile" class="form-control" accept="image/*" />
+                <small class="text-muted">Leave blank to keep the current image</small>
             </div>
+
+            <div class="form-group form-check mb-3">
+                <input class="form-check-input" asp-for="IsAvailable" />
+                <label class="form-check-label" asp-for="IsAvailable">Available for purchase</label>
+            </div>
+
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Save Changes" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary ms-2">Cancel</a>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

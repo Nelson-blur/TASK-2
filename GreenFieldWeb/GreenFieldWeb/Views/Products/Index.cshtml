@@ -10,6 +10,81 @@
     <p><a asp-action="Create" class="btn btn-success">+ Add New Product</a></p>
 }
 
+<form method="get" asp-action="Index" class="glh-search-form">
+    <div class="glh-search-row">
+
+        <div class="glh-search-group">
+            <input type="text"
+                   name="searchString"
+                   value="@ViewBag.CurrentSearch"
+                   class="glh-input"
+                   placeholder="Search products..." />
+        </div>
+
+        <div class="glh-search-group">
+            <select name="farmingMethod" class="glh-input">
+                <option value="">All Farming Methods</option>
+			     @if (ViewBag.FarmingMethods != null)
+                 {
+                    @foreach (var method in ViewBag.FarmingMethods)
+                    {
+                        @if (method == ViewBag.CurrentFarmingMethod)
+                        {
+                            <option value="@method" selected>@method</option>
+                        }
+                        else
+                        {
+                            <option value="@method">@method</option>
+                        }
+                    }
+                 }
+            </select>
+        </div>
+        <!-- Min price -->
+        <div class="glh-search-group" style="max-width:120px">
+            <input type="number"
+                   name="minPrice"
+                   value="@ViewBag.CurrentMinPrice"
+                   class="glh-input"
+                   placeholder="Min £"
+                   step="0.01"
+                   min="0" />
+        </div>
+
+        <!-- Max price -->
+        <div class="glh-search-group" style="max-width:120px">
+            <input type="number"
+                   name="maxPrice"
+                   value="@ViewBag.CurrentMaxPrice"
+                   class="glh-input"
+                   placeholder="Max £"
+                   step="0.01"
+                   min="0" />
+        </div>
+
+        <button type="submit" class="glh-btn glh-btn-primary">Search</button>
+
+        @if (!string.IsNullOrEmpty(ViewBag.CurrentSearch as string) ||
+        !string.IsNullOrEmpty(ViewBag.CurrentFarmingMethod as string) ||
+        ViewBag.CurrentMinPrice != null ||
+        ViewBag.CurrentMaxPrice != null)
+        {
+            <a asp-action="Index" class="glh-btn glh-btn-outline">Clear</a>
+        }
+
+    </div>
+
+ </form>
+
+@if (!Model.Any())
+{
+    <div class="glh-empty-state">
+        <div class="glh-empty-icon">🔍</div>
+        <p>No products found matching your search.</p>
+        <a asp-action="Index" class="glh-btn glh-btn-outline">Clear Search</a>
+    </div>
+}
+
 <table class="table">
     <thead>
         <tr>
@@ -32,7 +107,7 @@
                 <td>
                     @if (!string.IsNullOrEmpty(item.ImageUrl))
                     {
-                        <img src="~/images/@item.ImageUrl" alt="@item.ProductName"
+                        <img src="@item.ImageUrl" alt="@item.ProductName"
                              style="width:60px; height:60px; object-fit:cover; border-radius:8px;" />
                     }
                 </td>
@@ -81,3 +156,20 @@
         }
     </tbody>
 </table>
+<style>
+    .glh-search-form {
+        margin-bottom: 1.5rem;
+    }
+
+    .glh-search-row {
+        display: flex;
+        gap: 0.75rem;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .glh-search-group {
+        flex: 1;
+        min-width: 180px;
+    }
+</style>

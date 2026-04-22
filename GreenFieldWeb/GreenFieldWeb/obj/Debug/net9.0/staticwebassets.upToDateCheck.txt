@@ -62,6 +62,17 @@ C:\Users\Digi-T-Y2-19\Documents\GitHub\TASK-2\GreenFieldWeb\GreenFieldWeb\wwwroo
 C:\Users\Digi-T-Y2-19\Documents\GitHub\TASK-2\GreenFieldWeb\GreenFieldWeb\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js
 wwwroot\css\site.css
 wwwroot\favicon.ico
+wwwroot\images\default.jpg
+wwwroot\images\free-range-chicken.jpg
+wwwroot\images\free-range-eggs.jpg
+wwwroot\images\free-range-pork.jpg
+wwwroot\images\fresh-blueberries.jpg
+wwwroot\images\fresh-milk.jpg
+wwwroot\images\fresh-strawberries.jpg
+wwwroot\images\organic-carrots.jpg
+wwwroot\images\organic-honey.jpg
+wwwroot\images\organic-lettuce.jpg
+wwwroot\images\organic-potatoes.jpg
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css
 wwwroot\lib\bootstrap\dist\css\bootstrap.css.map

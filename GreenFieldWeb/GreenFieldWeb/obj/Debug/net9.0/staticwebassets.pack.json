@@ -13,6 +13,50 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\default.jpg",
+      "PackagePath": "staticwebassets\\images\\default.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\free-range-chicken.jpg",
+      "PackagePath": "staticwebassets\\images\\free-range-chicken.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\free-range-eggs.jpg",
+      "PackagePath": "staticwebassets\\images\\free-range-eggs.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\free-range-pork.jpg",
+      "PackagePath": "staticwebassets\\images\\free-range-pork.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\fresh-blueberries.jpg",
+      "PackagePath": "staticwebassets\\images\\fresh-blueberries.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\fresh-milk.jpg",
+      "PackagePath": "staticwebassets\\images\\fresh-milk.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\fresh-strawberries.jpg",
+      "PackagePath": "staticwebassets\\images\\fresh-strawberries.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\organic-carrots.jpg",
+      "PackagePath": "staticwebassets\\images\\organic-carrots.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\organic-honey.jpg",
+      "PackagePath": "staticwebassets\\images\\organic-honey.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\organic-lettuce.jpg",
+      "PackagePath": "staticwebassets\\images\\organic-lettuce.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\images\\organic-potatoes.jpg",
+      "PackagePath": "staticwebassets\\images\\organic-potatoes.jpg"
+    },
+    {
       "Id": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

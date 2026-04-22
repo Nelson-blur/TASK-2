@@ -9,6 +9,9 @@ using GreenFieldWeb.Data;
 using GreenFieldWeb.Models;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
+using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace GreenFieldWeb.Controllers
 {
@@ -21,32 +24,57 @@ namespace GreenFieldWeb.Controllers
             _context = context;
         }
         // GET: Products
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString,decimal? minPrice,decimal? maxPrice, string farmingMethod )
+         
         {
+            
+
+            var products = _context.Products.Include(p => p.Producers).AsQueryable();
             if (User.IsInRole("Producer"))
             {
                 var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                if (userId == null) return Unauthorized();
 
-                if (userId == null)
-                {
-                    return Unauthorized();
-                }
+                var producer = await _context.Producers
+                    .FirstOrDefaultAsync(s => s.UserId == userId);
+                if (producer == null) return NotFound();
 
-                var producer = await _context.Producers.FirstOrDefaultAsync(s => s.UserId == userId);
-
-                if (producer == null)
-                {
-                    return NotFound();
-                }
-
-                var ProducerProducts = await _context.Products.Where(p => p.ProducersId == producer.ProducersId).Include(p => p.Producers).ToListAsync();
-                return View(ProducerProducts);
+                products = products.Where(p => p.ProducersId == producer.ProducersId);
             }
             else
             {
-                var allProducts = await _context.Products.Include(p => p.Producers).ToListAsync();
-                return View(allProducts);
+                products = products.Where(p => p.IsAvailable);
             }
+
+
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                products = products.Where(p => p.ProductName.Contains(searchString) || p.Description.Contains(searchString));
+            }
+            
+            if (!string.IsNullOrEmpty(farmingMethod))
+            {
+                products = products.Where(p => p.FarmingMethod == farmingMethod);
+            }
+
+            if (minPrice.HasValue)
+            {
+                products = products.Where(p => p.Price >= minPrice.Value);
+            }
+            if (maxPrice.HasValue)
+            {
+                products = products.Where(p => p.Price <= maxPrice.Value);
+            }
+           
+
+            ViewBag.CurrentSearch = searchString;
+            ViewBag.CurrentFarmingMethod = farmingMethod;
+            ViewBag.FarmingMethods = await _context.Products.Select(p => p.FarmingMethod).Distinct().Where(f => f != null).ToListAsync();
+            ViewBag.CurrentMinPrice = minPrice;
+            ViewBag.CurrentMaxPrice = maxPrice;
+
+            return View(await products.ToListAsync());
         }
 
         // GET: Products/Details/5
@@ -82,7 +110,7 @@ namespace GreenFieldWeb.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Producer,Admin")]
-        public async Task<IActionResult> Create([Bind("ProductName,Price,Stock,Description,IsAvailable,AllergenInformation,FarmingMethod,ImageUrl")] Products products)
+        public async Task<IActionResult> Create([Bind("ProductName,Price,Stock,Description,IsAvailable,AllergenInformation,FarmingMethod,ImageUrl")] Products products, IFormFile imageFile)
         {
             // Get the logged in user's supplier record
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -90,8 +118,35 @@ namespace GreenFieldWeb.Controllers
                 .FirstOrDefaultAsync(p => p.UserId == userId);
 
             if (producer == null) return Forbid();
+            if (imageFile != null && imageFile.Length > 0)
+            {
+                // Generate unique filename to avoid overwriting
+                var fileName = Guid.NewGuid().ToString() + Path.GetExtension(imageFile.FileName);
+                // With this — uses the actual wwwroot path properly
+                var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images");
 
-            // Set server-side fields — never trust the form for these
+                // Create the folder if it doesn't exist
+                if (!Directory.Exists(uploadsFolder))
+                {
+                    Directory.CreateDirectory(uploadsFolder);
+                }
+
+                var filePath = Path.Combine(uploadsFolder, fileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await imageFile.CopyToAsync(stream);
+                }
+
+                products.ImageUrl = fileName;
+            }
+            else
+            {
+                // Default image if none uploaded
+                products.ImageUrl = "default.jpg";
+            }
+
+
             products.ProducersId = producer.ProducersId;
             products.CreatedAt = DateTime.UtcNow;
             products.UpdatedAt = DateTime.UtcNow;
@@ -104,7 +159,7 @@ namespace GreenFieldWeb.Controllers
             {
                 _context.Add(products);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index", "SupplierDashboard");
+                return RedirectToAction("Index", "ProducerDashboard");
             }
 
             return View(products);
@@ -136,7 +191,7 @@ namespace GreenFieldWeb.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Producer,Admin")]
-        public async Task<IActionResult> Edit(int id, [Bind("ProductsId,ProductName,Price,Stock,Description,IsAvailable,AllergenInformation,FarmingMethod,ImageUrl")] Products products)
+        public async Task<IActionResult> Edit(int id, [Bind("ProductsId,ProductName,Price,Stock,Description,IsAvailable,AllergenInformation,FarmingMethod,ImageUrl")] Products products, IFormFile imageFile)
         {
             if (id != products.ProductsId) return NotFound();
 
@@ -145,6 +200,36 @@ namespace GreenFieldWeb.Controllers
                 .FirstOrDefaultAsync(s => s.UserId == userId);
 
             if (producer == null) return NotFound();
+
+            if (imageFile != null && imageFile.Length > 0)
+            {
+                var fileName = Guid.NewGuid().ToString() + Path.GetExtension(imageFile.FileName);
+                // With this — uses the actual wwwroot path properly
+                var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images");
+
+                // Create the folder if it doesn't exist
+                if (!Directory.Exists(uploadsFolder))
+                {
+                    Directory.CreateDirectory(uploadsFolder);
+                }
+
+                var filePath = Path.Combine(uploadsFolder, fileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await imageFile.CopyToAsync(stream);
+                }
+                products.ImageUrl = fileName;
+            }
+            else
+            {
+                // Keep the existing image — fetch it from DB
+                var existing = await _context.Products.AsNoTracking()
+                    .FirstOrDefaultAsync(p => p.ProductsId == products.ProductsId);
+                products.ImageUrl = existing?.ImageUrl ?? "default.jpg";
+            }
+
+            ModelState.Remove("ImageUrl");
 
             // Verify ownership — same as Delete
             var existingProduct = await _context.Products
