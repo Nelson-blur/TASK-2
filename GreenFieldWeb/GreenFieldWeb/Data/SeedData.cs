@@ -6,6 +6,7 @@ namespace GreenFieldWeb.Data
 {
     public class SeedData
     {
+        // This class is responsible for seeding the database with initial data, including user accounts, roles, producers, and products.
         public static async Task SeedUsersAndRoles(IServiceProvider serviceProvider, UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
         {//Seeded Roles
             string[] roleNames = { "Admin", "Producer", "Standard", "Developer" };
@@ -95,14 +96,14 @@ namespace GreenFieldWeb.Data
             var ProducerUser2 = await userManager.FindByEmailAsync("producer2@example.com");
             var ProducerUser3 = await userManager.FindByEmailAsync("producer3@example.com");
 
-            if (ProducerUser1 == null || ProducerUser2 == null || ProducerUser3 == null)
+            if (ProducerUser1 == null || ProducerUser2 == null || ProducerUser3 == null)//Checks if the users exist before seeding producers, as each producer needs to be linked to a user account. If any of the producer users are missing, it throws an exception to prevent seeding producers without valid user references.
             {
                 throw new Exception("Producer users not found. Ensure they are seeded before running this method.");
             }
-            if (context.Producers.Any())
+            if (context.Producers.Any())//Checks if there are already producers in the database. If there are, it assumes the producers have already been seeded and exits the method to avoid creating duplicate records.
                 return;
 
-            var producers = new List<Producers>
+            var producers = new List<Producers>//Creates a list of producer records to be added to the database. Each producer is linked to one of the producer user accounts created in the SeedUsersAndRoles method. The producers have various details like name, description, contact email, and business location.
             {
                 new Producers
                 {
@@ -132,9 +133,10 @@ namespace GreenFieldWeb.Data
             context.Producers.AddRange(producers);
             await context.SaveChangesAsync();
         }
-
+        // This method seeds the Products table with initial product data, linking each product to a producer. It checks if the producers exist before seeding products to ensure referential integrity.
         public static async Task SeedProducts(IServiceProvider serviceProvider)
         {
+            // First, it retrieves the database context to access the Producers and Products tables. It then looks up the producers by name to get their IDs, which are needed to link the products to the correct producers. If any of the producers are not found, it throws an exception to prevent seeding products without valid producer references. Finally, it checks if there are already products in the database and if not, it creates a list of products with various details and saves them to the database.
             var context = serviceProvider.GetRequiredService<ApplicationDbContext>();
             var FreshFields = await context.Producers.FirstOrDefaultAsync(s => s.ProducerName == "Fresh Fields");
             var GreenAcres = await context.Producers.FirstOrDefaultAsync(s => s.ProducerName == "Green Acres");
@@ -143,11 +145,13 @@ namespace GreenFieldWeb.Data
             {
                 throw new Exception("Producers not found. Ensure they are seeded before running this method.");
             }
-
+            // Check if there are already products in the database. If there are, it assumes the products have already been seeded and exits the method to avoid creating duplicate records.
             if (context.Products.Any())
                 return;
+            // Create a list of product records to be added to the database. Each product is linked to one of the producers created in the SeedProducers method. The products have various details like name, price, stock, description, allergen information, farming method, and an optional image URL.
             var products = new List<Products>
             {
+              
                 new Products
                 {
                     ProductName = "Organic Honey",
@@ -295,8 +299,8 @@ namespace GreenFieldWeb.Data
                 }
 
             };
-            context.Products.AddRange(products);
-            await context.SaveChangesAsync();
+            context.Products.AddRange(products); // Adds the list of products to the database context, marking them for insertion into the database when SaveChangesAsync is called.
+            await context.SaveChangesAsync();//Saves the changes to the database, which will insert the new product records into the Products table. This is an asynchronous operation that ensures the database is updated with the new data.
 
         }
 

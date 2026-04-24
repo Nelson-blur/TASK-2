@@ -1,9 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
-/* ================================================
+/*
    GREENFIELD LOCAL HUB — DESIGN SYSTEM
-   Colours, typography, components, accessibility
-================================================ */
+*/
 
 :root {
     --bg-body:        #FAF7F2;
@@ -49,7 +48,7 @@
     --border:       #FFF;
 }
 
-/* ── Reset & Base ──────────────────────────────── */
+/* Reset & Base  */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { font-size: var(--font-size); scroll-behavior: smooth; }
 body {
@@ -63,8 +62,8 @@ a { color: var(--green-mid); text-decoration: none; }
 a:hover { text-decoration: underline; }
 img { max-width: 100%; }
 
-/* ── Accessibility ────────────────────────────── */
-/* ── Accessibility Dropdown ───────────────────── */
+/* Accessibility  */
+/* Accessibility Dropdown */
 .glh-a11y-dropdown-btn {
     background: rgba(255,255,255,.13);
     border: 1px solid rgba(255,255,255,.25);
@@ -169,7 +168,7 @@ img { max-width: 100%; }
         background: var(--bg-subtle);
     }
 
-/* ── Announcement Bar ─────────────────────────── */
+/* Announcement Bar  */
 .glh-announce {
     background: var(--green-dark);
     color: rgba(255,255,255,.85);
@@ -181,7 +180,7 @@ img { max-width: 100%; }
 }
 .glh-announce a { color: var(--loyalty); font-weight: 700; }
 
-/* ── Navbar ───────────────────────────────────── */
+/*  Navbar  */
 .navbar { background: var(--green-dark) !important; padding: .7rem 0; }
 
 .navbar-brand {
@@ -250,7 +249,7 @@ img { max-width: 100%; }
 }
 .dark-toggle:hover { background: rgba(255,255,255,.22); }
 
-/* ── Buttons ──────────────────────────────────── */
+/*  Buttons  */
 .btn, button { font-family: inherit; }
 
 .btn-primary {
@@ -273,7 +272,7 @@ img { max-width: 100%; }
 .btn-outline-secondary { border-radius: var(--radius) !important; font-weight: 600 !important; }
 .btn-sm       { padding: .35rem .9rem !important; font-size: .8rem !important; }
 
-/* ── Cards ────────────────────────────────────── */
+/* Cards  */
 .glh-card {
     background: var(--bg-card);
     border-radius: var(--radius-md);
@@ -284,7 +283,7 @@ img { max-width: 100%; }
 }
 .glh-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
 
-/* ── Product Cards ────────────────────────────── */
+/* Product Cards  */
 .glh-product-card {
     background: var(--bg-card);
     border-radius: var(--radius-md);
@@ -301,7 +300,7 @@ img { max-width: 100%; }
 .glh-product-card .glh-price { font-size: 19px; font-weight: 900; color: var(--green-mid); }
 .glh-product-card .glh-producer-tag { font-size: 10.5px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: .5px; }
 
-/* ── Stock / Status Badges ────────────────────── */
+/*  Stock / Status Badges */
 .badge-in    { background: #EAF3DE; color: #1A4A1A; }
 .badge-low   { background: #FFF3E0; color: #E65100; }
 .badge-out   { background: #FEE;    color: var(--error); }
@@ -316,7 +315,7 @@ img { max-width: 100%; }
 .status-delivered { background:#EAF3DE; color:#1A4A1A; border-radius:20px; padding:3px 12px; font-size:11px; font-weight:700; }
 .status-cancelled { background:#FEE;    color:var(--error); border-radius:20px; padding:3px 12px; font-size:11px; font-weight:700; }
 
-/* ── Loyalty ──────────────────────────────────── */
+/*  Loyalty  */
 .loyalty-badge {
     background: var(--loyalty);
     color: #fff;
@@ -334,7 +333,7 @@ img { max-width: 100%; }
     display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap;
 }
 
-/* ── Forms ────────────────────────────────────── */
+/*  Forms  */
 .form-control, .form-select {
     border-radius: var(--radius-md) !important;
     border: 1.5px solid var(--border) !important;
@@ -351,14 +350,14 @@ img { max-width: 100%; }
     outline: none;
 }
 
-/* ── Tables ───────────────────────────────────── */
+/*  Tables  */
 .table { border-radius: var(--radius-md); overflow: hidden; border-collapse: separate; border-spacing: 0; }
 .table thead tr { background: var(--green-dark); }
 .table thead th { color: #fff !important; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: .5px; padding: 11px 14px; border: none !important; }
 .table tbody td { padding: 11px 14px; vertical-align: middle; border-color: var(--border) !important; color: var(--text-primary); font-size: 13.5px; }
 .table tbody tr:hover td { background: rgba(47,111,78,.04); }
 
-/* ── Producer Dashboard Sidebar ──────────────── */
+/*  Producer Dashboard Sidebar */
 .glh-sidebar {
     background: var(--green-dark);
     min-height: 100vh;
@@ -385,7 +384,7 @@ img { max-width: 100%; }
     background: rgba(255,255,255,.08);
 }
 
-/* ── Section Headings ─────────────────────────── */
+/*  Section Headings  */
 .glh-section-title {
     font-size: 1.5rem; font-weight: 800;
     color: var(--green-dark);
@@ -395,7 +394,7 @@ img { max-width: 100%; }
     margin-bottom: 1.25rem;
 }
 
-/* ── Page Header ──────────────────────────────── */
+/* Page Header */
 .glh-page-header {
     display: flex; justify-content: space-between; align-items: flex-start;
     flex-wrap: wrap; gap: .75rem;
@@ -404,7 +403,7 @@ img { max-width: 100%; }
 .glh-page-header h1 { font-size: 1.7rem; font-weight: 900; color: var(--green-dark); margin: 0; }
 .glh-page-header p  { color: var(--text-muted); font-size: .875rem; margin: 3px 0 0; }
 
-/* ── Feature Cards ────────────────────────────── */
+/*  Feature Cards */
 .glh-feature {
     background: var(--bg-card);
     border-radius: var(--radius-md);
@@ -418,7 +417,7 @@ img { max-width: 100%; }
 .glh-feature h3   { font-size: .95rem; font-weight: 800; color: var(--green-dark); margin: 0 0 .4rem; }
 .glh-feature p    { font-size: .84rem; color: var(--text-muted); line-height: 1.6; margin: 0; }
 
-/* ── Hero ─────────────────────────────────────── */
+/*  Hero  */
 .glh-hero {
     background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 100%);
     border-radius: 22px;
@@ -443,7 +442,7 @@ img { max-width: 100%; }
 .glh-stat .val  { display: block; font-size: 1.7rem; font-weight: 900; line-height: 1; }
 .glh-stat .lbl  { font-size: 10px; opacity: .75; font-weight: 600; text-transform: uppercase; letter-spacing: .5px; margin-top: 3px; display: block; }
 
-/* ── CTA Banner ───────────────────────────────── */
+/*  CTA Banner  */
 .glh-cta {
     background: linear-gradient(135deg, var(--green-mid), var(--green-dark));
     border-radius: 18px;
@@ -537,15 +536,9 @@ img { max-width: 100%; }
     .glh-search-row { flex-direction: column; }
     .glh-search-group { min-width: 100%; }
 }
-/* ================================================
-   GLH PATCH — Add these to the BOTTOM of site.css
-   Fixes: dark mode tables, font size, sidebar,
-          hero stats accuracy
-================================================ */
 
-/* ── FONT SIZE FIX ─────────────────────────────
-   Apply to html element so rem units scale with it
-──────────────────────────────────────────────── */
+
+
 html[data-fontsize="lg"] {
     font-size: 18px;
 }
@@ -560,10 +553,7 @@ body[data-fontsize="xl"] {
     font-size: inherit;
 }
 
-/* ── DARK MODE TABLE FIX ───────────────────────
-   Tables were showing white text on white bg
-   until hover because Bootstrap overrides our vars
-──────────────────────────────────────────────── */
+/* Dark Mode Table Fix*/
 [data-theme="dark"] .table {
     --bs-table-bg: var(--bg-card);
     --bs-table-color: var(--text-primary);
@@ -591,7 +581,7 @@ body[data-fontsize="xl"] {
         color: var(--text-primary) !important;
     }
 
-/* ── SIDEBAR OFFCANVAS ─────────────────────────── */
+/* SIDEBAR OFFCANVAS  */
 .glh-offcanvas {
     width: 260px !important;
     border-right: 1px solid rgba(255,255,255,.1);
@@ -703,7 +693,34 @@ body[data-fontsize="xl"] {
         background: rgba(255,255,255,.22);
     }
 
-/* ── DARK MODE: offcanvas backdrop fix ──────── */
+/*  DARK MODE: */
 [data-theme="dark"] .glh-offcanvas {
     background: var(--green-dark);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 60px var(--bg-card) inset !important;
+    box-shadow: 0 0 0 60px var(--bg-card) inset !important;
+    -webkit-text-fill-color: var(--text-primary) !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.form-floating > .form-control:not(:placeholder-shown) ~ label,
+.form-floating > input:-webkit-autofill ~ label {
+    opacity: .65;
+    transform: scale(.85) translateY(-0.5rem) translateX(0.15rem);
+}
+
+/* Fix autofill background */
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 100px white inset !important;
+    -webkit-text-fill-color: #2B2B2B !important;
+}
+
+[data-theme="dark"] input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 100px #2F3E35 inset !important;
+    -webkit-text-fill-color: #F0F0F0 !important;
 }
