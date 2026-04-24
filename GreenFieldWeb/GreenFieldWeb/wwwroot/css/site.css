@@ -537,3 +537,173 @@ img { max-width: 100%; }
     .glh-search-row { flex-direction: column; }
     .glh-search-group { min-width: 100%; }
 }
+/* ================================================
+   GLH PATCH — Add these to the BOTTOM of site.css
+   Fixes: dark mode tables, font size, sidebar,
+          hero stats accuracy
+================================================ */
+
+/* ── FONT SIZE FIX ─────────────────────────────
+   Apply to html element so rem units scale with it
+──────────────────────────────────────────────── */
+html[data-fontsize="lg"] {
+    font-size: 18px;
+}
+
+html[data-fontsize="xl"] {
+    font-size: 21px;
+}
+
+/* Remove the old body[data-fontsize] rules if present */
+body[data-fontsize="lg"],
+body[data-fontsize="xl"] {
+    font-size: inherit;
+}
+
+/* ── DARK MODE TABLE FIX ───────────────────────
+   Tables were showing white text on white bg
+   until hover because Bootstrap overrides our vars
+──────────────────────────────────────────────── */
+[data-theme="dark"] .table {
+    --bs-table-bg: var(--bg-card);
+    --bs-table-color: var(--text-primary);
+    --bs-table-border-color: var(--border);
+    --bs-table-hover-bg: rgba(255,255,255,0.06);
+    --bs-table-hover-color: var(--text-primary);
+    --bs-table-striped-bg: var(--bg-subtle);
+    --bs-table-striped-color: var(--text-primary);
+    color: var(--text-primary);
+}
+
+    [data-theme="dark"] .table > :not(caption) > * > * {
+        background-color: var(--bg-card);
+        color: var(--text-primary);
+        border-bottom-color: var(--border);
+    }
+
+    [data-theme="dark"] .table thead > tr > th {
+        background-color: #0F2E0F !important;
+        color: #fff !important;
+    }
+
+    [data-theme="dark"] .table tbody tr:hover > * {
+        background-color: rgba(255,255,255,0.06) !important;
+        color: var(--text-primary) !important;
+    }
+
+/* ── SIDEBAR OFFCANVAS ─────────────────────────── */
+.glh-offcanvas {
+    width: 260px !important;
+    border-right: 1px solid rgba(255,255,255,.1);
+}
+
+.glh-sidebar-toggle {
+    background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.25);
+    color: #fff;
+    border-radius: 8px;
+    padding: 5px 11px;
+    font-size: 16px;
+    cursor: pointer;
+    line-height: 1;
+    transition: background .15s;
+    flex-shrink: 0;
+}
+
+    .glh-sidebar-toggle:hover {
+        background: rgba(255,255,255,.22);
+    }
+
+.glh-sb-section {
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,.4);
+    padding: 1rem 1.25rem .35rem;
+    display: block;
+}
+
+.glh-sb-link {
+    display: block;
+    padding: 9px 1.25rem;
+    color: rgba(255,255,255,.78) !important;
+    text-decoration: none;
+    font-size: 13.5px;
+    font-weight: 500;
+    border-left: 3px solid transparent;
+    transition: all .15s;
+}
+
+    .glh-sb-link:hover {
+        background: rgba(255,255,255,.08);
+        color: #fff !important;
+        border-left-color: var(--green-light);
+        text-decoration: none;
+    }
+
+.glh-sb-a11y-btn {
+    flex: 1;
+    background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 800;
+    padding: 6px 4px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background .15s;
+}
+
+    .glh-sb-a11y-btn:hover {
+        background: rgba(255,255,255,.22);
+    }
+
+.glh-sb-full-btn {
+    display: block;
+    width: 100%;
+    background: none;
+    border: none;
+    color: rgba(255,255,255,.78);
+    font-size: 13px;
+    font-family: inherit;
+    padding: 8px 1.25rem;
+    text-align: left;
+    cursor: pointer;
+    transition: all .15s;
+    border-left: 3px solid transparent;
+}
+
+    .glh-sb-full-btn:hover {
+        background: rgba(255,255,255,.08);
+        color: #fff;
+        border-left-color: var(--green-light);
+    }
+
+/* Accessibility dropdown — icon only in navbar */
+.glh-a11y-dropdown-btn {
+    background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.25);
+    color: #fff;
+    border-radius: 20px;
+    padding: 5px 12px;
+    font-size: 14px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background .15s;
+}
+
+    .glh-a11y-dropdown-btn::after {
+        display: none;
+    }
+
+    .glh-a11y-dropdown-btn:hover,
+    .glh-a11y-dropdown-btn[aria-expanded="true"] {
+        background: rgba(255,255,255,.22);
+    }
+
+/* ── DARK MODE: offcanvas backdrop fix ──────── */
+[data-theme="dark"] .glh-offcanvas {
+    background: var(--green-dark);
+}

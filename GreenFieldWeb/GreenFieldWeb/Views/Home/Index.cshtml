@@ -1,12 +1,16 @@
 @{
     ViewData["Title"] = "Home — Fresh Local Food";
+
+    // Get real counts from ViewBag set by HomeController
+    int producerCount = ViewBag.Producers != null ? ((IEnumerable<dynamic>)ViewBag.Producers).Count() : 0;
+    int productCount  = ViewBag.FeaturedProducts != null ? ((IEnumerable<dynamic>)ViewBag.FeaturedProducts).Count() : 0;
 }
 
 <!-- ── Hero ──────────────────────────────────── -->
 <section class="glh-hero" aria-labelledby="hero-h1">
     <div class="row align-items-center">
         <div class="col-lg-8">
-            <span class="glh-hero-tag">🌱 Supporting 12+ local farms and producers</span>
+            <span class="glh-hero-tag">🌱 Locally grown, community powered</span>
             <h1 id="hero-h1">Fresh food, straight from<br />your local farms</h1>
             <p>Order online from our cooperative of local farmers and producers.<br />Delivery or collection available. Always fresh, always traceable.</p>
             <div class="d-flex gap-3 flex-wrap">
@@ -16,11 +20,24 @@
                    style="background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.4);border-radius:30px;font-weight:700;"
                    aria-label="Meet our producers">Meet the Producers</a>
             </div>
+            <!-- Stats — pulled from real data -->
             <div class="glh-stats">
-                <div class="glh-stat"><span class="val">12+</span><span class="lbl">Local Producers</span></div>
-                <div class="glh-stat"><span class="val">80+</span><span class="lbl">Products Available</span></div>
-                <div class="glh-stat"><span class="val">2hr</span><span class="lbl">Collection Time</span></div>
-                <div class="glh-stat"><span class="val">5mi</span><span class="lbl">Avg Farm Distance</span></div>
+                <div class="glh-stat">
+                    <span class="val">@(producerCount > 0 ? producerCount.ToString() : "–")</span>
+                    <span class="lbl">Local Producers</span>
+                </div>
+                <div class="glh-stat">
+                    <span class="val">@(ViewBag.TotalProductCount != null ? ((int)ViewBag.TotalProductCount).ToString() : (productCount > 0 ? productCount.ToString()+"+" : "–"))</span>
+                    <span class="lbl">Products Available</span>
+                </div>
+                <div class="glh-stat">
+                    <span class="val">2hr</span>
+                    <span class="lbl">Collection Time</span>
+                </div>
+                <div class="glh-stat">
+                    <span class="val">5mi</span>
+                    <span class="lbl">Avg Farm Distance</span>
+                </div>
             </div>
         </div>
         <div class="col-lg-4 d-none d-lg-flex justify-content-end" aria-hidden="true">
@@ -41,7 +58,7 @@
 </section>
 
 <!-- ── Loyalty Banner ────────────────────────── -->
-<section class="glh-loyalty-strip mb-5" aria-label="Loyalty rewards scheme">
+<section class="glh-loyalty-strip mb-5" aria-label="Loyalty rewards">
     <div>
         <p style="font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:1px;opacity:.75;margin:0 0 3px;">🏷 Loyalty Programme</p>
         <h3 style="color:#fff;font-weight:900;margin:0 0 3px;font-size:1.1rem;">Earn points with every purchase</h3>
@@ -49,17 +66,11 @@
     </div>
     @if (User.Identity.IsAuthenticated)
     {
-        <a asp-controller="Orders" asp-action="Index"
-           class="btn px-4 py-2 flex-shrink-0"
-           style="background:#fff;color:#F4A259;font-weight:800;border-radius:30px;"
-           aria-label="View my orders">View My Orders →</a>
+        <a asp-controller="Orders" asp-action="Index" class="btn px-4 py-2 flex-shrink-0" style="background:#fff;color:#F4A259;font-weight:800;border-radius:30px;">View My Orders →</a>
     }
     else
     {
-        <a asp-area="Identity" asp-page="/Account/Register"
-           class="btn px-4 py-2 flex-shrink-0"
-           style="background:#fff;color:#F4A259;font-weight:800;border-radius:30px;"
-           aria-label="Register for a free account">Sign Up Free →</a>
+        <a asp-area="Identity" asp-page="/Account/Register" class="btn px-4 py-2 flex-shrink-0" style="background:#fff;color:#F4A259;font-weight:800;border-radius:30px;">Sign Up Free →</a>
     }
 </section>
 
@@ -67,10 +78,10 @@
 <section aria-labelledby="featured-h2" class="mb-5">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h2 id="featured-h2" class="glh-section-title mb-0">Featured Products</h2>
-        <a asp-controller="Products" asp-action="Index" style="color:var(--green-mid);font-weight:700;font-size:13.5px;" aria-label="Browse all products">Browse all →</a>
+        <a asp-controller="Products" asp-action="Index" style="color:var(--green-mid);font-weight:700;font-size:13.5px;">Browse all →</a>
     </div>
 
-    @if (ViewBag.FeaturedProducts != null && ((System.Collections.IEnumerable)ViewBag.FeaturedProducts).GetEnumerator().MoveNext())
+    @if (ViewBag.FeaturedProducts != null)
     {
         <div class="row g-3" role="list" aria-label="Featured products">
             @foreach (var p in ViewBag.FeaturedProducts)
@@ -90,29 +101,21 @@
                             <h3 style="font-size:14.5px;font-weight:700;margin:4px 0 8px;color:var(--text-primary);">@p.ProductName</h3>
                             <div class="d-flex justify-content-between align-items-center mb-2">
                                 <span class="glh-price">£@p.Price.ToString("0.00")</span>
-                                @if (p.Stock > 10)      { <span class="badge-in">In stock</span> }
-                                else if (p.Stock > 0)   { <span class="badge-low">Low stock</span> }
-                                else                    { <span class="badge-out">Out of stock</span> }
+                                @if (p.Stock > 10)     { <span class="badge-in">In stock</span> }
+                                else if (p.Stock > 0)  { <span class="badge-low">Low stock</span> }
+                                else                   { <span class="badge-out">Out of stock</span> }
                             </div>
                             @if (User.Identity.IsAuthenticated && !User.IsInRole("Producer") && !User.IsInRole("Admin") && p.Stock > 0)
                             {
-                                <form class="glh-ajax-basket"
-                                      action="/BasketProducts/Create"
-                                      method="post"
-                                      aria-label="Add @p.ProductName to basket">
+                                <form class="glh-ajax-basket" action="/BasketProducts/Create" method="post">
                                     @Html.AntiForgeryToken()
                                     <input type="hidden" name="ProductsId" value="@p.ProductsId" />
-                                    <button type="submit" class="btn btn-primary w-100 py-2"
-                                            style="font-size:13px;"
-                                            aria-label="Add @p.ProductName to basket">Add to basket</button>
+                                    <button type="submit" class="btn btn-primary w-100 py-2" style="font-size:13px;" aria-label="Add @p.ProductName to basket">Add to basket</button>
                                 </form>
                             }
                             else if (!User.Identity.IsAuthenticated)
                             {
-                                <a asp-area="Identity" asp-page="/Account/Login"
-                                   class="btn btn-outline-secondary w-100 py-2"
-                                   style="font-size:13px;"
-                                   aria-label="Login to buy @p.ProductName">Login to buy</a>
+                                <a asp-area="Identity" asp-page="/Account/Login" class="btn btn-outline-secondary w-100 py-2" style="font-size:13px;">Login to buy</a>
                             }
                             else if (p.Stock == 0)
                             {
@@ -126,32 +129,22 @@
     }
     else
     {
-        <!-- Fallback if HomeController doesn't set ViewBag.FeaturedProducts -->
-        <div style="background:var(--bg-card);border-radius:16px;border:1px solid var(--border);padding:2rem;text-align:center;">
-            <p style="color:var(--text-muted);margin:0 0 1rem;">
-                To show featured products here, add this to your <strong>HomeController.cs</strong> Index method:
-            </p>
-            <code style="background:var(--bg-subtle);padding:.75rem 1rem;border-radius:10px;display:block;font-size:12px;text-align:left;color:var(--text-primary);">
-                ViewBag.FeaturedProducts = await _context.Products<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;.Where(p => p.IsAvailable && p.Stock > 0)<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;.Include(p => p.Producers)<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;.OrderByDescending(p => p.ProductsId)<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;.Take(6)<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;.ToListAsync();
-            </code>
+        <div class="glh-empty">
+            <div class="glh-empty-icon">🌱</div>
+            <h3>Products coming soon</h3>
             <a asp-controller="Products" asp-action="Index" class="btn btn-primary mt-3 px-4">Browse All Products</a>
         </div>
     }
 </section>
 
 <!-- ── Producers Preview ──────────────────────── -->
-<section aria-labelledby="producers-h2" class="mb-5">
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2 id="producers-h2" class="glh-section-title mb-0">Our Producers</h2>
-        <a asp-controller="Producers" asp-action="Index" style="color:var(--green-mid);font-weight:700;font-size:13.5px;" aria-label="View all producers">View all →</a>
-    </div>
-    @if (ViewBag.Producers != null)
-    {
+@if (ViewBag.Producers != null)
+{
+    <section aria-labelledby="producers-h2" class="mb-5">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2 id="producers-h2" class="glh-section-title mb-0">Our Producers</h2>
+            <a asp-controller="Producers" asp-action="Index" style="color:var(--green-mid);font-weight:700;font-size:13.5px;">View all →</a>
+        </div>
         <div class="row g-3">
             @foreach (var producer in ViewBag.Producers)
             {
@@ -168,8 +161,8 @@
                 </div>
             }
         </div>
-    }
-</section>
+    </section>
+}
 
 <!-- ── CTA ───────────────────────────────────── -->
 <section class="glh-cta mb-2" aria-label="Call to action">
@@ -177,8 +170,5 @@
         <h2>Ready to shop local?</h2>
         <p>Browse our full range of fresh, locally sourced produce.</p>
     </div>
-    <a asp-controller="Products" asp-action="Index"
-       class="btn flex-shrink-0 px-4 py-2"
-       style="background:#fff;color:#1A4A1A;font-weight:800;border-radius:30px;"
-       aria-label="View all products">View All Products →</a>
+    <a asp-controller="Products" asp-action="Index" class="btn flex-shrink-0 px-4 py-2" style="background:#fff;color:#1A4A1A;font-weight:800;border-radius:30px;">View All Products →</a>
 </section>

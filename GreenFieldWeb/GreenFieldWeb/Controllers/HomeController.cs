@@ -19,6 +19,7 @@ namespace GreenFieldWeb.Controllers
 
         public async Task<IActionResult> Index()
         {
+            ViewBag.TotalProductCount = await _context.Products.CountAsync(p => p.IsAvailable);
             ViewBag.FeaturedProducts = await _context.Products
                 .Where(p => p.IsAvailable && p.Stock > 0)
                 .Include(p => p.Producers)
