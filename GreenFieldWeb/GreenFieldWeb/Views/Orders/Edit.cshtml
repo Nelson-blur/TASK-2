@@ -1,84 +1,50 @@
-﻿@model GreenFieldWeb.Models.Orders
-
+@model GreenFieldWeb.Models.Orders
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Update Order Status";
 }
 
-<h1>Edit</h1>
+<div class="glh-form-wrap">
+    <div class="glh-form-card" style="max-width:480px;">
+        <h1 class="glh-form-title">Update Order Status</h1>
+        <p class="glh-form-sub">Order #@Model.OrdersId · placed @Model.OrderDate</p>
 
-<h4>Orders</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="OrdersId" />
-           
-            <div class="form-group">
-                <label asp-for="UserId" class="control-label"></label>
-                <input asp-for="UserId" class="form-control" />
-                <span asp-validation-for="UserId" class="text-danger"></span>
+        <!-- Order summary -->
+        <div class="glh-detail-list mb-3">
+            <div class="glh-detail-row"><span>Method</span><strong>@Model.DeliveryMethod</strong></div>
+            <div class="glh-detail-row"><span>Total</span><strong>£@Model.TotalAmount.ToString("0.00")</strong></div>
+            <div class="glh-detail-row">
+                <span>Current Status</span>
+                <strong>
+                    @if (Model.OrderStatus == "Pending")          { <span class="status-pending">@Model.OrderStatus</span> }
+                    else if (Model.OrderStatus == "Delivered" || Model.OrderStatus == "Collected") { <span class="status-delivered">@Model.OrderStatus</span> }
+                    else                                           { <span class="status-shipped">@Model.OrderStatus</span> }
+                </strong>
             </div>
-            <div class="form-group">
-                <label asp-for="OrderDate" class="control-label"></label>
-                <input asp-for="OrderDate" class="form-control" />
-                <span asp-validation-for="OrderDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="OrderStatus" class="control-label"></label>
+        </div>
 
-				<select asp-for="OrderStatus" class="form-control">
-                  <option value="">-- selected Status --</option>
-                  <option value="Pending">Pending</option>
-                  <option value="Processing">Processing</option>
-                  <option value="Shipped">Shipped</option>
-                  <option value="Delivered">Delivered</option>
-                  <option value="Cancelled">Cancelled</option>
-				</select>
-                
-                <span asp-validation-for="OrderStatus" class="text-danger"></span>
+        <form asp-action="Edit" method="post">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="id" value="@Model.OrdersId" />
+
+            <div class="glh-field">
+                <label for="OrderStatus" class="glh-label">New Status</label>
+                <select name="OrderStatus" id="OrderStatus" class="form-select" aria-label="Select new order status">
+                    <option value="">-- Select Status --</option>
+                    <option value="Pending"              selected="@(Model.OrderStatus=="Pending")">Pending</option>
+                    <option value="Processing"           selected="@(Model.OrderStatus=="Processing")">Processing</option>
+                    <option value="Shipped"              selected="@(Model.OrderStatus=="Shipped")">Shipped</option>
+                    <option value="Out for Delivery"     selected="@(Model.OrderStatus=="Out for Delivery")">Out for Delivery</option>
+                    <option value="Delivered"            selected="@(Model.OrderStatus=="Delivered")">Delivered</option>
+                    <option value="Ready for Collection" selected="@(Model.OrderStatus=="Ready for Collection")">Ready for Collection</option>
+                    <option value="Collected"            selected="@(Model.OrderStatus=="Collected")">Collected</option>
+                    <option value="Cancelled"            selected="@(Model.OrderStatus=="Cancelled")">Cancelled</option>
+                </select>
             </div>
-            <div class="form-group">
-                <label asp-for="DeliveryMethod" class="control-label"></label>
-                <input asp-for="DeliveryMethod" class="form-control" />
-                <span asp-validation-for="DeliveryMethod" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DeliveryDate" class="control-label"></label>
-                <input asp-for="DeliveryDate" class="form-control" />
-                <span asp-validation-for="DeliveryDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DeliveryAddress" class="control-label"></label>
-                <input asp-for="DeliveryAddress" class="form-control" />
-                <span asp-validation-for="DeliveryAddress" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DeliveryFee" class="control-label"></label>
-                <input asp-for="DeliveryFee" class="form-control" />
-                <span asp-validation-for="DeliveryFee" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="DiscountApplied" /> @Html.DisplayNameFor(model => model.DiscountApplied)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="TotalAmount" class="control-label"></label>
-                <input asp-for="TotalAmount" class="form-control" />
-                <span asp-validation-for="TotalAmount" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+
+            <div class="d-flex gap-2 mt-3">
+                <button type="submit" class="btn btn-primary px-4" aria-label="Save new status">Save Status</button>
+                <a asp-action="Index" class="btn btn-outline-secondary">Cancel</a>
             </div>
         </form>
     </div>
 </div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

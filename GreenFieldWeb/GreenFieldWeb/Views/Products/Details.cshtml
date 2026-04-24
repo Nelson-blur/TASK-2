@@ -1,84 +1,58 @@
-﻿@model GreenFieldWeb.Models.Products
-
+@model GreenFieldWeb.Models.Products
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = Model.ProductName;
 }
 
-<h1>Details</h1>
+<div class="row g-4 align-items-start">
+    <!-- Image -->
+    <div class="col-md-4">
+        <div style="border-radius:16px;overflow:hidden;background:#EAF3DE;aspect-ratio:1;display:flex;align-items:center;justify-content:center;">
+            @if (!string.IsNullOrEmpty(Model.ImageUrl))
+            {
+                <img src="@Model.ImageUrl" alt="@Model.ProductName" style="width:100%;height:100%;object-fit:cover;" />
+            }
+            else
+            {
+                <span style="font-size:5rem;" aria-hidden="true">🌿</span>
+            }
+        </div>
+    </div>
 
-<div>
-    <h4>Products</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ProductName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ProductName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Stock)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Stock)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CreatedAt)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CreatedAt)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UpdatedAt)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UpdatedAt)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IsAvailable)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IsAvailable)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.AllergenInformation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.AllergenInformation)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FarmingMethod)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FarmingMethod)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ImageUrl)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ImageUrl)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Producers)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Producers.ProducersId)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.ProductsId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <!-- Info -->
+    <div class="col-md-8">
+        <p style="font-size:11px;font-weight:700;color:var(--green-mid);text-transform:uppercase;letter-spacing:.5px;margin:0 0 4px;">@(Model.Producers?.ProducerName ?? "Unknown Producer")</p>
+        <h1 style="font-size:1.75rem;font-weight:900;color:var(--green-dark);margin:0 0 .5rem;">@Model.ProductName</h1>
+        <p style="font-size:2rem;font-weight:900;color:var(--green-mid);margin:0 0 .75rem;">£@Model.Price.ToString("0.00")</p>
+
+        <div class="d-flex gap-2 mb-3 flex-wrap">
+            @if (Model.Stock > 10)    { <span class="badge-in">✓ In Stock (@Model.Stock units)</span> }
+            else if (Model.Stock > 0) { <span class="badge-low">Low Stock (@Model.Stock left)</span> }
+            else                      { <span class="badge-out">Out of Stock</span> }
+            @if (Model.IsAvailable) { <span class="badge-in">Available</span> }
+        </div>
+
+        <p style="font-size:.9rem;color:var(--text-primary);line-height:1.7;margin:0 0 1.25rem;">@Model.Description</p>
+
+        <div class="glh-card p-3 mb-3">
+            <div class="glh-detail-row"><span>Farming Method</span><strong>@(Model.FarmingMethod ?? "Not specified")</strong></div>
+            <div class="glh-detail-row"><span>Allergen Information</span><strong>@(Model.AllergenInformation ?? "None listed")</strong></div>
+            <div class="glh-detail-row"><span>Producer</span><strong>@(Model.Producers?.ProducerName ?? "Unknown")</strong></div>
+        </div>
+
+        <div class="d-flex gap-2 flex-wrap">
+            @if (User.Identity.IsAuthenticated && !User.IsInRole("Producer") && !User.IsInRole("Admin") && Model.Stock > 0)
+            {
+                <form asp-controller="BasketProducts" asp-action="Create" method="post">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="ProductsId" value="@Model.ProductsId" />
+                    <button type="submit" class="btn btn-primary px-4" aria-label="Add @Model.ProductName to basket">Add to Basket</button>
+                </form>
+            }
+            @if (User.IsInRole("Producer") || User.IsInRole("Admin"))
+            {
+                <a asp-action="Edit" asp-route-id="@Model.ProductsId" class="btn btn-primary px-4" aria-label="Edit @Model.ProductName">Edit Product</a>
+            }
+            <a asp-action="Index" class="btn btn-outline-secondary" aria-label="Back to all products">← Back to Products</a>
+        </div>
+    </div>
 </div>

@@ -1,8 +1,184 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+@{
+    ViewData["Title"] = "Home — Fresh Local Food";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!-- ── Hero ──────────────────────────────────── -->
+<section class="glh-hero" aria-labelledby="hero-h1">
+    <div class="row align-items-center">
+        <div class="col-lg-8">
+            <span class="glh-hero-tag">🌱 Supporting 12+ local farms and producers</span>
+            <h1 id="hero-h1">Fresh food, straight from<br />your local farms</h1>
+            <p>Order online from our cooperative of local farmers and producers.<br />Delivery or collection available. Always fresh, always traceable.</p>
+            <div class="d-flex gap-3 flex-wrap">
+                <a asp-controller="Products" asp-action="Index" class="btn btn-primary px-4 py-2" aria-label="Shop all products">Shop Products</a>
+                <a asp-controller="Producers" asp-action="Index"
+                   class="btn px-4 py-2"
+                   style="background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.4);border-radius:30px;font-weight:700;"
+                   aria-label="Meet our producers">Meet the Producers</a>
+            </div>
+            <div class="glh-stats">
+                <div class="glh-stat"><span class="val">12+</span><span class="lbl">Local Producers</span></div>
+                <div class="glh-stat"><span class="val">80+</span><span class="lbl">Products Available</span></div>
+                <div class="glh-stat"><span class="val">2hr</span><span class="lbl">Collection Time</span></div>
+                <div class="glh-stat"><span class="val">5mi</span><span class="lbl">Avg Farm Distance</span></div>
+            </div>
+        </div>
+        <div class="col-lg-4 d-none d-lg-flex justify-content-end" aria-hidden="true">
+            <span style="font-size:7rem;opacity:.12;user-select:none;">🌾</span>
+        </div>
+    </div>
+</section>
+
+<!-- ── Why Buy Local ──────────────────────────── -->
+<section aria-labelledby="why-h2" class="mb-5">
+    <h2 id="why-h2" class="glh-section-title">Why Buy Local?</h2>
+    <div class="row g-3">
+        <div class="col-md-3 col-sm-6"><article class="glh-feature"><div class="glh-feature-icon">🥕</div><h3>Fresher Food</h3><p>Harvested days — not weeks — before you eat it. Better taste and nutrition.</p></article></div>
+        <div class="col-md-3 col-sm-6"><article class="glh-feature"><div class="glh-feature-icon">🔍</div><h3>Full Traceability</h3><p>Know exactly who grew your food, where, and how — field to fork.</p></article></div>
+        <div class="col-md-3 col-sm-6"><article class="glh-feature"><div class="glh-feature-icon">🤝</div><h3>Support Local</h3><p>Every purchase goes directly to local farmers in your community.</p></article></div>
+        <div class="col-md-3 col-sm-6"><article class="glh-feature"><div class="glh-feature-icon">🌿</div><h3>Better for Planet</h3><p>Shorter supply chains, lower emissions, less packaging waste.</p></article></div>
+    </div>
+</section>
+
+<!-- ── Loyalty Banner ────────────────────────── -->
+<section class="glh-loyalty-strip mb-5" aria-label="Loyalty rewards scheme">
+    <div>
+        <p style="font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:1px;opacity:.75;margin:0 0 3px;">🏷 Loyalty Programme</p>
+        <h3 style="color:#fff;font-weight:900;margin:0 0 3px;font-size:1.1rem;">Earn points with every purchase</h3>
+        <p style="color:rgba(255,255,255,.82);font-size:.84rem;margin:0;">Get exclusive discounts — 5%, 10%, or 15% off based on your order history.</p>
+    </div>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <a asp-controller="Orders" asp-action="Index"
+           class="btn px-4 py-2 flex-shrink-0"
+           style="background:#fff;color:#F4A259;font-weight:800;border-radius:30px;"
+           aria-label="View my orders">View My Orders →</a>
+    }
+    else
+    {
+        <a asp-area="Identity" asp-page="/Account/Register"
+           class="btn px-4 py-2 flex-shrink-0"
+           style="background:#fff;color:#F4A259;font-weight:800;border-radius:30px;"
+           aria-label="Register for a free account">Sign Up Free →</a>
+    }
+</section>
+
+<!-- ── Featured Products ──────────────────────── -->
+<section aria-labelledby="featured-h2" class="mb-5">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 id="featured-h2" class="glh-section-title mb-0">Featured Products</h2>
+        <a asp-controller="Products" asp-action="Index" style="color:var(--green-mid);font-weight:700;font-size:13.5px;" aria-label="Browse all products">Browse all →</a>
+    </div>
+
+    @if (ViewBag.FeaturedProducts != null && ((System.Collections.IEnumerable)ViewBag.FeaturedProducts).GetEnumerator().MoveNext())
+    {
+        <div class="row g-3" role="list" aria-label="Featured products">
+            @foreach (var p in ViewBag.FeaturedProducts)
+            {
+                <div class="col-lg-4 col-sm-6" role="listitem">
+                    <article class="glh-product-card">
+                        @if (!string.IsNullOrEmpty((string)p.ImageUrl))
+                        {
+                            <img src="@p.ImageUrl" alt="@p.ProductName" loading="lazy" />
+                        }
+                        else
+                        {
+                            <div style="height:175px;background:#EAF3DE;display:flex;align-items:center;justify-content:center;font-size:3rem;" aria-hidden="true">🌿</div>
+                        }
+                        <div class="glh-card-body">
+                            <p class="glh-producer-tag">@p.Producers?.ProducerName</p>
+                            <h3 style="font-size:14.5px;font-weight:700;margin:4px 0 8px;color:var(--text-primary);">@p.ProductName</h3>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="glh-price">£@p.Price.ToString("0.00")</span>
+                                @if (p.Stock > 10)      { <span class="badge-in">In stock</span> }
+                                else if (p.Stock > 0)   { <span class="badge-low">Low stock</span> }
+                                else                    { <span class="badge-out">Out of stock</span> }
+                            </div>
+                            @if (User.Identity.IsAuthenticated && !User.IsInRole("Producer") && !User.IsInRole("Admin") && p.Stock > 0)
+                            {
+                                <form class="glh-ajax-basket"
+                                      action="/BasketProducts/Create"
+                                      method="post"
+                                      aria-label="Add @p.ProductName to basket">
+                                    @Html.AntiForgeryToken()
+                                    <input type="hidden" name="ProductsId" value="@p.ProductsId" />
+                                    <button type="submit" class="btn btn-primary w-100 py-2"
+                                            style="font-size:13px;"
+                                            aria-label="Add @p.ProductName to basket">Add to basket</button>
+                                </form>
+                            }
+                            else if (!User.Identity.IsAuthenticated)
+                            {
+                                <a asp-area="Identity" asp-page="/Account/Login"
+                                   class="btn btn-outline-secondary w-100 py-2"
+                                   style="font-size:13px;"
+                                   aria-label="Login to buy @p.ProductName">Login to buy</a>
+                            }
+                            else if (p.Stock == 0)
+                            {
+                                <button class="btn btn-secondary w-100 py-2" style="font-size:13px;" disabled>Out of Stock</button>
+                            }
+                        </div>
+                    </article>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <!-- Fallback if HomeController doesn't set ViewBag.FeaturedProducts -->
+        <div style="background:var(--bg-card);border-radius:16px;border:1px solid var(--border);padding:2rem;text-align:center;">
+            <p style="color:var(--text-muted);margin:0 0 1rem;">
+                To show featured products here, add this to your <strong>HomeController.cs</strong> Index method:
+            </p>
+            <code style="background:var(--bg-subtle);padding:.75rem 1rem;border-radius:10px;display:block;font-size:12px;text-align:left;color:var(--text-primary);">
+                ViewBag.FeaturedProducts = await _context.Products<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;.Where(p => p.IsAvailable && p.Stock > 0)<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;.Include(p => p.Producers)<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;.OrderByDescending(p => p.ProductsId)<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;.Take(6)<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;.ToListAsync();
+            </code>
+            <a asp-controller="Products" asp-action="Index" class="btn btn-primary mt-3 px-4">Browse All Products</a>
+        </div>
+    }
+</section>
+
+<!-- ── Producers Preview ──────────────────────── -->
+<section aria-labelledby="producers-h2" class="mb-5">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 id="producers-h2" class="glh-section-title mb-0">Our Producers</h2>
+        <a asp-controller="Producers" asp-action="Index" style="color:var(--green-mid);font-weight:700;font-size:13.5px;" aria-label="View all producers">View all →</a>
+    </div>
+    @if (ViewBag.Producers != null)
+    {
+        <div class="row g-3">
+            @foreach (var producer in ViewBag.Producers)
+            {
+                <div class="col-md-3 col-6">
+                    <article class="glh-feature text-center" style="padding:1.25rem;">
+                        <div style="width:48px;height:48px;background:#EAF3DE;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto .65rem;font-size:1.4rem;" aria-hidden="true">🧑‍🌾</div>
+                        <h3 style="font-size:13.5px;">@producer.ProducerName</h3>
+                        <p style="font-size:11px;color:var(--green-mid);font-weight:700;margin:3px 0 .65rem;">📍 @producer.BusinessLocation</p>
+                        <a asp-controller="Producers" asp-action="Details" asp-route-id="@producer.ProducersId"
+                           class="btn btn-sm"
+                           style="background:transparent;border:2px solid var(--green-mid);color:var(--green-mid);border-radius:20px;font-weight:700;font-size:11.5px;"
+                           aria-label="View details for @producer.ProducerName">View Details</a>
+                    </article>
+                </div>
+            }
+        </div>
+    }
+</section>
+
+<!-- ── CTA ───────────────────────────────────── -->
+<section class="glh-cta mb-2" aria-label="Call to action">
+    <div>
+        <h2>Ready to shop local?</h2>
+        <p>Browse our full range of fresh, locally sourced produce.</p>
+    </div>
+    <a asp-controller="Products" asp-action="Index"
+       class="btn flex-shrink-0 px-4 py-2"
+       style="background:#fff;color:#1A4A1A;font-weight:800;border-radius:30px;"
+       aria-label="View all products">View All Products →</a>
+</section>

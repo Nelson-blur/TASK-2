@@ -1,111 +1,99 @@
-﻿@model GreenFieldWeb.Models.Orders
-
+@model GreenFieldWeb.Models.Orders
 @{
     ViewData["Title"] = "Checkout";
 }
 
-<h1>Checkout</h1>
-<p>Choose how you would like to receive your order.</p>
+<div class="glh-form-wrap">
+    <div class="glh-form-card" style="max-width:520px;">
+        <h1 class="glh-form-title">🧾 Checkout</h1>
+        <p class="glh-form-sub">Choose how you'd like to receive your order.</p>
 
+        <form asp-action="Create" method="post">
+            @Html.AntiForgeryToken()
+            <div asp-validation-summary="ModelOnly" class="glh-error-box"></div>
+            <input type="hidden" name="basketId" value="@ViewBag.BasketId" />
 
-<form asp-action="Create" method="post">
-    <div asp-validation-summary="ModelOnly" style="color:red;"></div>
+            <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:.65rem;">Order Method</div>
 
-    <input type="hidden" name="basketId" value="@ViewBag.BasketId" />
+            <div class="glh-method-grid">
+                <label class="glh-method-card" id="labelDelivery" for="deliveryCheck">
+                    <input asp-for="DeliveryMethod" type="radio" id="deliveryCheck" value="Delivery" />
+                    <div class="glh-method-icon">🚚</div>
+                    <strong>Home Delivery</strong>
+                    <span>£3.99 delivery fee</span>
+                </label>
+                <label class="glh-method-card" id="labelCollection" for="collectionCheck">
+                    <input asp-for="DeliveryMethod" type="radio" id="collectionCheck" value="Collection" />
+                    <div class="glh-method-icon">🏪</div>
+                    <strong>Click &amp; Collect</strong>
+                    <span>Free — pick up from us</span>
+                </label>
+            </div>
+            <span asp-validation-for="DeliveryMethod" class="glh-error"></span>
 
-    <!-- Order Method -->
-    <div style="margin-bottom: 20px;">
-        <label style="font-weight:bold; display:block; margin-bottom:10px;">Order Method</label>
+            <div id="dateGroup" class="glh-field" style="display:none;">
+                <label asp-for="DeliveryDate" id="dateLabel" class="glh-label">Date</label>
+                <input asp-for="DeliveryDate" type="date" class="form-control" aria-required="true" />
+                <div id="dateHint" style="font-size:11.5px;color:var(--text-muted);margin-top:3px;"></div>
+                <span asp-validation-for="DeliveryDate" class="glh-error"></span>
+            </div>
 
-        <div>
-            <input asp-for="DeliveryMethod" type="radio" id="deliveryCheck" value="Delivery" />
-            <label for="deliveryCheck">Delivery</label>
-        </div>
+            <div id="addressGroup" class="glh-field" style="display:none;">
+                <label asp-for="DeliveryAddress" class="glh-label">Delivery Address</label>
+                <input asp-for="DeliveryAddress" type="text" class="form-control" placeholder="Full delivery address" aria-required="true" />
+                <span asp-validation-for="DeliveryAddress" class="glh-error"></span>
+            </div>
 
-        <div>
-            <input asp-for="DeliveryMethod" type="radio" id="collectionCheck" value="Collection" />
-            <label for="collectionCheck">Collection</label>
-        </div>
+            <div class="d-flex flex-column gap-2 mt-3">
+                <button type="submit" class="btn btn-primary py-2" aria-label="Place order">Place Order →</button>
+                <a asp-controller="Baskets" asp-action="Index" class="btn btn-outline-secondary py-2" aria-label="Back to basket">← Back to Basket</a>
+            </div>
+        </form>
     </div>
-
-    <!-- Delivery Date (used for BOTH delivery + collection) -->
-    <div id="dateGroup" style="display:none; margin-bottom:15px;">
-        <label asp-for="DeliveryDate" id="dateLabel">Date</label>
-        <input asp-for="DeliveryDate" type="date" />
-        <span asp-validation-for="DeliveryDate" style="color:red;"></span>
-        <div id="dateHint"></div>
-    </div>
-
-    <!-- Delivery Address (only for delivery) -->
-    <div id="addressGroup" style="display:none; margin-bottom:15px;">
-        <label asp-for="DeliveryAddress"></label>
-        <input asp-for="DeliveryAddress" type="text" />
-        <span asp-validation-for="DeliveryAddress" style="color:red;"></span>
-    </div>
-
-    <button type="submit">Place Order</button>
-
-    <div style="margin-top:10px;">
-        <a asp-controller="Baskets" asp-action="Index">Back to Basket</a>
-    </div>
-</form>
+</div>
 
 @section Scripts {
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-
-            const deliveryRadio = document.getElementById('deliveryCheck');
+            const deliveryRadio   = document.getElementById('deliveryCheck');
             const collectionRadio = document.getElementById('collectionCheck');
+            const dateGroup       = document.getElementById('dateGroup');
+            const addressGroup    = document.getElementById('addressGroup');
+            const dateLabel       = document.getElementById('dateLabel');
+            const dateHint        = document.getElementById('dateHint');
+            const dateInput       = document.querySelector("input[name='DeliveryDate']");
+            const labelDelivery   = document.getElementById('labelDelivery');
+            const labelCollection = document.getElementById('labelCollection');
 
-            const dateGroup = document.getElementById('dateGroup');
-            const addressGroup = document.getElementById('addressGroup');
-
-            const dateLabel = document.getElementById('dateLabel');
-            const dateHint = document.getElementById('dateHint');
-
-            const dateInput = document.querySelector("input[name='DeliveryDate']");
-
-            // ✅ enforce "2 days from today" rule
             if (dateInput) {
-                const today = new Date();
-                today.setDate(today.getDate() + 2);
-                dateInput.min = today.toISOString().split("T")[0];
+                const min = new Date();
+                min.setDate(min.getDate() + 2);
+                dateInput.min = min.toISOString().split('T')[0];
             }
 
-            function toggleSections() {
+            function update() {
+                labelDelivery.classList.toggle('selected', deliveryRadio.checked);
+                labelCollection.classList.toggle('selected', collectionRadio.checked);
 
                 if (deliveryRadio.checked) {
-
-                    // show both for delivery
                     dateGroup.style.display = 'block';
                     addressGroup.style.display = 'block';
-
-                    dateLabel.innerText = "Delivery Date";
-                    dateHint.innerText = "";
-                }
-
-                else if (collectionRadio.checked) {
-
-                    // show date only for collection
+                    dateLabel.innerText = 'Delivery Date';
+                    dateHint.innerText = '';
+                } else if (collectionRadio.checked) {
                     dateGroup.style.display = 'block';
                     addressGroup.style.display = 'none';
-
-                    dateLabel.innerText = "Collection Date";
-                    dateHint.innerText = "Earliest collection date is 2 days from today.";
-                }
-
-                else {
-
-                    // nothing selected yet
+                    dateLabel.innerText = 'Collection Date';
+                    dateHint.innerText = 'Earliest collection is 2 days from today.';
+                } else {
                     dateGroup.style.display = 'none';
                     addressGroup.style.display = 'none';
                 }
             }
 
-            deliveryRadio.addEventListener('change', toggleSections);
-            collectionRadio.addEventListener('change', toggleSections);
-
-            toggleSections();
+            deliveryRadio.addEventListener('change', update);
+            collectionRadio.addEventListener('change', update);
+            update();
         });
     </script>
 }

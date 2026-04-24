@@ -1,55 +1,73 @@
-﻿@model IEnumerable<GreenFieldWeb.Models.OrderProducts>
+@model IEnumerable<GreenFieldWeb.Models.OrderProducts>
 @{
     ViewData["Title"] = "Order Details";
-    var firstItem = Model.FirstOrDefault();
+    var f = Model.FirstOrDefault();
 }
-<h1>Order Details</h1>
-@if (firstItem != null)
+
+@if (f == null)
 {
-    <div>
-        <p><strong>Order ID:</strong> @firstItem.Orders.OrdersId</p>
-        <p><strong>Order Date:</strong> @firstItem.Orders.OrderDate</p>
-        <p><strong>Status:</strong> @firstItem.Orders.OrderStatus</p>
-        <p><strong>Total Amount:</strong> £@firstItem.Orders.TotalAmount.ToString("0.00")</p>
-
-        @if (firstItem.Orders.DeliveryMethod == "Delivery")
-        {
-            <p><strong>Order Method:</strong> Delivery</p>
-            <p><strong>Delivery Address:</strong> @firstItem.Orders.DeliveryAddress</p>
-            <p><strong>Delivery Date:</strong> @firstItem.Orders.DeliveryDate</p>
-            <p><strong>Delivery Fee:</strong> £@firstItem.Orders.DeliveryFee.ToString("0.00")</p>
-        }
-
-        @if (firstItem.Orders.DeliveryMethod == "Collection")
-        {
-            <p><strong>Order Method:</strong> Collection</p>
-            <p><strong>Collection Date:</strong> @firstItem.Orders.DeliveryDate</p>
-        }
-    </div>
-    <hr />
-    <h2>Products Ordered</h2>
-    <table>
-        <thead>
-            <tr>
-                <th style="text-align:left; padding-right: 20px;">Product</th>
-                <th style="text-align:left; padding-right: 20px;">Price</th>
-                <th style="text-align:left; padding-right: 20px;">Quantity</th>
-                <th style="text-align:left; padding-right: 20px;">Line Total</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td style="padding-right: 20px;">@item.Products.ProductName</td>
-                    <td style="padding-right: 20px;">£@item.Products.Price.ToString("0.00")</td>
-                    <td style="padding-right: 20px;">@item.Quantity</td>
-                    <td style="padding-right: 20px;">£@((item.Products.Price * item.Quantity).ToString("0.00"))</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+    <div class="glh-empty"><div class="glh-empty-icon">📦</div><h3>Order not found</h3><a asp-action="Index" class="btn btn-outline-secondary mt-3">Back to Orders</a></div>
 }
-<div style="margin-top: 20px;">
-    <a asp-action="Index">Back to List</a>
-</div>
+else
+{
+    <div style="background:linear-gradient(135deg,#1A4A1A,#2F6F4E);border-radius:18px;padding:1.75rem 2rem;margin-bottom:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+        <div>
+            <p style="color:rgba(255,255,255,.6);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin:0 0 3px;">Order #@f.Orders.OrdersId</p>
+            <h1 style="color:#fff;font-weight:900;font-size:1.5rem;margin:0;">Order Details</h1>
+        </div>
+        <div>
+            @if (f.Orders.OrderStatus == "Pending")          { <span class="status-pending">@f.Orders.OrderStatus</span> }
+            else if (f.Orders.OrderStatus == "Delivered" || f.Orders.OrderStatus == "Collected") { <span class="status-delivered">@f.Orders.OrderStatus</span> }
+            else if (f.Orders.OrderStatus == "Cancelled")    { <span class="status-cancelled">@f.Orders.OrderStatus</span> }
+            else                                              { <span class="status-shipped">@f.Orders.OrderStatus</span> }
+        </div>
+    </div>
+
+    <div class="row g-3 mb-3">
+        <div class="col-md-6">
+            <div class="glh-card p-3">
+                <h2 style="font-size:.85rem;font-weight:800;color:var(--green-dark);text-transform:uppercase;letter-spacing:.5px;margin:0 0 .75rem;">Order Info</h2>
+                <div class="glh-detail-row"><span>Order Date</span><strong>@f.Orders.OrderDate</strong></div>
+                <div class="glh-detail-row"><span>Status</span><strong>@f.Orders.OrderStatus</strong></div>
+                <div class="glh-detail-row"><span>Total</span><strong>£@f.Orders.TotalAmount.ToString("0.00")</strong></div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="glh-card p-3">
+                <h2 style="font-size:.85rem;font-weight:800;color:var(--green-dark);text-transform:uppercase;letter-spacing:.5px;margin:0 0 .75rem;">Delivery Info</h2>
+                @if (f.Orders.DeliveryMethod == "Delivery")
+                {
+                    <div class="glh-detail-row"><span>Method</span><strong>🚚 Home Delivery</strong></div>
+                    <div class="glh-detail-row"><span>Address</span><strong>@f.Orders.DeliveryAddress</strong></div>
+                    <div class="glh-detail-row"><span>Date</span><strong>@f.Orders.DeliveryDate</strong></div>
+                    <div class="glh-detail-row"><span>Fee</span><strong>£@f.Orders.DeliveryFee.ToString("0.00")</strong></div>
+                }
+                else
+                {
+                    <div class="glh-detail-row"><span>Method</span><strong>🏪 Collection</strong></div>
+                    <div class="glh-detail-row"><span>Collection Date</span><strong>@f.Orders.DeliveryDate</strong></div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="glh-card p-3 mb-3">
+        <h2 style="font-size:.85rem;font-weight:800;color:var(--green-dark);text-transform:uppercase;letter-spacing:.5px;margin:0 0 .75rem;">Items Ordered</h2>
+        <table class="table mb-0" aria-label="Items in this order">
+            <thead><tr><th>Product</th><th>Unit Price</th><th>Qty</th><th>Line Total</th></tr></thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Products.ProductName</td>
+                        <td>£@item.Products.Price.ToString("0.00")</td>
+                        <td>@item.Quantity</td>
+                        <td style="font-weight:700;">£@((item.Products.Price * item.Quantity).ToString("0.00"))</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <a asp-action="Index" class="btn btn-outline-secondary" aria-label="Back to orders">← Back to Orders</a>
+}

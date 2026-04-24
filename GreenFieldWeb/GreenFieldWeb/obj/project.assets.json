@@ -641,6 +641,22 @@
           }
         }
       },
+      "Microsoft.AspNetCore.Authentication.Google/9.0.12": {
+        "type": "package",
+        "compile": {
+          "lib/net9.0/Microsoft.AspNetCore.Authentication.Google.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net9.0/Microsoft.AspNetCore.Authentication.Google.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Microsoft.AspNetCore.Authorization/9.0.12": {
         "type": "package",
         "dependencies": {
@@ -4184,6 +4200,21 @@
         "lib/netstandard1.0/zh-Hant/Humanizer.resources.dll",
         "lib/netstandard2.0/zh-Hant/Humanizer.resources.dll",
         "logo.png"
+      ]
+    },
+    "Microsoft.AspNetCore.Authentication.Google/9.0.12": {
+      "sha512": "8eVUqMVLA7+NA0Wm0ckE4OUS67gtlbMzdxAzjKvyItxIBFax7C6Up+VL19EG43s2M+TuTzv27YlFSWRmTO596w==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.google/9.0.12",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net9.0/Microsoft.AspNetCore.Authentication.Google.dll",
+        "lib/net9.0/Microsoft.AspNetCore.Authentication.Google.xml",
+        "microsoft.aspnetcore.authentication.google.9.0.12.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.google.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Authorization/9.0.12": {
@@ -8933,6 +8964,7 @@
   },
   "projectFileDependencyGroups": {
     "net9.0": [
+      "Microsoft.AspNetCore.Authentication.Google >= 9.0.12",
       "Microsoft.AspNetCore.Authorization >= 9.0.12",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 9.0.0",
       "Microsoft.AspNetCore.Http >= 2.3.9",
@@ -8945,23 +8977,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Digi-T-Y2-19\\.nuget\\packages\\": {},
+    "C:\\Users\\nelso\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\GreenFieldWeb.csproj",
+      "projectUniqueName": "C:\\Users\\nelso\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\GreenFieldWeb.csproj",
       "projectName": "GreenFieldWeb",
-      "projectPath": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\GreenFieldWeb.csproj",
-      "packagesPath": "C:\\Users\\Digi-T-Y2-19\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\obj\\",
+      "projectPath": "C:\\Users\\nelso\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\GreenFieldWeb.csproj",
+      "packagesPath": "C:\\Users\\nelso\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\nelso\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Digi-T-Y2-19\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\nelso\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -8986,14 +9018,18 @@
       "restoreAuditProperties": {
         "enableAudit": "true",
         "auditLevel": "low",
-        "auditMode": "all"
+        "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.100"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net9.0": {
         "targetAlias": "net9.0",
         "dependencies": {
+          "Microsoft.AspNetCore.Authentication.Google": {
+            "target": "Package",
+            "version": "[9.0.12, )"
+          },
           "Microsoft.AspNetCore.Authorization": {
             "target": "Package",
             "version": "[9.0.12, )"
@@ -9046,12 +9082,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[9.0.0, 9.0.0]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -9060,40 +9090,8 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1903",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Microsoft.Build.Tasks.Core' 17.7.2 has a known high severity vulnerability, https://github.com/advisories/GHSA-h4j7-5rxr-p4wc",
-      "libraryId": "Microsoft.Build.Tasks.Core",
-      "targetGraphs": [
-        "net9.0"
-      ]
-    },
-    {
-      "code": "NU1901",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'NuGet.Packaging' 6.12.1 has a known low severity vulnerability, https://github.com/advisories/GHSA-g4vj-cjjj-v7hg",
-      "libraryId": "NuGet.Packaging",
-      "targetGraphs": [
-        "net9.0"
-      ]
-    },
-    {
-      "code": "NU1901",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'NuGet.Protocol' 6.12.1 has a known low severity vulnerability, https://github.com/advisories/GHSA-g4vj-cjjj-v7hg",
-      "libraryId": "NuGet.Protocol",
-      "targetGraphs": [
-        "net9.0"
-      ]
-    }
-  ]
+  }
 }

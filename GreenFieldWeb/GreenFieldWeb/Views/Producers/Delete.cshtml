@@ -1,51 +1,27 @@
-﻿@model GreenFieldWeb.Models.Producers
-
+@model GreenFieldWeb.Models.Producers
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Delete Producer";
 }
 
-<h1>Delete</h1>
+<div class="glh-confirm-wrap">
+    <div class="glh-confirm">
+        <div class="glh-confirm-icon">⚠️</div>
+        <h1>Delete Producer?</h1>
+        <p>This will permanently remove <strong>@Model.ProducerName</strong>.</p>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Producers</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UserId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UserId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ProducerName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ProducerName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BusinessLocation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BusinessLocation)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ContactEmail)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ContactEmail)
-        </dd>
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="ProducersId" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
+        <div class="glh-detail-list">
+            <div class="glh-detail-row"><span>Name</span><strong>@Model.ProducerName</strong></div>
+            <div class="glh-detail-row"><span>Location</span><strong>@Model.BusinessLocation</strong></div>
+            <div class="glh-detail-row"><span>Email</span><strong>@Model.ContactEmail</strong></div>
+        </div>
+
+        <div class="d-flex gap-3 justify-content-center flex-wrap">
+            <form asp-action="Delete" method="post">
+                @Html.AntiForgeryToken()
+                <input type="hidden" asp-for="ProducersId" />
+                <button type="submit" class="btn btn-danger px-4" aria-label="Confirm delete @Model.ProducerName">Yes, Delete</button>
+            </form>
+            <a asp-action="Index" class="btn btn-outline-secondary px-4">Cancel</a>
+        </div>
+    </div>
 </div>

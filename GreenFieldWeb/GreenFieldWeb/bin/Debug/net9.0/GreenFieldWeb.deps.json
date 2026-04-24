@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v9.0": {
       "GreenFieldWeb/1.0.0": {
         "dependencies": {
+          "Microsoft.AspNetCore.Authentication.Google": "9.0.12",
           "Microsoft.AspNetCore.Authorization": "9.0.12",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "9.0.0",
           "Microsoft.AspNetCore.Http": "2.3.9",
@@ -594,6 +595,14 @@
         "resources": {
           "lib/net6.0/zh-Hant/Humanizer.resources.dll": {
             "locale": "zh-Hant"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.Google/9.0.12": {
+        "runtime": {
+          "lib/net9.0/Microsoft.AspNetCore.Authentication.Google.dll": {
+            "assemblyVersion": "9.0.12.0",
+            "fileVersion": "9.0.1225.60903"
           }
         }
       },
@@ -2734,6 +2743,13 @@
       "sha512": "sha512-VIXB7HCUC34OoaGnO3HJVtSv2/wljPhjV7eKH4+TFPgQdJj2lvHNKY41Dtg0Bphu7X5UaXFR4zrYYyo+GNOjbA==",
       "path": "humanizer.core.zh-hant/2.14.1",
       "hashPath": "humanizer.core.zh-hant.2.14.1.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authentication.Google/9.0.12": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8eVUqMVLA7+NA0Wm0ckE4OUS67gtlbMzdxAzjKvyItxIBFax7C6Up+VL19EG43s2M+TuTzv27YlFSWRmTO596w==",
+      "path": "microsoft.aspnetcore.authentication.google/9.0.12",
+      "hashPath": "microsoft.aspnetcore.authentication.google.9.0.12.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authorization/9.0.12": {
       "type": "package",

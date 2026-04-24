@@ -1,175 +1,129 @@
-﻿@model IEnumerable<GreenFieldWeb.Models.Products>
+@model IEnumerable<GreenFieldWeb.Models.Products>
 @{
     ViewData["Title"] = "Products";
 }
 
-<h1>Products</h1>
-
-@if (User.IsInRole("Producer") || User.IsInRole("Admin"))
-{
-    <p><a asp-action="Create" class="btn btn-success">+ Add New Product</a></p>
-}
-
-<form method="get" asp-action="Index" class="glh-search-form">
-    <div class="glh-search-row">
-
-        <div class="glh-search-group">
-            <input type="text"
-                   name="searchString"
-                   value="@ViewBag.CurrentSearch"
-                   class="glh-input"
-                   placeholder="Search products..." />
-        </div>
-
-        <div class="glh-search-group">
-            <select name="farmingMethod" class="glh-input">
-                <option value="">All Farming Methods</option>
-			     @if (ViewBag.FarmingMethods != null)
-                 {
-                    @foreach (var method in ViewBag.FarmingMethods)
-                    {
-                        @if (method == ViewBag.CurrentFarmingMethod)
-                        {
-                            <option value="@method" selected>@method</option>
-                        }
-                        else
-                        {
-                            <option value="@method">@method</option>
-                        }
-                    }
-                 }
-            </select>
-        </div>
-        <!-- Min price -->
-        <div class="glh-search-group" style="max-width:120px">
-            <input type="number"
-                   name="minPrice"
-                   value="@ViewBag.CurrentMinPrice"
-                   class="glh-input"
-                   placeholder="Min £"
-                   step="0.01"
-                   min="0" />
-        </div>
-
-        <!-- Max price -->
-        <div class="glh-search-group" style="max-width:120px">
-            <input type="number"
-                   name="maxPrice"
-                   value="@ViewBag.CurrentMaxPrice"
-                   class="glh-input"
-                   placeholder="Max £"
-                   step="0.01"
-                   min="0" />
-        </div>
-
-        <button type="submit" class="glh-btn glh-btn-primary">Search</button>
-
-        @if (!string.IsNullOrEmpty(ViewBag.CurrentSearch as string) ||
-        !string.IsNullOrEmpty(ViewBag.CurrentFarmingMethod as string) ||
-        ViewBag.CurrentMinPrice != null ||
-        ViewBag.CurrentMaxPrice != null)
-        {
-            <a asp-action="Index" class="glh-btn glh-btn-outline">Clear</a>
-        }
-
+<div class="glh-page-header">
+    <div>
+        <h1>Our Products</h1>
+        <p>Browse our selection of fresh, locally produced items</p>
     </div>
+    @if (User.IsInRole("Producer") || User.IsInRole("Admin"))
+    {
+        <a asp-action="Create" class="btn btn-success" aria-label="Add new product">+ Add Product</a>
+    }
+</div>
 
- </form>
+<!-- Search & Filter — farming method hidden, price filter only -->
+<form method="get" asp-action="Index" class="glh-search-form" role="search" aria-label="Search and filter products">
+    <!-- Hidden farming method — keeps filter working if already set -->
+    <input type="hidden" name="farmingMethod" value="@ViewBag.CurrentFarmingMethod" />
+
+    <div class="glh-search-row">
+        <div class="glh-search-group">
+            <input type="text" name="searchString" value="@ViewBag.CurrentSearch"
+                   class="glh-input" placeholder="Search products..." aria-label="Search products" />
+        </div>
+        <div class="glh-search-group" style="max-width:110px;">
+            <input type="number" name="minPrice" value="@ViewBag.CurrentMinPrice"
+                   class="glh-input" placeholder="Min £" step="0.01" min="0" aria-label="Minimum price" />
+        </div>
+        <div class="glh-search-group" style="max-width:110px;">
+            <input type="number" name="maxPrice" value="@ViewBag.CurrentMaxPrice"
+                   class="glh-input" placeholder="Max £" step="0.01" min="0" aria-label="Maximum price" />
+        </div>
+        <button type="submit" class="glh-btn-primary" aria-label="Apply filters">Search</button>
+        @if (!string.IsNullOrEmpty(ViewBag.CurrentSearch as string) ||
+             ViewBag.CurrentMinPrice != null || ViewBag.CurrentMaxPrice != null)
+        {
+            <a asp-action="Index" class="glh-btn-outline" aria-label="Clear all filters">Clear</a>
+        }
+    </div>
+</form>
 
 @if (!Model.Any())
 {
-    <div class="glh-empty-state">
+    <div class="glh-empty">
         <div class="glh-empty-icon">🔍</div>
-        <p>No products found matching your search.</p>
-        <a asp-action="Index" class="glh-btn glh-btn-outline">Clear Search</a>
+        <h3>No products found</h3>
+        <p>Try adjusting your search or price range.</p>
+        <a asp-action="Index" class="glh-btn-outline mt-3">Clear Search</a>
     </div>
 }
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>Image</th>
-            <th>@Html.DisplayNameFor(m => m.ProductName)</th>
-            <th>@Html.DisplayNameFor(m => m.Price)</th>
-            <th>@Html.DisplayNameFor(m => m.Stock)</th>
-            <th>@Html.DisplayNameFor(m => m.Description)</th>
-            <th>@Html.DisplayNameFor(m => m.AllergenInformation)</th>
-            <th>@Html.DisplayNameFor(m => m.FarmingMethod)</th>
-            <th>Producer</th>
-            <th>@Html.DisplayNameFor(m => m.IsAvailable)</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
+else
+{
+    <div class="row g-3" role="list" aria-label="Products">
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
+            <div class="col-lg-3 col-md-4 col-sm-6" role="listitem">
+                <article class="glh-product-card">
                     @if (!string.IsNullOrEmpty(item.ImageUrl))
                     {
-                        <img src="@item.ImageUrl" alt="@item.ProductName"
-                             style="width:60px; height:60px; object-fit:cover; border-radius:8px;" />
+                        <img src="@item.ImageUrl" alt="@item.ProductName" loading="lazy" />
                     }
-                </td>
-                <td>@Html.DisplayFor(modelItem => item.ProductName)</td>
-                <td>£@item.Price.ToString("0.00")</td>
-                <td>@Html.DisplayFor(modelItem => item.Stock)</td>
-                <td>@Html.DisplayFor(modelItem => item.Description)</td>
-                <td>@Html.DisplayFor(modelItem => item.AllergenInformation)</td>
-                <td>@Html.DisplayFor(modelItem => item.FarmingMethod)</td>
-                <td>@Html.DisplayFor(modelItem => item.Producers.ProducerName)</td>
-                <td>@Html.DisplayFor(modelItem => item.IsAvailable)</td>
-                <td>
-                    <a asp-action="Details" asp-route-id="@item.ProductsId">Details</a>
+                    else
+                    {
+                        <div style="height:175px;background:#EAF3DE;display:flex;align-items:center;justify-content:center;font-size:3rem;" aria-hidden="true">🌿</div>
+                    }
+                    <div class="glh-card-body">
+                        <p class="glh-producer-tag">@item.Producers?.ProducerName</p>
+                        <h3 style="font-size:14px;font-weight:700;margin:4px 0 6px;color:var(--text-primary);">@item.ProductName</h3>
+                        <p style="font-size:11.5px;color:var(--text-muted);line-height:1.5;margin:0 0 8px;flex:1;">
+                            @(item.Description?.Length > 60 ? item.Description.Substring(0, 60) + "…" : item.Description)
+                        </p>
 
-                    @if (User.IsInRole("Producer") || User.IsInRole("Admin"))
-                    {
-                        <span> | </span>
-                        <a asp-action="Edit" asp-route-id="@item.ProductsId">Edit</a>
-                        <span> | </span>
-                        <a asp-action="Delete" asp-route-id="@item.ProductsId">Delete</a>
-                    }
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="glh-price">£@item.Price.ToString("0.00")</span>
+                            @if (item.Stock > 10)    { <span class="badge-in">In stock</span> }
+                            else if (item.Stock > 0) { <span class="badge-low">Low stock</span> }
+                            else                     { <span class="badge-out">Out of stock</span> }
+                        </div>
 
-                    @if (User.Identity.IsAuthenticated && !User.IsInRole("Producer") && !User.IsInRole("Admin"))
-                    {
-                        <form asp-controller="BasketProducts" asp-action="Create" method="post">
-                            <input type="hidden" name="ProductsId" value="@item.ProductsId" />
-                            @Html.AntiForgeryToken()
-                            @if (item.Stock > 0)
+                        <div class="d-flex flex-column gap-1 mt-auto">
+                            <a asp-action="Details" asp-route-id="@item.ProductsId"
+                               class="btn btn-sm btn-outline-secondary w-100"
+                               aria-label="View details for @item.ProductName">Details</a>
+
+                            @if (User.IsInRole("Producer") || User.IsInRole("Admin"))
                             {
-                                <button type="submit" class="btn btn-primary btn-sm mt-1">Add to Basket</button>
+                                <div class="d-flex gap-1">
+                                    <a asp-action="Edit" asp-route-id="@item.ProductsId" class="btn btn-sm btn-primary flex-fill" aria-label="Edit @item.ProductName">Edit</a>
+                                    <a asp-action="Delete" asp-route-id="@item.ProductsId" class="btn btn-sm btn-danger flex-fill" aria-label="Delete @item.ProductName">Delete</a>
+                                </div>
                             }
-                            else
+
+                            @if (User.Identity.IsAuthenticated && !User.IsInRole("Producer") && !User.IsInRole("Admin"))
                             {
-                                <button class="btn btn-secondary btn-sm mt-1" disabled>Out of Stock</button>
+                                @if (item.Stock > 0)
+                                {
+                                    <!-- AJAX form - glh-ajax-basket class triggers background submit -->
+                                    <form class="glh-ajax-basket"
+                                          action="/BasketProducts/Create"
+                                          method="post"
+                                          aria-label="Add @item.ProductName to basket">
+                                        <input type="hidden" name="ProductsId" value="@item.ProductsId" />
+                                        @Html.AntiForgeryToken()
+                                        <button type="submit" class="btn btn-primary btn-sm w-100"
+                                                aria-label="Add @item.ProductName to basket">
+                                            Add to Basket
+                                        </button>
+                                    </form>
+                                }
+                                else
+                                {
+                                    <button class="btn btn-secondary btn-sm w-100" disabled aria-label="@item.ProductName is out of stock">Out of Stock</button>
+                                }
                             }
-                        </form>
-                    }
-                    else if (!User.Identity.IsAuthenticated)
-                    {
-                        <br />
-                        <a asp-area="Identity" asp-page="/Account/Login"
-                           class="btn btn-outline-primary btn-sm mt-1">Login to Buy</a>
-                    }
-                </td>
-            </tr>
+                            else if (!User.Identity.IsAuthenticated)
+                            {
+                                <a asp-area="Identity" asp-page="/Account/Login"
+                                   class="btn btn-outline-secondary btn-sm w-100"
+                                   aria-label="Login to buy @item.ProductName">Login to Buy</a>
+                            }
+                        </div>
+                    </div>
+                </article>
+            </div>
         }
-    </tbody>
-</table>
-<style>
-    .glh-search-form {
-        margin-bottom: 1.5rem;
-    }
-
-    .glh-search-row {
-        display: flex;
-        gap: 0.75rem;
-        align-items: center;
-        flex-wrap: wrap;
-    }
-
-    .glh-search-group {
-        flex: 1;
-        min-width: 180px;
-    }
-</style>
+    </div>
+}

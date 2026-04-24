@@ -1,101 +1,83 @@
-﻿@model IEnumerable<GreenFieldWeb.Models.Orders>
+@model IEnumerable<GreenFieldWeb.Models.Orders>
 @{
     ViewData["Title"] = "Orders";
+    string heading = User.IsInRole("Admin") ? "All Orders" : User.IsInRole("Producer") ? "Orders Containing Your Products" : "My Orders";
 }
 
-<h1>
-    @if (User.IsInRole("Admin"))
-    {
-        <span>All Orders</span>
-    }
-    else if (User.IsInRole("Producer"))
-    {
-        <span>Orders Containing Your Products</span>
-    }
-    else
-    {
-        <span>My Orders</span>
-    }
-</h1>
+<div class="glh-page-header">
+    <div><h1>@heading</h1></div>
+</div>
 
 @if (!Model.Any())
 {
-    <p>No orders found.</p>
+    <div class="glh-empty">
+        <div class="glh-empty-icon">📦</div>
+        <h3>No orders found</h3>
+        <p>Orders will appear here once placed.</p>
+        @if (!User.IsInRole("Producer") && !User.IsInRole("Admin"))
+        {
+            <a asp-controller="Products" asp-action="Index" class="btn btn-primary mt-3 px-4">Shop Now</a>
+        }
+    </div>
 }
 else
 {
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Order ID</th>
-                @if (User.IsInRole("Admin"))
-                {
-                    <th>Customer</th>
-                }
-                <th>@Html.DisplayNameFor(m => m.OrderDate)</th>
-                <th>@Html.DisplayNameFor(m => m.OrderStatus)</th>
-                <th>@Html.DisplayNameFor(m => m.DeliveryMethod)</th>
-                <th>@Html.DisplayNameFor(m => m.DeliveryDate)</th>
-                <th>@Html.DisplayNameFor(m => m.DeliveryAddress)</th>
-                <th>@Html.DisplayNameFor(m => m.TotalAmount)</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
+    <div style="background:var(--bg-card);border-radius:var(--radius-md);border:1px solid var(--border);overflow:hidden;box-shadow:var(--shadow);">
+        <table class="table mb-0" aria-label="@heading">
+            <thead>
                 <tr>
-                    <td>@item.OrdersId</td>
-                    @if (User.IsInRole("Admin"))
-                    {
-                        <td>@item.UserId</td>
-                    }
-                    <td>@item.OrderDate</td>
-                    <td>
-                        @if (item.OrderStatus == "Pending")
-                        {
-                            <span class="status-pending">@item.OrderStatus</span>
-                        }
-                        else if (item.OrderStatus == "Delivered" || item.OrderStatus == "Collected")
-                        {
-                            <span class="status-delivered">@item.OrderStatus</span>
-                        }
-                        else
-                        {
-                            <span class="status-shipped">@item.OrderStatus</span>
-                        }
-                    </td>
-                    <td>@item.DeliveryMethod</td>
-                    <td>@item.DeliveryDate</td>
-                    <td>
-                        @if (item.DeliveryMethod == "Collection")
-                        {
-                            <span>N/A</span>
-                        }
-                        else
-                        {
-                            @item.DeliveryAddress
-                        }
-                    </td>
-                  
-                    <td>£@item.TotalAmount.ToString("0.00")</td>
-                    <td>
-                        <a asp-action="Details" asp-route-id="@item.OrdersId">Details</a>
-
-                        @if (User.IsInRole("Producer") || User.IsInRole("Admin"))
-                        {
-                            <span> | </span>
-                            <a asp-action="Edit" asp-route-id="@item.OrdersId">Update Status</a>
-                        }
-
-                        @if (User.IsInRole("Admin"))
-                        {
-                            <span> | </span>
-                            <a asp-action="Delete" asp-route-id="@item.OrdersId">Delete</a>
-                        }
-                    </td>
+                    <th>Order</th>
+                    @if (User.IsInRole("Admin")) { <th>Customer</th> }
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Method</th>
+                    <th>Due</th>
+                    <th>Address</th>
+                    <th>Total</th>
+                    <th></th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td><span style="background:#EAF3DE;color:#1A4A1A;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;">#@item.OrdersId</span></td>
+                        @if (User.IsInRole("Admin")) { <td style="font-size:11.5px;color:var(--text-muted);">@item.UserId.Substring(0, Math.Min(8, item.UserId.Length))…</td> }
+                        <td style="font-size:13px;">@item.OrderDate</td>
+                        <td>
+                            @if (item.OrderStatus == "Pending")           { <span class="status-pending">@item.OrderStatus</span> }
+                            else if (item.OrderStatus == "Delivered" || item.OrderStatus == "Collected") { <span class="status-delivered">@item.OrderStatus</span> }
+                            else if (item.OrderStatus == "Cancelled")     { <span class="status-cancelled">@item.OrderStatus</span> }
+                            else                                           { <span class="status-shipped">@item.OrderStatus</span> }
+                        </td>
+                        <td style="font-size:13px;">@item.DeliveryMethod</td>
+                        <td style="font-size:13px;">@item.DeliveryDate</td>
+                        <td style="font-size:12.5px;max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">
+                            @(item.DeliveryMethod == "Collection" ? "N/A" : item.DeliveryAddress)
+                        </td>
+                        <td style="font-weight:700;font-size:13.5px;">£@item.TotalAmount.ToString("0.00")</td>
+                        <td>
+                            <div class="d-flex gap-1 flex-wrap">
+                                <a asp-action="Details" asp-route-id="@item.OrdersId"
+                                   class="btn btn-sm btn-outline-secondary"
+                                   aria-label="View details for order #@item.OrdersId">Details</a>
+                                @if (User.IsInRole("Producer") || User.IsInRole("Admin"))
+                                {
+                                    <a asp-action="Edit" asp-route-id="@item.OrdersId"
+                                       class="btn btn-sm btn-primary"
+                                       aria-label="Update status for order #@item.OrdersId">Update</a>
+                                }
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <a asp-action="Delete" asp-route-id="@item.OrdersId"
+                                       class="btn btn-sm btn-danger"
+                                       aria-label="Delete order #@item.OrdersId">Delete</a>
+                                }
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 }

@@ -6,7 +6,7 @@ using System.Security.Claims;
 
 namespace GreenFieldWeb.Controllers
 {
-   [Authorize(Roles = "Producer")]
+   [Authorize(Roles = "Producer,Developer,Admin")]
     public class ProducerDashboardController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -34,3 +34,6 @@ namespace GreenFieldWeb.Controllers
         }
     }
 }
+
+
+

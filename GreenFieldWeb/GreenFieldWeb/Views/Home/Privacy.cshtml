@@ -1,6 +1,24 @@
-﻿@{
+@{
     ViewData["Title"] = "Privacy Policy";
 }
-<h1>@ViewData["Title"]</h1>
-
-<p>Use this page to detail your site's privacy policy.</p>
+<div style="max-width:720px;margin:0 auto;">
+    <div style="border-bottom:3px solid var(--green-light);padding-bottom:1rem;margin-bottom:2rem;">
+        <h1 style="font-size:1.9rem;font-weight:900;color:var(--green-dark);margin:0 0 4px;">Privacy Policy</h1>
+        <p style="color:var(--text-muted);font-size:13px;margin:0;">Last updated: April 2026</p>
+    </div>
+    @foreach (var s in new[]{
+        new{n="1. What data we collect",t="We collect your name, email, delivery address and order history when you register and place orders. We also collect usage data to improve our service."},
+        new{n="2. How we use your data",t="Your data is used to process orders, manage your account, send order updates and apply loyalty rewards. We do not sell your data to third parties."},
+        new{n="3. Data sharing",t="We share your name and delivery address with the relevant producer only to fulfil your order. We do not sell your data to third parties."},
+        new{n="4. Cookies",t="We use essential cookies for login and basket functionality, and optional analytics cookies with your consent. You can manage preferences in your browser."},
+        new{n="5. Your rights",t="You have the right to access, correct or delete your personal data at any time via account settings or by contacting us."},
+        new{n="6. Contact about privacy",t="Contact our data officer at privacy@greenfieldlocalhub.co.uk or write to us at Market Lane, Greenfield GF1 2AB."}
+    })
+    {
+        <div style="background:var(--bg-card);border-radius:12px;border:1px solid var(--border);padding:1.1rem 1.25rem;margin-bottom:.9rem;">
+            <h2 style="font-size:.95rem;font-weight:800;color:var(--green-mid);margin:0 0 .4rem;">@s.n</h2>
+            <p style="font-size:.875rem;color:var(--text-primary);line-height:1.7;margin:0;">@s.t</p>
+        </div>
+    }
+    <a asp-controller="Home" asp-action="ContactUs" class="btn btn-primary mt-2">Contact us about privacy</a>
+</div>

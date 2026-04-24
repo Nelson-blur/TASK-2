@@ -1,96 +1,113 @@
-﻿@model IEnumerable<GreenFieldWeb.Models.BasketProducts>
-
+@model IEnumerable<GreenFieldWeb.Models.BasketProducts>
 @{
     ViewData["Title"] = "Your Basket";
     var basketId = Model.FirstOrDefault()?.BasketId;
+    int itemCount = Model.Sum(x => x.Quantity);
 }
-<h1>Your Basket</h1>
+
+<div class="glh-page-header">
+    <div>
+        <h1>Your Basket</h1>
+        <p>@itemCount item@(itemCount == 1 ? "" : "s") in your basket</p>
+    </div>
+    <a asp-controller="Products" asp-action="Index" class="btn btn-outline-secondary" aria-label="Continue shopping">← Continue Shopping</a>
+</div>
 
 @if (!Model.Any())
 {
-    <div>
+    <div class="glh-empty">
+        <div class="glh-empty-icon">🛒</div>
         <h3>Your basket is empty</h3>
-        <p>Looks like you haven't added any products yet.</p>
-        <a asp-controller="Products" asp-action="Index">Browse Products</a>
+        <p>You haven't added any products yet.</p>
+        <a asp-controller="Products" asp-action="Index" class="btn btn-primary mt-3 px-4" aria-label="Browse products">Browse Products</a>
     </div>
 }
 else
 {
-    <div>
+    <div class="row g-4 align-items-start">
 
-        @foreach (var item in Model)
-        {
-            <div style="border: 1px solid #ccc; padding:10px; margin-bottom:10px;">
+        <!-- Items -->
+        <div class="col-lg-8">
+            <div role="list" aria-label="Basket items">
+                @foreach (var item in Model)
+                {
+                    <article class="glh-card mb-3 p-3 d-flex gap-3 align-items-center" role="listitem"
+                             aria-label="@item.Products.ProductName, quantity @item.Quantity">
+                        <div style="width:78px;height:78px;border-radius:12px;overflow:hidden;flex-shrink:0;background:#EAF3DE;display:flex;align-items:center;justify-content:center;">
+                            @if (!string.IsNullOrEmpty(item.Products.ImageUrl))
+                            {
+                                <img src="@item.Products.ImageUrl" alt="@item.Products.ProductName" style="width:100%;height:100%;object-fit:cover;" />
+                            }
+                            else
+                            {
+                                <span style="font-size:2rem;" aria-hidden="true">🌿</span>
+                            }
+                        </div>
+                        <div style="flex:1;">
+                            <h3 style="font-size:14.5px;font-weight:700;margin:0 0 3px;color:var(--text-primary);">@item.Products.ProductName</h3>
+                            <p style="font-size:12px;color:var(--text-muted);margin:0 0 5px;">Unit price: £@item.Products.Price.ToString("0.00")</p>
+                            <span style="background:#EAF3DE;color:var(--green-dark);font-size:10.5px;font-weight:700;padding:2px 10px;border-radius:20px;">Qty: @item.Quantity</span>
+                        </div>
+                        <div style="text-align:right;flex-shrink:0;">
+                            <p style="font-size:17px;font-weight:900;color:var(--green-mid);margin:0 0 7px;">£@((item.Products.Price * item.Quantity).ToString("0.00"))</p>
+                            <form asp-controller="BasketProducts" asp-action="Delete" asp-route-id="@item.BasketProductsId" method="post">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="btn btn-sm"
+                                        style="background:transparent;border:1px solid #D9534F;color:#D9534F;border-radius:8px;font-size:11.5px;transition:all .15s;"
+                                        aria-label="Remove @item.Products.ProductName from basket"
+                                        onmouseover="this.style.background='#D9534F';this.style.color='white';"
+                                        onmouseout="this.style.background='transparent';this.style.color='#D9534F';">
+                                    ✕ Remove
+                                </button>
+                            </form>
+                        </div>
+                    </article>
+                }
+            </div>
+        </div>
 
-                <div>
-                    <h4>@item.Products.ProductName</h4>
-                    <p>Price: £@item.Products.Price.ToString("0.00")</p>
+        <!-- Summary -->
+        <div class="col-lg-4">
+            <div class="glh-card p-4" style="position:sticky;top:1rem;">
+                <h2 style="font-size:.95rem;font-weight:800;color:var(--green-dark);margin-bottom:1.1rem;text-transform:uppercase;letter-spacing:.5px;">Order Summary</h2>
+
+                <div class="d-flex justify-content-between mb-2" style="font-size:13.5px;">
+                    <span style="color:var(--text-muted);">Subtotal</span>
+                    <span>£@(((decimal)ViewBag.TotalAmount).ToString("0.00"))</span>
                 </div>
 
-                <div>
-                    <p>Qty: @item.Quantity</p>
+                @if ((decimal)ViewBag.Discount > 0)
+                {
+                    <div class="d-flex justify-content-between mb-1" style="font-size:13.5px;">
+                        <span class="loyalty-badge">🏷 Loyalty Discount</span>
+                        <span style="color:var(--loyalty);font-weight:700;">-£@(((decimal)ViewBag.Discount).ToString("0.00"))</span>
+                    </div>
+                    <p style="font-size:11px;color:var(--loyalty);margin:0 0 .75rem;">Loyalty discount applied!</p>
+                }
+
+                <hr style="border-color:var(--border);margin:.75rem 0;" />
+
+                <div class="d-flex justify-content-between mb-3">
+                    <strong>Total</strong>
+                    <strong style="font-size:1.05rem;color:var(--green-dark);">£@(((decimal)ViewBag.Total).ToString("0.00"))</strong>
                 </div>
 
-                <div>
-                    <p>
-                        Total: £@((item.Products.Price * item.Quantity).ToString("0.00"))
-                    </p>
+                <a asp-controller="Orders" asp-action="Create" asp-route-basketId="@basketId"
+                   class="btn btn-primary w-100 py-2 mb-2"
+                   aria-label="Proceed to checkout">Proceed to Checkout →</a>
+                <a asp-controller="Products" asp-action="Index"
+                   class="btn w-100 py-2"
+                   style="background:transparent;border:2px solid var(--border);color:var(--text-muted);border-radius:30px;font-weight:600;font-size:13.5px;"
+                   aria-label="Continue shopping">Continue Shopping</a>
 
-                    <a asp-controller="BasketProducts"
-                       asp-action="Delete"
-                       asp-route-id="@item.BasketProductsId">
-                        Remove
-                    </a>
-                </div>
-
+                @if ((decimal)ViewBag.Discount == 0)
+                {
+                    <div style="background:#FFF8F0;border-radius:10px;padding:.7rem 1rem;margin-top:1rem;border-left:3px solid var(--loyalty);">
+                        <p style="font-size:11px;color:var(--loyalty);font-weight:700;margin:0 0 2px;">🏷 Earn Loyalty Points</p>
+                        <p style="font-size:10.5px;color:var(--text-muted);margin:0;">Place 5+ orders to unlock discount rewards.</p>
+                    </div>
+                }
             </div>
-        }
-
-        <div style="border:1px solid #000; padding:15px; margin-top:20px;">
-
-            <h3>Order Summary</h3>
-
-            <div>
-                <span>Subtotal:</span>
-                <span>£@(((decimal)ViewBag.TotalAmount).ToString("0.00"))</span>
-            </div>
-
-            <div>
-                <span>Loyalty Discount:</span>
-                <span>-£@(((decimal)ViewBag.Discount).ToString("0.00"))</span>
-            </div>
-
-            <hr />
-
-            <div>
-                <strong>Total:</strong>
-                <strong>£@(((decimal)ViewBag.Total).ToString("0.00"))</strong>
-            </div>
-
-            @if ((decimal)ViewBag.Discount > 0)
-            {
-                <div>
-                    <p>Your loyalty discount has been applied</p>
-                </div>
-            }
-            <div>
-                <a asp-controller="Orders"
-                  asp-action="Create"
-                  asp-route-basketId="@basketId"
-                  class="btn btn-primary w-100 mb-2">
-                  Proceed to checkout
-                </a>
-               
-
-
-            </div>
-
-            <div style="margin-top:10px;">
-                <a asp-controller="Products" asp-action="Index">
-                    Continue Shopping
-                </a>
-            </div>
-
         </div>
     </div>
 }

@@ -1,85 +1,156 @@
-﻿@model IEnumerable<GreenFieldWeb.Models.Products>
+@model IEnumerable<GreenFieldWeb.Models.Products>
 @{
     ViewData["Title"] = "Producer Dashboard";
 }
 
-<h1>Producer Dashboard</h1>
+<div class="d-flex gap-0" style="margin: -1.5rem -12px; min-height:calc(100vh - 120px);">
 
-<p><strong>Total Products:</strong> @ViewBag.TotalProducts</p>
-<p><strong>Low Stock Products:</strong> @ViewBag.LowStockCount</p>
-<p><strong>Total Stock Units:</strong> @ViewBag.TotalStock</p>
+    <!-- Sidebar -->
+    <aside class="glh-sidebar" aria-label="Producer portal navigation">
+        <div class="sidebar-brand">
+            <h3>🌿 GLH Portal</h3>
+            <p>Producer Dashboard</p>
+        </div>
+        <nav role="menubar">
+            <a class="nav-link active" asp-controller="ProducerDashboard" asp-action="Index" role="menuitem">📊 Dashboard</a>
+            <a class="nav-link" asp-controller="Products" asp-action="Index" role="menuitem">📦 My Products</a>
+            <a class="nav-link" asp-controller="Orders" asp-action="Index" role="menuitem">🧾 Orders</a>
+            <div style="margin-top:auto; padding: 1.5rem 1.25rem 0; border-top:1px solid rgba(255,255,255,.1); margin-top:2rem;">
+                <a asp-area="Identity" asp-page="/Account/Logout"
+                   class="nav-link"
+                   style="font-size:12px;color:rgba(255,255,255,.45);"
+                   role="menuitem">Sign Out</a>
+            </div>
+        </nav>
+    </aside>
 
-@if (!Model.Any())
-{
-    <p>You do not have any products yet.</p>
-}
-else
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Product</th>
-                <th>Price</th>
-                <th>Stock</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.Take(5))
+    <!-- Main content -->
+    <main style="flex:1; padding:1.75rem 1.5rem; overflow-y:auto;" aria-label="Dashboard content">
+
+        <!-- Header -->
+        <div class="glh-page-header">
+            <div>
+                <h1>Dashboard</h1>
+                <p>Manage your products and monitor your orders</p>
+            </div>
+            <a asp-controller="Products" asp-action="Create" class="btn btn-success" aria-label="Add new product">+ Add Product</a>
+        </div>
+
+        <!-- Stat Cards -->
+        <div class="row g-3 mb-4">
+            <div class="col-md-4">
+                <div class="glh-card p-3 d-flex gap-3 align-items-center">
+                    <div style="font-size:1.85rem;" aria-hidden="true">📦</div>
+                    <div>
+                        <p style="color:var(--text-muted);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin:0 0 2px;">Products Listed</p>
+                        <p style="font-size:1.9rem;font-weight:900;color:var(--green-dark);margin:0;line-height:1;">@ViewBag.TotalProducts</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="glh-card p-3 d-flex gap-3 align-items-center" style="border-left:4px solid var(--loyalty);">
+                    <div style="font-size:1.85rem;" aria-hidden="true">⚠️</div>
+                    <div>
+                        <p style="color:var(--text-muted);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin:0 0 2px;">Low Stock</p>
+                        <p style="font-size:1.9rem;font-weight:900;color:var(--loyalty);margin:0;line-height:1;">@ViewBag.LowStockCount</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="glh-card p-3 d-flex gap-3 align-items-center" style="border-left:4px solid var(--green-light);">
+                    <div style="font-size:1.85rem;" aria-hidden="true">🌿</div>
+                    <div>
+                        <p style="color:var(--text-muted);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin:0 0 2px;">Total Stock Units</p>
+                        <p style="font-size:1.9rem;font-weight:900;color:var(--green-dark);margin:0;line-height:1;">@ViewBag.TotalStock</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stock Levels -->
+        <div class="mb-4">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <h2 style="font-size:1rem;font-weight:800;color:var(--green-dark);margin:0;">Stock Levels</h2>
+                <a asp-controller="Products" asp-action="Index" style="font-size:12.5px;font-weight:700;color:var(--green-mid);">View All →</a>
+            </div>
+
+            @if (!Model.Any())
             {
-                <tr>
-                    <td>@item.ProductName</td>
-                    <td>£@item.Price.ToString("0.00")</td>
-                    <td>@item.Stock</td>
-                    <td>
-                        <a asp-controller="Products" asp-action="Edit"
-                           asp-route-id="@item.ProductsId">Edit</a>
-                    </td>
-                </tr>
+                <div class="glh-empty" style="padding:2rem;">
+                    <p>No products yet.</p>
+                    <a asp-controller="Products" asp-action="Create" class="btn btn-success mt-2">Add Your First Product</a>
+                </div>
             }
-        </tbody>
-    </table>
-}
-<p>
-    <a asp-controller="Products" asp-action="Index">View All Your Products</a>
-</p>
-
-<h2>Recent Orders</h2>
-
-@if (ViewBag.RecentOrders == null || ((List<GreenFieldWeb.Models.Orders>)ViewBag.RecentOrders).Count == 0)
-{
-    <p>No recent orders found.</p>
-}
-else
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Order ID</th>
-                <th>Order Date</th>
-                <th>Status</th>
-                <th>Total</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var order in ((List<GreenFieldWeb.Models.Orders>)ViewBag.RecentOrders).Take(5))
+            else
             {
-                <tr>
-                    <td>@order.OrdersId</td>
-                    <td>@order.OrderDate</td>
-                    <td>@order.OrderStatus</td>
-                    <td>£@order.TotalAmount.ToString("0.00")</td>
-                    <td>
-                        <a asp-controller="Orders" asp-action="Details"
-                           asp-route-id="@order.OrdersId">Details</a>
-                    </td>
-                </tr>
+                <div style="background:var(--bg-card);border-radius:var(--radius-md);border:1px solid var(--border);overflow:hidden;">
+                    <table class="table mb-0" aria-label="Your product stock levels">
+                        <thead><tr><th>Product</th><th>Price</th><th>Stock</th><th>Status</th><th></th></tr></thead>
+                        <tbody>
+                            @foreach (var item in Model.Take(6))
+                            {
+                                <tr>
+                                    <td style="font-weight:600;font-size:13.5px;">@item.ProductName</td>
+                                    <td style="font-size:13px;">£@item.Price.ToString("0.00")</td>
+                                    <td style="font-size:13px;">@item.Stock</td>
+                                    <td>
+                                        @if (item.Stock > 10)    { <span class="badge-in">In Stock</span> }
+                                        else if (item.Stock > 0) { <span class="badge-low">Low Stock</span> }
+                                        else                     { <span class="badge-out">Out of Stock</span> }
+                                    </td>
+                                    <td>
+                                        <a asp-controller="Products" asp-action="Edit" asp-route-id="@item.ProductsId"
+                                           class="btn btn-sm btn-primary"
+                                           aria-label="Edit @item.ProductName">Edit</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
             }
-        </tbody>
-    </table>
-}
-<p>
-	
-    <a asp-controller="Orders" asp-action="Index">View All Your Orders</a>
-</p>
+        </div>
+
+        <!-- Recent Orders -->
+        <div>
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <h2 style="font-size:1rem;font-weight:800;color:var(--green-dark);margin:0;">Recent Orders</h2>
+                <a asp-controller="Orders" asp-action="Index" style="font-size:12.5px;font-weight:700;color:var(--green-mid);">View All →</a>
+            </div>
+
+            @if (ViewBag.RecentOrders == null || ((List<GreenFieldWeb.Models.Orders>)ViewBag.RecentOrders).Count == 0)
+            {
+                <div class="glh-empty" style="padding:2rem;"><p>No recent orders.</p></div>
+            }
+            else
+            {
+                <div style="background:var(--bg-card);border-radius:var(--radius-md);border:1px solid var(--border);overflow:hidden;">
+                    <table class="table mb-0" aria-label="Recent orders">
+                        <thead><tr><th>Order</th><th>Date</th><th>Status</th><th>Total</th><th></th></tr></thead>
+                        <tbody>
+                            @foreach (var order in ((List<GreenFieldWeb.Models.Orders>)ViewBag.RecentOrders).Take(5))
+                            {
+                                <tr>
+                                    <td><span style="background:#EAF3DE;color:#1A4A1A;padding:2px 9px;border-radius:20px;font-size:11px;font-weight:700;">#@order.OrdersId</span></td>
+                                    <td style="font-size:13px;">@order.OrderDate</td>
+                                    <td>
+                                        @if (order.OrderStatus == "Pending")          { <span class="status-pending">@order.OrderStatus</span> }
+                                        else if (order.OrderStatus == "Delivered" || order.OrderStatus == "Collected") { <span class="status-delivered">@order.OrderStatus</span> }
+                                        else                                           { <span class="status-shipped">@order.OrderStatus</span> }
+                                    </td>
+                                    <td style="font-weight:700;font-size:13px;">£@order.TotalAmount.ToString("0.00")</td>
+                                    <td>
+                                        <a asp-controller="Orders" asp-action="Details" asp-route-id="@order.OrdersId"
+                                           class="btn btn-sm btn-outline-secondary"
+                                           aria-label="View details for order #@order.OrdersId">Details</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+        </div>
+
+    </main>
+</div>

@@ -1,51 +1,44 @@
-﻿@model GreenFieldWeb.Models.Producers
-
+@model GreenFieldWeb.Models.Producers
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Add Producer";
 }
 
-<h1>Create</h1>
+<div class="glh-form-wrap">
+    <div class="glh-form-card">
+        <h1 class="glh-form-title">Add New Producer</h1>
+        <p class="glh-form-sub">Register a new local farmer or food producer.</p>
 
-<h4>Producers</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="UserId" class="control-label"></label>
-                <input asp-for="UserId" class="form-control" />
-                <span asp-validation-for="UserId" class="text-danger"></span>
+        <form asp-action="Create" method="post">
+            @Html.AntiForgeryToken()
+            <div asp-validation-summary="ModelOnly" class="glh-error-box"></div>
+
+            <div class="glh-field">
+                <label asp-for="ProducerName" class="glh-label"></label>
+                <input asp-for="ProducerName" class="form-control" placeholder="e.g. Green Acres Farm" />
+                <span asp-validation-for="ProducerName" class="glh-error"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="ProducerName" class="control-label"></label>
-                <input asp-for="ProducerName" class="form-control" />
-                <span asp-validation-for="ProducerName" class="text-danger"></span>
+            <div class="glh-field">
+                <label asp-for="Description" class="glh-label"></label>
+                <textarea asp-for="Description" class="form-control" rows="3" placeholder="Tell customers about this producer..."></textarea>
+                <span asp-validation-for="Description" class="glh-error"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
+            <div class="glh-field">
+                <label asp-for="BusinessLocation" class="glh-label"></label>
+                <input asp-for="BusinessLocation" class="form-control" placeholder="e.g. Worcestershire" />
+                <span asp-validation-for="BusinessLocation" class="glh-error"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="BusinessLocation" class="control-label"></label>
-                <input asp-for="BusinessLocation" class="form-control" />
-                <span asp-validation-for="BusinessLocation" class="text-danger"></span>
+            <div class="glh-field">
+                <label asp-for="ContactEmail" class="glh-label"></label>
+                <input asp-for="ContactEmail" type="email" class="form-control" placeholder="producer@example.com" />
+                <span asp-validation-for="ContactEmail" class="glh-error"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="ContactEmail" class="control-label"></label>
-                <input asp-for="ContactEmail" class="form-control" />
-                <span asp-validation-for="ContactEmail" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+
+            <div class="d-flex gap-2 mt-3">
+                <button type="submit" class="btn btn-primary px-4">Create Producer</button>
+                <a asp-action="Index" class="btn btn-outline-secondary">Cancel</a>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

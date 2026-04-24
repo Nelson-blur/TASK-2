@@ -1,48 +1,36 @@
-﻿@model GreenFieldWeb.Models.Producers
-
+@model GreenFieldWeb.Models.Producers
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = Model.ProducerName;
 }
 
-<h1>Details</h1>
-
-<div>
-    <h4>Producers</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UserId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UserId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ProducerName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ProducerName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BusinessLocation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BusinessLocation)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ContactEmail)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ContactEmail)
-        </dd>
-    </dl>
+<div style="background:linear-gradient(135deg,#1A4A1A,#2F6F4E);border-radius:20px;padding:2rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:1.5rem;">
+    <div style="width:68px;height:68px;background:rgba(255,255,255,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;flex-shrink:0;" aria-hidden="true">🧑‍🌾</div>
+    <div>
+        <h1 style="color:#fff;font-weight:900;font-size:1.6rem;margin:0 0 3px;">@Model.ProducerName</h1>
+        <p style="color:rgba(255,255,255,.72);font-size:.875rem;margin:0;">📍 @Model.BusinessLocation</p>
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.ProducersId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+
+<div class="row g-3 mb-3">
+    <div class="col-md-7">
+        <div class="glh-card p-4 h-100">
+            <h2 style="font-size:.95rem;font-weight:800;color:var(--green-dark);margin:0 0 .7rem;text-transform:uppercase;letter-spacing:.5px;">About</h2>
+            <p style="font-size:.9rem;color:var(--text-primary);line-height:1.7;margin:0;">@Model.Description</p>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div class="glh-card p-4 h-100">
+            <h2 style="font-size:.95rem;font-weight:800;color:var(--green-dark);margin:0 0 .7rem;text-transform:uppercase;letter-spacing:.5px;">Contact</h2>
+            <p style="font-size:.875rem;color:var(--text-muted);margin:0 0 6px;">✉️ <a href="mailto:@Model.ContactEmail">@Model.ContactEmail</a></p>
+            <p style="font-size:.875rem;color:var(--text-muted);margin:0;">📍 @Model.BusinessLocation</p>
+        </div>
+    </div>
+</div>
+
+<div class="d-flex gap-2 flex-wrap">
+    @if (User.IsInRole("Admin"))
+    {
+        <a asp-action="Edit" asp-route-id="@Model.ProducersId" class="btn btn-primary" aria-label="Edit @Model.ProducerName">Edit Producer</a>
+    }
+    <a asp-action="Index" class="btn btn-outline-secondary" aria-label="Back to all producers">← Back to Producers</a>
 </div>
