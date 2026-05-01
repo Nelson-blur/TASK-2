@@ -14,7 +14,7 @@
         public string AllergenInformation { get; set; }// Information about any allergens that may be present in the product, which is important for customers with allergies or dietary restrictions to make informed purchasing decisions
         public string FarmingMethod { get; set; }// Information about the farming method used to produce the product, which can be important for customers who are interested in sustainable or organic products and want to know more about how the product was produced
         public string? ImageUrl { get; set; }// An optional URL for an image of the product, which can help customers visualize the product and make it more appealing when browsing the product listings
-        public Producers Producers { get; set; } // Navigation property to access the producer details, cannot be null because a product must always be associated with a producer
+        public Producers? Producers { get; set; } // Navigation property to access the producer details, cannot be null because a product must always be associated with a producer
 
         public ICollection<OrderProducts>? OrderProducts { get; set; }// Navigation property to access the orders that include this product, can be null if the product has not been included in any orders yet
         public ICollection<BasketProducts>? BasketProducts { get; set; }// Navigation property to access the baskets that include this product, can be null if the product has not been added to any baskets yet

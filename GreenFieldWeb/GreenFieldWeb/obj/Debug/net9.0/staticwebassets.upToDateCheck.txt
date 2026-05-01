@@ -62,7 +62,15 @@ C:\Users\Digi-T-Y2-19\Documents\GitHub\TASK-2\GreenFieldWeb\GreenFieldWeb\wwwroo
 C:\Users\Digi-T-Y2-19\Documents\GitHub\TASK-2\GreenFieldWeb\GreenFieldWeb\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js
 wwwroot\css\site.css
 wwwroot\favicon.ico
+wwwroot\images\25fa93b8-11aa-41a0-95aa-c715ea0935f5.jpg
+wwwroot\images\26daf308-7ae7-4a4b-ba3a-1dab35e9a943.jpg
+wwwroot\images\31d662a7-246e-4162-8877-82d0abfb8ba4.jpg
+wwwroot\images\3350b804-97f3-47bd-aba5-2d5c05fb9d9d.jpg
+wwwroot\images\372db35f-b18d-4c35-8d43-f3adf7db74f0.jpg
+wwwroot\images\a99f85cc-8df1-4154-a5d6-5d6349afa427.jpg
+wwwroot\images\de6aa2f2-b7d0-4c29-87fa-f96df8d61ccc.jpg
 wwwroot\images\default.jpg
+wwwroot\images\ed979777-2f84-465d-b1aa-5ccc631a0c81.jpg
 wwwroot\images\free-range-chicken.jpg
 wwwroot\images\free-range-eggs.jpg
 wwwroot\images\free-range-pork.jpg

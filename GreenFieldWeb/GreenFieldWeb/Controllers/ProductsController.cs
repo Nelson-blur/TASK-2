@@ -133,7 +133,7 @@ namespace GreenFieldWeb.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Producer,Admin")]
-        public async Task<IActionResult> Create([Bind("ProductName,Price,Stock,Description,IsAvailable,AllergenInformation,FarmingMethod,ImageUrl")] Products products, IFormFile imageFile)
+        public async Task<IActionResult> Create([Bind("ProductName,Price,Stock,Description,IsAvailable,AllergenInformation,FarmingMethod")] Products products, IFormFile imageFile)
         {
             // Get the logged-in user's ID so we can find their producer record
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -189,6 +189,17 @@ namespace GreenFieldWeb.Controllers
             ModelState.Remove("ProducersId");
             ModelState.Remove("CreatedAt");
             ModelState.Remove("UpdatedAt");
+            ModelState.Remove("ImageUrl");
+            ModelState.Remove("Producers");
+
+            foreach (var key in ModelState.Keys)
+            {
+                var state = ModelState[key];
+                foreach (var error in state.Errors)
+                {
+                    System.Diagnostics.Debug.WriteLine($"KEY: {key} | ERROR: {error.ErrorMessage}");
+                }
+            }
 
             if (ModelState.IsValid)
             {
@@ -228,7 +239,7 @@ namespace GreenFieldWeb.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Producer,Admin")]
-        public async Task<IActionResult> Edit(int id, [Bind("ProductsId,ProductName,Price,Stock,Description,IsAvailable,AllergenInformation,FarmingMethod")] Products products, IFormFile imageFile)
+        public async Task<IActionResult> Edit(int id, [Bind("ProductsId,ProductName,Price,Stock,Description,IsAvailable,AllergenInformation,FarmingMethod")] Products products, IFormFile? imageFile)
         {
             if (id != products.ProductsId) return NotFound();
 
