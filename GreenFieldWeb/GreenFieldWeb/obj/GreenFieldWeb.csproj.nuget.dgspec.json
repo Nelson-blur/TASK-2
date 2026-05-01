@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\GreenFieldWeb.csproj": {}
+    "H:\\GreenFieldWeb\\GreenFieldWeb\\GreenFieldWeb.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\GreenFieldWeb.csproj": {
+    "H:\\GreenFieldWeb\\GreenFieldWeb\\GreenFieldWeb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\GreenFieldWeb.csproj",
+        "projectUniqueName": "H:\\GreenFieldWeb\\GreenFieldWeb\\GreenFieldWeb.csproj",
         "projectName": "GreenFieldWeb",
-        "projectPath": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\GreenFieldWeb.csproj",
+        "projectPath": "H:\\GreenFieldWeb\\GreenFieldWeb\\GreenFieldWeb.csproj",
         "packagesPath": "C:\\Users\\Digi-T-Y2-19\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Digi-T-Y2-19\\Documents\\GitHub\\TASK-2\\GreenFieldWeb\\GreenFieldWeb\\obj\\",
+        "outputPath": "H:\\GreenFieldWeb\\GreenFieldWeb\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

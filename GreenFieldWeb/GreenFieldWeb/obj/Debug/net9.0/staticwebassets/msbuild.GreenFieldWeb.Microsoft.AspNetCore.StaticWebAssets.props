@@ -144,6 +144,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\372db35f-b18d-4c35-8d43-f3adf7db74f0.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\a727cbaf-8ea5-48c9-9d1e-958f4f0b46fb.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>GreenFieldWeb</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/GreenFieldWeb</BasePath>
+      <RelativePath>images/a727cbaf-8ea5-48c9-9d1e-958f4f0b46fb.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>ewjugoibb3</Fingerprint>
+      <Integrity>PhBir4n35a0m4K9HROdUM0djBh11cQZK0mDESQ5x3mU=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\a727cbaf-8ea5-48c9-9d1e-958f4f0b46fb.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\a99f85cc-8df1-4154-a5d6-5d6349afa427.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>GreenFieldWeb</SourceId>

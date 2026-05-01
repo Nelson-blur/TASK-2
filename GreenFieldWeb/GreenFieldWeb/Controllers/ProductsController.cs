@@ -133,7 +133,7 @@ namespace GreenFieldWeb.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Producer,Admin")]
-        public async Task<IActionResult> Create([Bind("ProductName,Price,Stock,Description,IsAvailable,AllergenInformation,FarmingMethod")] Products products, IFormFile imageFile)
+        public async Task<IActionResult> Create([Bind("ProductName,Price,Stock,Description,IsAvailable,AllergenInformation,FarmingM effecethod")] Products products, IFormFile? imageFile)
         {
             // Get the logged-in user's ID so we can find their producer record
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
